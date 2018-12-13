@@ -6,11 +6,22 @@ import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 
 class App extends Component {
+
+  state = {
+    viewProducts: false
+  }
+
+  handleViewProducts = () => {
+    this.setState({
+      viewProducts: true
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <Header />
-        <MainContainer />
+        <Header handleViewProducts={this.handleViewProducts}/>
+        <MainContainer viewProducts={this.state.viewProducts}/>
       </div>
     );
   }

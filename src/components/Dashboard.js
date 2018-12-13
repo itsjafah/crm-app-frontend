@@ -4,8 +4,9 @@ import Sidebar from './Sidebar'
 class Dashboard extends Component {
 
   render(){
-
     const { customers } = this.props
+
+    console.log(customers)
 
     return(
       <div>
