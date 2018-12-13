@@ -10,9 +10,9 @@ const Sidebar = ({ customers }) => {
   })
 
     return(
-      <div>
+      <div className="sidebar">
         <ul>
-          <li>{customer}</li>
+          {customer}
         </ul>
       </div>
     )
