@@ -13,7 +13,13 @@ class App extends Component {
     createOrder: false,
     openDashboard: false,
     customers: [],
-    products: []
+    products: [],
+    viewDollsActionFigures: false,
+    viewMovies: false,
+    viewBooks: false,
+    viewToys: false,
+    viewElectronics: false,
+    viewBoardGames: false
   }
 
   handleViewProducts = () => {
@@ -40,6 +46,75 @@ class App extends Component {
     })
   }
 
+  handleViewDollsActionFigures = () => {
+    this.setState({
+      viewDollsActionFigures: true,
+      openDashboard: false,
+      viewProducts: false,
+      createOrder: false
+    })
+  }
+
+  handleViewMovies = () => {
+    this.setState({
+      viewMovies: true,
+      viewDollsActionFigures: false,
+      openDashboard: false,
+      viewProducts: false,
+      createOrder: false
+    })
+  }
+
+  handleViewBooks = () => {
+    this.setState({
+      viewBooks: true,
+      viewMovies: false,
+      viewDollsActionFigures: false,
+      openDashboard: false,
+      viewProducts: false,
+      createOrder: false
+    })
+  }
+
+  handleViewToys = () => {
+    this.setState({
+      viewToys: true,
+      viewBooks: false,
+      viewMovies: false,
+      viewDollsActionFigures: false,
+      openDashboard: false,
+      viewProducts: false,
+      createOrder: false
+    })
+  }
+
+  handleViewElectronics = () => {
+    this.setState({
+      viewElectronics: true,
+      viewToys: false,
+      viewBooks: false,
+      viewMovies: false,
+      viewDollsActionFigures: false,
+      openDashboard: false,
+      viewProducts: false,
+      createOrder: false
+    })
+  }
+
+  handleViewBoardGames = () => {
+    this.setState({
+      viewBoardGames: true,
+      viewElectronics: false,
+      viewToys: false,
+      viewBooks: false,
+      viewMovies: false,
+      viewDollsActionFigures: false,
+      openDashboard: false,
+      viewProducts: false,
+      createOrder: false
+    })
+  }
+
   getCustomers = () => {
     fetch(CUSTOMERS_API)
       .then(r => r.json())
@@ -55,7 +130,7 @@ class App extends Component {
       .then(r => r.json())
       .then( products => {
         this.setState({
-          products: products
+          products: products.products
         })
       })
   }
@@ -79,7 +154,19 @@ class App extends Component {
           customers={this.state.customers}
           products={this.state.products}
           handleOpenDashboard={this.handleOpenDashboard}
-          handleCreateOrder={this.handleCreateOrder}/>
+          handleCreateOrder={this.handleCreateOrder}
+          viewDollsActionFigures={this.state.viewDollsActionFigures}
+          handleViewDollsActionFigures={this.handleViewDollsActionFigures}
+          viewMovies={this.state.viewMovies}
+          handleViewMovies={this.handleViewMovies}
+          viewBooks={this.state.viewBooks}
+          handleViewBooks={this.handleViewBooks}
+          viewToys={this.state.viewToys}
+          handleViewToys={this.handleViewToys}
+          viewElectronics={this.state.viewElectronics}
+          handleViewElectronics={this.handleViewElectronics}
+          viewBoardGames={this.state.viewBoardGames}
+          handleViewBoardGames={this.handleViewBoardGames}/>
       </div>
     );
   }

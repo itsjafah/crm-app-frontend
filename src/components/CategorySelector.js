@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const CategorySelector = ({ products }) => {
+const CategorySelector = ({ products, handleViewDollsActionFigures, handleViewMovies, handleViewBooks, handleViewToys, handleViewElectronics, handleViewBoardGames }) => {
 
   console.log(products);
 
@@ -11,13 +11,13 @@ const CategorySelector = ({ products }) => {
         Select Category
       </div>
       <div>
-        <button>Dolls & Action Figures</button>
-        <button>Movies</button>
-        <button>Books</button>
+        <button onClick={handleViewDollsActionFigures}>Dolls & Action Figures</button>
+        <button onClick={handleViewMovies}>Movies</button>
+        <button onClick={handleViewBooks}>Books</button>
         <br />
-        <button>Toys</button>
-        <button>Electronics</button>
-        <button>Board Games</button>
+        <button onClick={handleViewToys}>Toys</button>
+        <button onClick={handleViewElectronics}>Electronics</button>
+        <button onClick={handleViewBoardGames}>Board Games</button>
       </div>
     </div>
   )
