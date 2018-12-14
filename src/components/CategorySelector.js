@@ -1,7 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 
-const CategorySelector = ({  }) => {
+const CategorySelector = ({ products }) => {
+
+  console.log(products);
+
   return(
     <div>
       <div>

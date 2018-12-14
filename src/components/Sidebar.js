@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import CustomerListItem from './CustomerListItem'
 
 const Sidebar = ({customers}) => {
 
-  const customer = customers.customers.map( customer => {
+  const customer = customers.map( customer => {
     return <CustomerListItem
               customer={customer}
               key={customer.id}/>
