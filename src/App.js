@@ -4,33 +4,12 @@ import MainContainer from './components/MainContainer'
 import Header from './components/Header'
 import { connect } from 'react-redux'
 
-const CUSTOMERS_API = 'http://localhost:3000/api/v1/customers'
-const PRODUCTS_API = 'http://localhost:3000/api/v1/products'
-
 class App extends Component {
 
 
   // component did mount, fetch, then store that object in state
   // add products will be a new dispatch
   // payload is all products
-
-  getCustomers = () => {
-    fetch(CUSTOMERS_API)
-      .then(r => r.json())
-      .then( customers => {
-        return {
-          customers: customers.customers
-        }
-      })
-  }
-
-  getProducts = () => {
-  }
-
-  componentDidMount(){
-    this.getCustomers()
-    this.getProducts()
-  }
 
   render() {
     return (
@@ -69,17 +48,4 @@ const mapStateToProps = (state) => ({
   viewBoardGames: state.viewBoardGames
 })
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getProducts: () => dispatch({
-      type: "FETCH_PRODUCTS",
-      payload: fetch(PRODUCTS_API)
-            .then(r => r.json())
-            .then( products => {
-              return {products: products.products }
-            })
-    })
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
