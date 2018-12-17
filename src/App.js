@@ -9,24 +9,22 @@ const PRODUCTS_API = 'http://localhost:3000/api/v1/products'
 
 class App extends Component {
 
+
+  // component did mount, fetch, then store that object in state
+  // add products will be a new dispatch
+  // payload is all products
+
   getCustomers = () => {
     fetch(CUSTOMERS_API)
       .then(r => r.json())
       .then( customers => {
-        this.setState({
+        return {
           customers: customers.customers
-        })
+        }
       })
   }
 
   getProducts = () => {
-    fetch(PRODUCTS_API)
-      .then(r => r.json())
-      .then( products => {
-        this.setState({
-          products: products.products
-        })
-      })
   }
 
   componentDidMount(){
@@ -69,7 +67,19 @@ const mapStateToProps = (state) => ({
   viewToys: state.viewToys,
   viewElectronics: state.viewElectronics,
   viewBoardGames: state.viewBoardGames
-
 })
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getProducts: () => dispatch({
+      type: "FETCH_PRODUCTS",
+      payload: fetch(PRODUCTS_API)
+            .then(r => r.json())
+            .then( products => {
+              return {products: products.products }
+            })
+    })
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -15,6 +15,8 @@ let defaultState = {
 const reducer = (currentState = defaultState, action) => {
   console.log(currentState);
   switch (action.type) {
+    case "FETCH_PRODUCTS":
+      return {...currentState, products: currentState.products}
     case "TOGGLE_VIEW_PRODUCTS":
         return {...currentState, viewProducts: currentState.viewProducts = true, createOrder: currentState.createOrder = false, openDashboard: currentState.openDashboard = false}
     case "TOGGLE_CREATE_ORDER":

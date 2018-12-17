@@ -36,8 +36,4 @@ const mapDispatchToProps = (dispatch) => {
 
 // why dont i need an action creator?
 
-// component did mount, fetch, then store that object in state
-// add products will be a new dispatch
-// payload is all products
-
 export default connect(null, mapDispatchToProps)(Header)

@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 
 const CategorySelector = (props) => {
 
-  console.log(props);
-
   return(
     <div>
       <div>
