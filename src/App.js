@@ -26,7 +26,8 @@ class App extends Component {
           viewBooks={this.props.viewBooks}
           viewToys={this.props.viewToys}
           viewElectronics={this.props.viewElectronics}
-          viewBoardGames={this.props.viewBoardGames}/>
+          viewBoardGames={this.props.viewBoardGames}
+          viewThisCustomer={this.props.viewThisCustomer}/>
       </div>
     );
   }
@@ -45,7 +46,8 @@ const mapStateToProps = (state) => ({
   viewBooks: state.viewBooks,
   viewToys: state.viewToys,
   viewElectronics: state.viewElectronics,
-  viewBoardGames: state.viewBoardGames
+  viewBoardGames: state.viewBoardGames,
+  viewThisCustomer: state.viewThisCustomer
 })
 
 export default connect(mapStateToProps)(App);

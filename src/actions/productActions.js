@@ -21,16 +21,16 @@ export function fetchProducts() {
 }
 
 
-  export const fetchProductsBegin = () => ({
-    type: "FETCH_PRODUCTS_BEGIN"
-  });
+export const fetchProductsBegin = () => ({
+  type: "FETCH_PRODUCTS_BEGIN"
+});
 
-  export const fetchProductsSuccess = products => ({
-    type: "FETCH_PRODUCTS_SUCCESS",
-    payload: { products }
-  });
+export const fetchProductsSuccess = products => ({
+  type: "FETCH_PRODUCTS_SUCCESS",
+  payload: { products }
+});
 
-  export const fetchProductsFailure = error => ({
-    type: "FETCH_PRODUCTS_FAILURE",
-    payload: { error }
-  });
+export const fetchProductsFailure = error => ({
+  type: "FETCH_PRODUCTS_FAILURE",
+  payload: { error }
+});

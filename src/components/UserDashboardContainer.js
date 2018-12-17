@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Sidebar from './Sidebar'
 
-class Dashboard extends Component {
+class UserDashboardContainer extends Component {
 
   render(){
     const { customers } = this.props
@@ -10,10 +10,11 @@ class Dashboard extends Component {
 
     return(
       <div>
+        User's aggregate sales Dashboard will appear here
         <Sidebar customers={customers}/>
       </div>
     )
   }
 }
 
-export default Dashboard
+export default UserDashboardContainer

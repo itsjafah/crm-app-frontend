@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import OrderForm from './OrderForm'
-import Dashboard from './Dashboard'
+import UserDashboardContainer from './UserDashboardContainer'
 import CategorySelector from './CategorySelector'
 import DollsActionFiguresContainer from './DollsActionFiguresContainer'
 import MoviesContainer from './MoviesContainer'
@@ -8,6 +8,7 @@ import BooksContainer from './BooksContainer'
 import ToysContainer from './ToysContainer'
 import ElectronicsContainer from './ElectronicsContainer'
 import BoardGamesContainer from './BoardGamesContainer'
+import CustomerDashboardContainer from './CustomerDashboardContainer'
 import { connect } from "react-redux";
 import { fetchProducts } from "../actions/productActions";
 import { fetchCustomers } from "../actions/customerActions";
@@ -15,7 +16,7 @@ import { fetchCustomers } from "../actions/customerActions";
 class MainContainer extends Component {
 
   componentDidMount() {
-    this.props.dispatch(fetchProducts());
+    this.props.dispatch(fetchProducts())
     this.props.dispatch(fetchCustomers())
   }
 
@@ -24,7 +25,7 @@ class MainContainer extends Component {
     if (this.props.createOrder === true) {
       return <OrderForm />
     } else if (this.props.openDashboard === true ) {
-      return <Dashboard customers={this.props.customers}/>
+      return <UserDashboardContainer customers={this.props.customers}/>
     } else if (this.props.viewProducts === true && this.props.products !== undefined) {
       return <CategorySelector
                 products={this.props.products}/>
@@ -40,14 +41,15 @@ class MainContainer extends Component {
       return <ElectronicsContainer products={this.props.products}/>
     } else if (this.props.viewBoardGames === true) {
       return <BoardGamesContainer products={this.props.products}/>
+    } else if (this.props.viewThisCustomer) {
+      return <CustomerDashboardContainer viewThisCustomer={this.props.viewThisCustomer}/>
     } else {
       return "login page soon"
     }
   }
 
   render(){
-    console.log(this.props);
-    const { error, loading, products } = this.props;
+    const { error, loading } = this.props;
 
     if (error) {
       return <div>Error! {error.message}</div>;
@@ -56,13 +58,17 @@ class MainContainer extends Component {
     if (loading) {
       return <div>Loading...</div>;
     }
+
     return(
       <div>
         {this.renderContent()}
       </div>
     )
   }
+
 }
+
+// what is this mapStateToProps doing for me? I don't think anything
 
 const mapStateToProps = state => ({
   products: state.products,

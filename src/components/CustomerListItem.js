@@ -1,12 +1,22 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-const CustomerListItem = ({ customer }) => {
+const CustomerListItem = (props) => {
 
     return(
-      <div>
-        {customer.name}
+      <div onClick={() => props.handleViewCustomer(props.customer)}>
+        {props.customer.name}
       </div>
     )
 }
 
-export default CustomerListItem
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleViewCustomer: (customer) => dispatch({
+      type: "VIEW_THIS_CUSTOMER",
+      payload: customer
+    })
+  }
+}
+
+export default connect(null, mapDispatchToProps)(CustomerListItem)

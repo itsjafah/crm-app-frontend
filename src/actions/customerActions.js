@@ -20,7 +20,6 @@ export function fetchCustomers() {
   }
 }
 
-
   export const fetchCustomersBegin = () => ({
     type: "FETCH_CUSTOMERS_BEGIN"
   });
