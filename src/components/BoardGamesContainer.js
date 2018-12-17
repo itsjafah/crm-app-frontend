@@ -11,7 +11,7 @@ const BoardGamesContainer = ({ products }) => {
   })
 
   return(
-    <div>{boardGame}</div>
+    <div>Board Games Container{boardGame}</div>
   )
 
 }

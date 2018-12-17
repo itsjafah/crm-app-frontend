@@ -10,7 +10,7 @@ const ElectronicsContainer = ({ products }) => {
   })
 
   return(
-    <div>{electronic}</div>
+    <div>Electronics container{electronic}</div>
   )
 
 }

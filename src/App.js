@@ -9,56 +9,6 @@ const PRODUCTS_API = 'http://localhost:3000/api/v1/products'
 
 class App extends Component {
 
-  // state = {
-  //   viewProducts: false,
-  //   createOrder: false,
-  //   openDashboard: false,
-  //   customers: [],
-  //   products: [],
-  //   viewDollsActionFigures: false,
-  //   viewMovies: false,
-  //   viewBooks: false,
-  //   viewToys: false,
-  //   viewElectronics: false,
-  //   viewBoardGames: false
-  // }
-
-  handleViewProducts = (toy) => {
-    this.props.dispatch({type: "TOGGLE_VIEW_PRODUCTS"})
-  }
-
-  handleCreateOrder = () => {
-    this.props.dispatch({type: "TOGGLE_CREATE_ORDER"})
-  }
-
-  handleOpenDashboard = () => {
-    this.props.dispatch({type: "TOGGLE_OPEN_DASHBOARD"})
-  }
-
-  handleViewDollsActionFigures = () => {
-    this.props.dispatch({type: "TOGGLE_VIEW_DOLLS_ACTION_FIGURES"})
-  }
-
-  handleViewMovies = () => {
-    this.props.dispatch({type: "TOGGLE_VIEW_MOVIES"})
-  }
-
-  handleViewBooks = () => {
-    this.props.dispatch({type: "TOGGLE_VIEW_BOOKS"})
-  }
-
-  handleViewToys = () => {
-    this.props.dispatch({type: "TOGGLE_VIEW_TOYS"})
-  }
-
-  handleViewElectronics = () => {
-    this.props.dispatch({type: "TOGGLE_VIEW_ELECTRONICS"})
-  }
-
-  handleViewBoardGames = () => {
-    this.props.dispatch({type: "TOGGLE_VIEW_BOARD_GAMES"})
-  }
-
   getCustomers = () => {
     fetch(CUSTOMERS_API)
       .then(r => r.json())
@@ -87,33 +37,25 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header
-          handleOpenDashboard={this.handleOpenDashboard}
-          handleCreateOrder={this.handleCreateOrder}/>
+        <Header/>
         <MainContainer
           viewProducts={this.props.viewProducts}
           createOrder={this.props.createOrder}
           openDashboard={this.props.openDashboard}
           customers={this.props.customers}
           products={this.props.products}
-          handleOpenDashboard={this.handleOpenDashboard}
-          handleCreateOrder={this.handleCreateOrder}
           viewDollsActionFigures={this.props.viewDollsActionFigures}
-          handleViewDollsActionFigures={this.handleViewDollsActionFigures}
           viewMovies={this.props.viewMovies}
-          handleViewMovies={this.handleViewMovies}
           viewBooks={this.props.viewBooks}
-          handleViewBooks={this.handleViewBooks}
           viewToys={this.props.viewToys}
-          handleViewToys={this.handleViewToys}
           viewElectronics={this.props.viewElectronics}
-          handleViewElectronics={this.handleViewElectronics}
-          viewBoardGames={this.props.viewBoardGames}
-          handleViewBoardGames={this.handleViewBoardGames}/>
+          viewBoardGames={this.props.viewBoardGames}/>
       </div>
     );
   }
 }
+
+// why do i need to have state in App and not just in the component where it's needed. nothing is being sent down to Header component
 
 const mapStateToProps = (state) => ({
   viewProducts: state.viewProducts,

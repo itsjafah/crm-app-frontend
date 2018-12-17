@@ -10,7 +10,7 @@ const MoviesContainer = ({ products }) => {
   })
 
   return(
-    <div>{movie}</div>
+    <div>Movies container{movie}</div>
   )
 
 }

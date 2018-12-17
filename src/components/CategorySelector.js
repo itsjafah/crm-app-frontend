@@ -1,9 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 
-const CategorySelector = ({ products, handleViewDollsActionFigures, handleViewMovies, handleViewBooks, handleViewToys, handleViewElectronics, handleViewBoardGames }) => {
+const CategorySelector = (props) => {
 
-  console.log(products);
+  console.log(props);
 
   return(
     <div>
@@ -11,17 +12,40 @@ const CategorySelector = ({ products, handleViewDollsActionFigures, handleViewMo
         Select Category
       </div>
       <div>
-        <button onClick={handleViewDollsActionFigures}>Dolls & Action Figures</button>
-        <button onClick={handleViewMovies}>Movies</button>
-        <button onClick={handleViewBooks}>Books</button>
+        <button onClick={props.handleViewDollsActionFigures}>Dolls & Action Figures</button>
+        <button onClick={props.handleViewMovies}>Movies</button>
+        <button onClick={props.handleViewBooks}>Books</button>
         <br />
-        <button onClick={handleViewToys}>Toys</button>
-        <button onClick={handleViewElectronics}>Electronics</button>
-        <button onClick={handleViewBoardGames}>Board Games</button>
+        <button onClick={props.handleViewToys}>Toys</button>
+        <button onClick={props.handleViewElectronics}>Electronics</button>
+        <button onClick={props.handleViewBoardGames}>Board Games</button>
       </div>
     </div>
   )
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleViewDollsActionFigures: () => dispatch({
+      type: "TOGGLE_VIEW_DOLLS_ACTION_FIGURES"
+    }),
+    handleViewToys: () => dispatch({
+      type: "TOGGLE_VIEW_TOYS"
+    }),
+    handleViewBooks: () => dispatch({
+      type: "TOGGLE_VIEW_BOOKS"
+    }),
+    handleViewMovies: () => dispatch({
+      type: "TOGGLE_VIEW_MOVIES"
+    }),
+    handleViewBoardGames: () => dispatch({
+      type: "TOGGLE_VIEW_BOARD_GAMES"
+    }),
+    handleViewElectronics: () => dispatch({
+      type: "TOGGLE_VIEW_ELECTRONICS"
+    })
+  }
+}
 
-export default CategorySelector
+
+export default connect(null, mapDispatchToProps)(CategorySelector)

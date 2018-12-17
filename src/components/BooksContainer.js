@@ -10,7 +10,7 @@ const BooksContainer = ({ products }) => {
   })
 
   return(
-    <div>{book}</div>
+    <div>Books container{book}</div>
   )
 
 }

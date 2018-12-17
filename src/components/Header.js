@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 
 const Header = (props) => {
 
+  console.log(props);
+
     return(
       <div>
         <button
@@ -15,6 +17,7 @@ const Header = (props) => {
       </div>
     )
   }
+
 
 const mapDispatchToProps = (dispatch) => {
   return {

@@ -10,7 +10,7 @@ const ToysContainer = ({ products }) => {
   })
 
   return(
-    <div>{toy}</div>
+    <div>Toys Container{toy}</div>
   )
 
 }
