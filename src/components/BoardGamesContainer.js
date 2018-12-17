@@ -1,5 +1,6 @@
 import React from 'react'
 import BoardGame from './BoardGame'
+import { connect } from 'react-redux'
 
 const BoardGamesContainer = ({ products }) => {
 
@@ -15,4 +16,8 @@ const BoardGamesContainer = ({ products }) => {
 
 }
 
-export default BoardGamesContainer
+const mapStateToProps = (state) => ({
+  products: state.products
+})
+
+export default connect(mapStateToProps)(BoardGamesContainer)

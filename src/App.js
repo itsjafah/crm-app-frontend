@@ -2,117 +2,61 @@ import React, { Component } from 'react';
 import './App.css';
 import MainContainer from './components/MainContainer'
 import Header from './components/Header'
+import { connect } from 'react-redux'
 
 const CUSTOMERS_API = 'http://localhost:3000/api/v1/customers'
 const PRODUCTS_API = 'http://localhost:3000/api/v1/products'
 
 class App extends Component {
 
-  state = {
-    viewProducts: false,
-    createOrder: false,
-    openDashboard: false,
-    customers: [],
-    products: [],
-    viewDollsActionFigures: false,
-    viewMovies: false,
-    viewBooks: false,
-    viewToys: false,
-    viewElectronics: false,
-    viewBoardGames: false
-  }
+  // state = {
+  //   viewProducts: false,
+  //   createOrder: false,
+  //   openDashboard: false,
+  //   customers: [],
+  //   products: [],
+  //   viewDollsActionFigures: false,
+  //   viewMovies: false,
+  //   viewBooks: false,
+  //   viewToys: false,
+  //   viewElectronics: false,
+  //   viewBoardGames: false
+  // }
 
-  handleViewProducts = () => {
-    this.setState({
-      viewProducts: true,
-      openDashboard: false,
-      createOrder: false
-    })
+  handleViewProducts = (toy) => {
+    this.props.dispatch({type: "TOGGLE_VIEW_PRODUCTS"})
   }
 
   handleCreateOrder = () => {
-    this.setState({
-      createOrder: true,
-      viewProducts: false,
-      openDashboard: false
-    })
+    this.props.dispatch({type: "TOGGLE_CREATE_ORDER"})
   }
 
   handleOpenDashboard = () => {
-    this.setState({
-      openDashboard: true,
-      viewProducts: false,
-      createOrder: false
-    })
+    this.props.dispatch({type: "TOGGLE_OPEN_DASHBOARD"})
   }
 
   handleViewDollsActionFigures = () => {
-    this.setState({
-      viewDollsActionFigures: true,
-      openDashboard: false,
-      viewProducts: false,
-      createOrder: false
-    })
+    this.props.dispatch({type: "TOGGLE_VIEW_DOLLS_ACTION_FIGURES"})
   }
 
   handleViewMovies = () => {
-    this.setState({
-      viewMovies: true,
-      viewDollsActionFigures: false,
-      openDashboard: false,
-      viewProducts: false,
-      createOrder: false
-    })
+    this.props.dispatch({type: "TOGGLE_VIEW_MOVIES"})
   }
 
   handleViewBooks = () => {
-    this.setState({
-      viewBooks: true,
-      viewMovies: false,
-      viewDollsActionFigures: false,
-      openDashboard: false,
-      viewProducts: false,
-      createOrder: false
-    })
+    this.props.dispatch({type: "TOGGLE_VIEW_BOOKS"})
   }
 
   handleViewToys = () => {
-    this.setState({
-      viewToys: true,
-      viewBooks: false,
-      viewMovies: false,
-      viewDollsActionFigures: false,
-      openDashboard: false,
-      viewProducts: false,
-      createOrder: false
-    })
+    this.props.dispatch({type: "TOGGLE_VIEW_TOYS"})
   }
 
   handleViewElectronics = () => {
-    this.setState({
-      viewElectronics: true,
-      viewToys: false,
-      viewBooks: false,
-      viewMovies: false,
-      viewDollsActionFigures: false,
-      openDashboard: false,
-      viewProducts: false,
-      createOrder: false
-    })
+    this.props.dispatch({type: "TOGGLE_VIEW_ELECTRONICS"})
   }
 
   handleViewBoardGames = () => {
-    this.setState({
-      viewBoardGames: true,
-      viewElectronics: false,
-      viewToys: false,
-      viewBooks: false,
-      viewMovies: false,
-      viewDollsActionFigures: false,
-      openDashboard: false,
-      viewProducts: false,
-      createOrder: false
-    })
+    this.props.dispatch({type: "TOGGLE_VIEW_BOARD_GAMES"})
   }
 
   getCustomers = () => {
@@ -121,7 +65,7 @@ class App extends Component {
       .then( customers => {
         this.setState({
           customers: customers.customers
-        }, () => console.log(customers.customers))
+        })
       })
   }
 
@@ -144,32 +88,46 @@ class App extends Component {
     return (
       <div className="App">
         <Header
-          handleViewProducts={this.handleViewProducts}
           handleOpenDashboard={this.handleOpenDashboard}
           handleCreateOrder={this.handleCreateOrder}/>
         <MainContainer
-          viewProducts={this.state.viewProducts}
-          createOrder={this.state.createOrder}
-          openDashboard={this.state.openDashboard}
-          customers={this.state.customers}
-          products={this.state.products}
+          viewProducts={this.props.viewProducts}
+          createOrder={this.props.createOrder}
+          openDashboard={this.props.openDashboard}
+          customers={this.props.customers}
+          products={this.props.products}
           handleOpenDashboard={this.handleOpenDashboard}
           handleCreateOrder={this.handleCreateOrder}
-          viewDollsActionFigures={this.state.viewDollsActionFigures}
+          viewDollsActionFigures={this.props.viewDollsActionFigures}
           handleViewDollsActionFigures={this.handleViewDollsActionFigures}
-          viewMovies={this.state.viewMovies}
+          viewMovies={this.props.viewMovies}
           handleViewMovies={this.handleViewMovies}
-          viewBooks={this.state.viewBooks}
+          viewBooks={this.props.viewBooks}
           handleViewBooks={this.handleViewBooks}
-          viewToys={this.state.viewToys}
+          viewToys={this.props.viewToys}
           handleViewToys={this.handleViewToys}
-          viewElectronics={this.state.viewElectronics}
+          viewElectronics={this.props.viewElectronics}
           handleViewElectronics={this.handleViewElectronics}
-          viewBoardGames={this.state.viewBoardGames}
+          viewBoardGames={this.props.viewBoardGames}
           handleViewBoardGames={this.handleViewBoardGames}/>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  viewProducts: state.viewProducts,
+  createOrder: state.createOrder,
+  openDashboard: state.openDashboard,
+  customers: state.customers,
+  products: state.products,
+  viewDollsActionFigures: state.viewDollsActionFigures,
+  viewMovies: state.viewMovies,
+  viewBooks: state.viewBooks,
+  viewToys: state.viewToys,
+  viewElectronics: state.viewElectronics,
+  viewBoardGames: state.viewBoardGames
+
+})
+
+export default connect(mapStateToProps)(App);

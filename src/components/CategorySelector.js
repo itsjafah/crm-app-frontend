@@ -23,4 +23,5 @@ const CategorySelector = ({ products, handleViewDollsActionFigures, handleViewMo
   )
 }
 
+
 export default CategorySelector
