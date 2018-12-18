@@ -11,13 +11,15 @@ import BoardGamesContainer from './BoardGamesContainer'
 import CustomerDashboardContainer from './CustomerDashboardContainer'
 import { connect } from "react-redux";
 import { fetchProducts } from "../actions/productActions";
-import { fetchCustomers } from "../actions/customerActions";
+import { fetchCustomers } from "../actions/customerActions"
+import { fetchNotes } from "../actions/noteActions"
 
 class MainContainer extends Component {
 
   componentDidMount() {
     this.props.dispatch(fetchProducts())
     this.props.dispatch(fetchCustomers())
+    this.props.dispatch(fetchNotes())
   }
 
   renderContent = () => {
@@ -42,13 +44,14 @@ class MainContainer extends Component {
     } else if (this.props.viewBoardGames === true) {
       return <BoardGamesContainer products={this.props.products}/>
     } else if (this.props.viewThisCustomer) {
-      return <CustomerDashboardContainer viewThisCustomer={this.props.viewThisCustomer}/>
+      return <CustomerDashboardContainer />
     } else {
       return "login page soon"
     }
   }
 
   render(){
+
     const { error, loading } = this.props;
 
     if (error) {
@@ -68,14 +71,27 @@ class MainContainer extends Component {
 
 }
 
-// what is this mapStateToProps doing for me? I don't think anything
+// need to refactor the loading and error messages for customers and products fetches
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
+  viewProducts: state.viewProducts,
+  createOrder: state.createOrder,
+  openDashboard: state.openDashboard,
+  customers: state.customers,
+  products: state.products,
+  viewDollsActionFigures: state.viewDollsActionFigures,
+  viewMovies: state.viewMovies,
+  viewBooks: state.viewBooks,
+  viewToys: state.viewToys,
+  viewElectronics: state.viewElectronics,
+  viewBoardGames: state.viewBoardGames,
+  viewThisCustomer: state.viewThisCustomer,
   products: state.products,
   loading: state.loading,
   error: state.error,
-  customers: state.customers
-});
+  customers: state.customers,
+  notes: state.customers
+})
 
 
 export default connect(mapStateToProps)(MainContainer)

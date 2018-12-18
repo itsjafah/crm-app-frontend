@@ -1,20 +1,18 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import CustomerDashboard from './CustomerDashboard'
+import CustomerNotesContainer from './CustomerNotesContainer'
 
 const CustomerDashboardContainer = (props) => {
-
-  console.log(props);
 
   return(
     <div>
       Customer Dashboard Container
       <br />
+      <CustomerDashboard />
+      <CustomerNotesContainer />
     </div>
   )
 }
 
-const mapStateToProps = (state) => ({
-  customers: state.customers
-})
 
-export default connect(mapStateToProps)(CustomerDashboardContainer)
+export default CustomerDashboardContainer

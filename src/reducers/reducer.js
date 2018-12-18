@@ -12,7 +12,8 @@ let defaultState = {
   viewBoardGames: false,
   loading: false,
   error: null,
-  viewThisCustomer: null
+  viewThisCustomer: null,
+  notes: []
 }
 
 const reducer = (currentState = defaultState, action) => {
@@ -45,7 +46,7 @@ const reducer = (currentState = defaultState, action) => {
         products: action.payload.products}
     case "FETCH_PRODUCTS_FAILURE":
       return {...currentState, loading: false,
-        customers: []}
+        products: []}
     case "FETCH_CUSTOMERS_BEGIN":
       return {...currentState, loading: true,
         error: null}
@@ -55,6 +56,15 @@ const reducer = (currentState = defaultState, action) => {
     case "FETCH_CUSTOMERS_FAILURE":
       return {...currentState, loading: false,
         customers: []}
+    case "FETCH_NOTES_BEGIN":
+      return {...currentState, loading: true,
+        error: null}
+    case "FETCH_NOTES_SUCCESS":
+      return {...currentState, loading: false,
+        notes: action.payload.notes}
+    case "FETCH_NOTES_FAILURE":
+      return {...currentState, loading: false,
+        notes: []}
     case "VIEW_THIS_CUSTOMER":
       return {...currentState, viewThisCustomer: action.payload, viewBoardGames: currentState.viewBoardGames = false, viewBooks: currentState.viewBooks = false, viewMovies: currentState.viewMovies = false, viewDollsActionFigures: currentState.viewDollsActionFigures = false, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, viewToys: currentState.viewToys = false, viewElectronics: currentState.viewElectronics = false}
       break;

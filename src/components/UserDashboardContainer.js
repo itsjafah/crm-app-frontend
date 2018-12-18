@@ -4,9 +4,8 @@ import Sidebar from './Sidebar'
 class UserDashboardContainer extends Component {
 
   render(){
+    
     const { customers } = this.props
-
-    console.log(customers)
 
     return(
       <div>
