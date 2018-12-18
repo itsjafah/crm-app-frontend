@@ -1,19 +1,21 @@
-import React, { Component } from 'react'
+import React from 'react'
 import CustomerNote from './CustomerNote'
-import { fetchNotes } from "../actions/noteActions"
 import { connect } from 'react-redux'
 
 const CustomerNotesContainer = (props) => {
 
-  console.log(props);
+  const filteredNotes = props.notes.filter(note => note.customer_id === props.viewThisCustomer.id)
 
-  const note = props.notes.filter(note => note.customer_id === props.viewThisCustomer.id)
+  const note = filteredNotes.map( note => {
+    return <CustomerNote key={note.id} note={note}/>
+  })
 
+  console.log(note);
   return(
     <div>
       Customer Notes Container
         <br />
-      <CustomerNote note={note}/>
+      {note}
     </div>
   )
 

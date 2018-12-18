@@ -1,15 +1,12 @@
 import React from 'react'
-import CreateCustomerNote from './CreateCustomerNote'
 
 const CustomerNote = (props) => {
-  
+
+  console.log(props);
+
   return(
     <div>
-      Customer Note
-      <br />
-      {props.note[0].body}
-      <br />
-      <CreateCustomerNote />
+      {props.note.body}
     </div>
   )
 }
