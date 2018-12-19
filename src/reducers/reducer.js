@@ -13,10 +13,14 @@ let defaultState = {
   loading: false,
   error: null,
   viewThisCustomer: null,
-  notes: []
+  notes: [],
+  editNote: false,
+  editThisNote: null,
+  customerNoteInput: ''
 }
 
-const reducer = (currentState = defaultState, action) => {
+const reducer = (currentState = defaultState, action) =>
+ {
   switch (action.type) {
     case "FETCH_PRODUCTS":
       return {...currentState, products: currentState.products}
@@ -66,7 +70,11 @@ const reducer = (currentState = defaultState, action) => {
       return {...currentState, loading: false,
         notes: []}
     case "VIEW_THIS_CUSTOMER":
-      return {...currentState, viewThisCustomer: action.payload, viewBoardGames: currentState.viewBoardGames = false, viewBooks: currentState.viewBooks = false, viewMovies: currentState.viewMovies = false, viewDollsActionFigures: currentState.viewDollsActionFigures = false, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, viewToys: currentState.viewToys = false, viewElectronics: currentState.viewElectronics = false}
+      return {...currentState, viewThisCustomer: action.payload, viewBoardGames: currentState.viewBoardGames = false, viewBooks: currentState.viewBooks = false, viewMovies: currentState.viewMovies = false, viewDollsActionFigures: currentState.viewDollsActionFigures = false, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, viewToys: currentState.viewToys = false, viewElectronics: currentState.viewElectronics = false, editNote: currentState.editNote = false, editThisNote: currentState.editThisNote = null}
+    case "EDIT_NOTE":
+      return {...currentState, editNote: currentState.editNote = true, editThisNote: action.payload, customerNoteInput: action.payload.body}
+    case "HANDLE_NOTE_INPUT":
+      return {...currentState, customerNoteInput: action.payload}
       break;
     default:
       return currentState

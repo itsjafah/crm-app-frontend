@@ -1,7 +1,6 @@
 const NOTES_API = 'http://localhost:3000/api/v1/notes'
 
 export function fetchNotes() {
-  console.log('working?');
   return dispatch => {
     dispatch(fetchNotesBegin());
     return fetch(NOTES_API)

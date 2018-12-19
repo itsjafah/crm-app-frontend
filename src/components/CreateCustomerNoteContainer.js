@@ -3,8 +3,6 @@ import CreateCustomerNote from './CreateCustomerNote'
 
 const CreateCustomerNoteContainer = (props) => {
 
-  console.log(props);
-
   return(
     <div>
     CreateCustomerNoteContainer
