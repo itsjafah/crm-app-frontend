@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 
 const ProductsContainer = (props) => {
 
-  console.log(props.selectedCategory);
-
   const filteredProducts = props.products.filter( product => product.category === props.selectedCategory)
 
   const product = filteredProducts.map( product => {

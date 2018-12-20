@@ -12,7 +12,12 @@ let defaultState = {
   editThisNote: null,
   customerNoteInput: '',
   productSelected: false,
-  selectedCategory: null
+  selectedCategory: null,
+  selectedCustomerId: null,
+  selectedProductId: null,
+  price: null,
+  sku: null,
+  quantity: null
 }
 
 const reducer = (currentState = defaultState, action) =>
@@ -71,6 +76,12 @@ const reducer = (currentState = defaultState, action) =>
       return {...currentState, editNote: currentState.editNote = true, editThisNote: action.payload, customerNoteInput: action.payload.body}
     case "HANDLE_NOTE_INPUT":
       return {...currentState, customerNoteInput: action.payload}
+    case "HANDLE_SELECT_CUSTOMER":
+      return {...currentState, selectedCustomerId: action.payload}
+    case "HANDLE_SELECT_PRODUCT":
+      return {...currentState, selectedProduct: currentState.products.filter(product => product.id == action.payload)}
+    case "HANDLE_QUANTITY_INPUT":
+      return {...currentState, quantity: action.payload}
       break;
     default:
       return currentState
