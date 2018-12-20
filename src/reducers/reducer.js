@@ -25,7 +25,7 @@ const reducer = (currentState = defaultState, action) =>
     case "TOGGLE_CREATE_ORDER":
       return {...currentState, createOrder: currentState.createOrder = true, viewProducts: currentState.viewProducts = false, openDashboard: currentState.openDashboard = false}
     case "TOGGLE_OPEN_DASHBOARD":
-      return {...currentState, openDashboard: currentState.openDashboard = true, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false}
+      return {...currentState, openDashboard: currentState.openDashboard = true, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, productSelected: false}
     case "TOGGLE_VIEW_DOLLS_ACTION_FIGURES":
       return {...currentState, productSelected: true, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, selectedCategory: action.payload}
     case "TOGGLE_VIEW_MOVIES":
@@ -66,7 +66,7 @@ const reducer = (currentState = defaultState, action) =>
       return {...currentState, loading: false,
         notes: []}
     case "VIEW_THIS_CUSTOMER":
-      return {...currentState, viewThisCustomer: action.payload, viewBoardGames: currentState.viewBoardGames = false, viewBooks: currentState.viewBooks = false, viewMovies: currentState.viewMovies = false, viewDollsActionFigures: currentState.viewDollsActionFigures = false, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, viewToys: currentState.viewToys = false, viewElectronics: currentState.viewElectronics = false, editNote: currentState.editNote = false, editThisNote: currentState.editThisNote = null}
+      return {...currentState, viewThisCustomer: action.payload, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, viewToys: currentState.viewToys = false, viewElectronics: currentState.viewElectronics = false, editNote: currentState.editNote = false, editThisNote: currentState.editThisNote = null, selectedCategory: false}
     case "EDIT_NOTE":
       return {...currentState, editNote: currentState.editNote = true, editThisNote: action.payload, customerNoteInput: action.payload.body}
     case "HANDLE_NOTE_INPUT":
