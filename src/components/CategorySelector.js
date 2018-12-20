@@ -25,22 +25,28 @@ const CategorySelector = (props) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleViewDollsActionFigures: () => dispatch({
-      type: "TOGGLE_VIEW_DOLLS_ACTION_FIGURES"
+      type: "TOGGLE_VIEW_DOLLS_ACTION_FIGURES",
+      payload: "Dolls & Action Figures"
     }),
     handleViewToys: () => dispatch({
-      type: "TOGGLE_VIEW_TOYS"
+      type: "TOGGLE_VIEW_TOYS",
+      payload: "Toys"
     }),
     handleViewBooks: () => dispatch({
-      type: "TOGGLE_VIEW_BOOKS"
+      type: "TOGGLE_VIEW_BOOKS",
+      payload: "Books"
     }),
     handleViewMovies: () => dispatch({
-      type: "TOGGLE_VIEW_MOVIES"
+      type: "TOGGLE_VIEW_MOVIES",
+      payload: "Movies"
     }),
     handleViewBoardGames: () => dispatch({
-      type: "TOGGLE_VIEW_BOARD_GAMES"
+      type: "TOGGLE_VIEW_BOARD_GAMES",
+      payload: "Board Games"
     }),
     handleViewElectronics: () => dispatch({
-      type: "TOGGLE_VIEW_ELECTRONICS"
+      type: "TOGGLE_VIEW_ELECTRONICS",
+      payload: "Electronics"
     })
   }
 }

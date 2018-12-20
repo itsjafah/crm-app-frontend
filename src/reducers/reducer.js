@@ -4,19 +4,15 @@ let defaultState = {
   openDashboard: false,
   customers: [],
   products: [],
-  viewDollsActionFigures: false,
-  viewMovies: false,
-  viewBooks: false,
-  viewToys: false,
-  viewElectronics: false,
-  viewBoardGames: false,
   loading: false,
   error: null,
   viewThisCustomer: null,
   notes: [],
   editNote: false,
   editThisNote: null,
-  customerNoteInput: ''
+  customerNoteInput: '',
+  productSelected: false,
+  selectedCategory: null
 }
 
 const reducer = (currentState = defaultState, action) =>
@@ -31,17 +27,17 @@ const reducer = (currentState = defaultState, action) =>
     case "TOGGLE_OPEN_DASHBOARD":
       return {...currentState, openDashboard: currentState.openDashboard = true, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false}
     case "TOGGLE_VIEW_DOLLS_ACTION_FIGURES":
-      return {...currentState, viewDollsActionFigures: currentState.viewDollsActionFigures = true, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, viewToys: currentState.viewToys = false, viewBooks: currentState.viewBooks = false, viewMovies: currentState.viewMovies = false, viewElectronics: currentState.viewElectronics = false, viewBoardGames: currentState.viewBoardGames = false}
+      return {...currentState, productSelected: true, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, selectedCategory: action.payload}
     case "TOGGLE_VIEW_MOVIES":
-      return {...currentState, viewMovies: currentState.viewMovies = true, viewDollsActionFigures: currentState.viewDollsActionFigures = false, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, viewToys: currentState.viewToys = false, viewBooks: currentState.viewBooks = false, viewElectronics: currentState.viewElectronics = false, viewBoardGames: currentState.viewBoardGames = false}
+      return {...currentState, productSelected: true, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, selectedCategory: action.payload}
     case "TOGGLE_VIEW_BOOKS":
-      return {...currentState, viewBooks: currentState.viewBooks = true, viewMovies: currentState.viewMovies = false, viewDollsActionFigures: currentState.viewDollsActionFigures = false, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, viewToys: currentState.viewToys = false, viewElectronics: currentState.viewElectronics = false, viewBoardGames: currentState.viewBoardGames = false}
+      return {...currentState, productSelected: true, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, selectedCategory: action.payload}
     case "TOGGLE_VIEW_TOYS":
-      return {...currentState, viewToys: currentState.viewToys = true, viewBooks: currentState.viewBooks = false, viewMovies: currentState.viewMovies = false, viewDollsActionFigures: currentState.viewDollsActionFigures = false, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, viewElectronics: currentState.viewElectronics = false, viewBoardGames: currentState.viewBoardGames = false}
+      return {...currentState, productSelected: true, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, selectedCategory: action.payload}
     case "TOGGLE_VIEW_ELECTRONICS":
-      return {...currentState, viewElectronics: currentState.viewElectronics = true, viewBooks: currentState.viewBooks = false, viewMovies: currentState.viewMovies = false, viewDollsActionFigures: currentState.viewDollsActionFigures = false, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, viewToys: currentState.viewToys = false, viewBoardGames: currentState.viewBoardGames = false}
+      return {...currentState, productSelected: true, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, selectedCategory: action.payload}
     case "TOGGLE_VIEW_BOARD_GAMES":
-      return {...currentState, viewBoardGames: currentState.viewBoardGames = true, viewBooks: currentState.viewBooks = false, viewMovies: currentState.viewMovies = false, viewDollsActionFigures: currentState.viewDollsActionFigures = false, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, viewToys: currentState.viewToys = false, viewElectronics: currentState.viewElectronics = false}
+      return {...currentState, productSelected: true, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, selectedCategory: action.payload}
     case "FETCH_PRODUCTS_BEGIN":
       return {...currentState, loading: true,
         error: null}

@@ -2,12 +2,7 @@ import React, { Component } from 'react'
 import OrderForm from './OrderForm'
 import UserDashboardContainer from './UserDashboardContainer'
 import CategorySelector from './CategorySelector'
-import DollsActionFiguresContainer from './DollsActionFiguresContainer'
-import MoviesContainer from './MoviesContainer'
-import BooksContainer from './BooksContainer'
-import ToysContainer from './ToysContainer'
-import ElectronicsContainer from './ElectronicsContainer'
-import BoardGamesContainer from './BoardGamesContainer'
+import ProductsContainer from './ProductsContainer'
 import CustomerDashboardContainer from './CustomerDashboardContainer'
 import { connect } from "react-redux";
 import { fetchProducts } from "../actions/productActions";
@@ -31,18 +26,8 @@ class MainContainer extends Component {
     } else if (this.props.viewProducts === true && this.props.products !== undefined) {
       return <CategorySelector
                 products={this.props.products}/>
-    } else if (this.props.viewDollsActionFigures === true) {
-      return <DollsActionFiguresContainer products={this.props.products}/>
-    } else if (this.props.viewMovies === true) {
-      return <MoviesContainer products={this.props.products}/>
-    } else if (this.props.viewBooks === true) {
-      return <BooksContainer products={this.props.products}/>
-    } else if (this.props.viewToys === true) {
-      return <ToysContainer products={this.props.products}/>
-    } else if (this.props.viewElectronics === true) {
-      return <ElectronicsContainer products={this.props.products}/>
-    } else if (this.props.viewBoardGames === true) {
-      return <BoardGamesContainer products={this.props.products}/>
+    } else if (this.props.productSelected === true) {
+      return <ProductsContainer products={this.props.products}/>
     } else if (this.props.viewThisCustomer) {
       return <CustomerDashboardContainer />
     } else {
@@ -79,18 +64,13 @@ const mapStateToProps = (state) => ({
   openDashboard: state.openDashboard,
   customers: state.customers,
   products: state.products,
-  viewDollsActionFigures: state.viewDollsActionFigures,
-  viewMovies: state.viewMovies,
-  viewBooks: state.viewBooks,
-  viewToys: state.viewToys,
-  viewElectronics: state.viewElectronics,
-  viewBoardGames: state.viewBoardGames,
   viewThisCustomer: state.viewThisCustomer,
   products: state.products,
   loading: state.loading,
   error: state.error,
   customers: state.customers,
-  notes: state.customers
+  notes: state.customers,
+  productSelected: state.productSelected
 })
 
 
