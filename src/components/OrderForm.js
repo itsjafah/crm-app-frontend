@@ -1,8 +1,53 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+
 const OrderForm = (props) => {
-  console.log(props);
+// 
+//   return(
+//
+//   createUI = () => {
+//     return props.inputValues.map((el, i) =>
+//     <div key={i}>
+//     <input
+//       type="text"
+//       value={el||''}
+//       onChange={props.handleChange.bind(this, i)} />
+//     <input type='button' value='remove' onClick={this.removeClick.bind(this, i)}/>
+//     </div>
+//   )
+// }
+//
+// handleChange(i, event) {
+//   let inputValues = [...this.state.inputValues];
+//   inputValues[i] = event.target.value;
+//   this.setState({ inputValues });
+// }
+//
+// addClick(){
+//   this.setState(prevState => ({ inputValues: [...prevState.inputValues, '']}))
+// }
+//
+// removeClick(i){
+//   let inputValues = [...this.state.inputValues];
+//   inputValues.splice(i,1);
+//   this.setState({ inputValues });
+// }
+//
+// handleSubmit(event) {
+//   alert('A name was submitted: ' + this.state.inputValues.join(', '));
+//   event.preventDefault();
+// }
+//
+// render() {
+//   return (
+//     <form onSubmit={this.handleSubmit}>
+//     {this.createUI()}
+//     <input type='button' value='add more' onClick={this.addClick.bind(this)}/>
+//     <input type="submit" value="Submit" />
+//     </form>
+//   );
+// }
   return(
     <form>
     <div className="sixteen wide column"> Customer
@@ -69,7 +114,8 @@ const mapStateToProps = (state) => ({
   products: state.products,
   selectedProduct: state.selectedProduct,
   selectedCustomerId: state.selectedCustomerId,
-  quantity: state.quantity
+  quantity: state.quantity,
+  inputValues: state.inputValues
 })
 
 const mapDispatchToProps = (dispatch) => ({

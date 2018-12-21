@@ -17,7 +17,8 @@ let defaultState = {
   selectedProductId: null,
   price: null,
   sku: null,
-  quantity: null
+  quantity: null,
+  formObjects: [{product: "", price: "", sku: "", quantity: "", total: ""}]
 }
 
 const reducer = (currentState = defaultState, action) =>

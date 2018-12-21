@@ -47,6 +47,10 @@ class CreateCustomerNote extends Component {
 
   }
 
+  // to optimistically render
+  // for this create a variable outside of the fetch to display the note
+  // after the fetch, .then( r=> r.json()).then(()=> set the variable to the response value )
+
   render(){
 
     return(
