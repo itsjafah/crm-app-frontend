@@ -13,12 +13,12 @@ let defaultState = {
   customerNoteInput: '',
   productSelected: false,
   selectedCategory: null,
-  selectedCustomerId: null,
-  selectedProductId: null,
+  selectedCustomer: null,
+  selectedProduct: null,
   price: null,
   sku: null,
-  quantity: null,
-  formObjects: [{product: "", price: "", sku: "", quantity: "", total: ""}]
+  numFormRows: 1,
+  formRows: []
 }
 
 const reducer = (currentState = defaultState, action) =>
@@ -78,11 +78,14 @@ const reducer = (currentState = defaultState, action) =>
     case "HANDLE_NOTE_INPUT":
       return {...currentState, customerNoteInput: action.payload}
     case "HANDLE_SELECT_CUSTOMER":
-      return {...currentState, selectedCustomerId: action.payload}
+      console.log(action.payload);
+      return {...currentState, selectedCustomer: currentState.customers.filter(customer => customer.id == action.payload)}
     case "HANDLE_SELECT_PRODUCT":
       return {...currentState, selectedProduct: currentState.products.filter(product => product.id == action.payload)}
     case "HANDLE_QUANTITY_INPUT":
       return {...currentState, quantity: action.payload}
+    case "HANDLE_ADD_ROW":
+      return {...currentState, numFormRows: currentState.numFormRows+1}
       break;
     default:
       return currentState

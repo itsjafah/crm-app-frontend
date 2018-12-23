@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import OrderForm from './OrderForm'
+import OrderFormContainer from './OrderFormContainer'
 import UserDashboardContainer from './UserDashboardContainer'
 import CategorySelector from './CategorySelector'
 import ProductsContainer from './ProductsContainer'
@@ -20,7 +20,7 @@ class MainContainer extends Component {
   renderContent = () => {
 
     if (this.props.createOrder === true) {
-      return <OrderForm />
+      return <OrderFormContainer />
     } else if (this.props.openDashboard === true ) {
       return <UserDashboardContainer customers={this.props.customers}/>
     } else if (this.props.viewProducts === true && this.props.products !== undefined) {
