@@ -13,9 +13,36 @@ const ProductsContainer = (props) => {
   return(
     <div>
       {props.selectedCategory}
-      <br />
-      {product}
+    <table>
+      <tbody>
+        <tr>
+          <th>
+            <h3 className="ui center aligned header">Image</h3>
+          </th>
+          <th>
+            <h3 className="ui center aligned header">Product</h3>
+          </th>
+          <th>
+            <h3 className="ui center aligned header">Category</h3>
+          </th>
+          <th>
+            <h3 className="ui center aligned header">SKU</h3>
+          </th>
+          <th>
+            <h3 className="ui center aligned header">Cost</h3>
+          </th>
+          <th>
+            <h3 className="ui center aligned header">Price</h3>
+          </th>
+          <th>
+            <h3 className="ui center aligned header">Margin</h3>
+          </th>
+        </tr>
+        {product}
+      </tbody>
+    </table>
     </div>
+
   )
 
 }

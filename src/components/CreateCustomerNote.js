@@ -28,7 +28,6 @@ class CreateCustomerNote extends Component {
         })
       })
     } else if (this.props.editNote === true) {
-      console.log('hitting?');
         fetch(`${NOTES_API}/${this.props.editThisNote.id}`, {
           method: 'PATCH',
           headers: {
