@@ -18,7 +18,8 @@ let defaultState = {
   formRows: [],
   orderTotal: null,
   orders: [],
-  users: []
+  users: [],
+  addThisProductToOrder: null
 }
 
 const reducer = (currentState = defaultState, action) =>
@@ -100,6 +101,8 @@ const reducer = (currentState = defaultState, action) =>
       return {...currentState, selectedCustomer: currentState.customers.filter(customer => customer.id == action.payload)}
     case "HANDLE_ADD_ROW":
       return {...currentState, numFormRows: currentState.numFormRows+1}
+    case "HANDLE_ADD_PRODUCT_TO_ORDER":
+      return {...currentState, addThisProductToOrder: currentState.products.filter(product => product.id == action.payload)}
       break;
     default:
       return currentState
