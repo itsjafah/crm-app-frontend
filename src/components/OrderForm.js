@@ -113,5 +113,11 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps)(OrderForm)
 
-// start with 3 line items for entry
-// after the 3rd line, auto generate new input line item
+
+
+// in addition to creating new component, add object to array
+// make a new object in that state on the add row event
+// state : [{product: "", sku: "", qty: "", total: ""}]
+// onselect product -> setstate {}
+// row identifier to match the form row id (Set counter i=0 and iterate through the array of objects)
+// add row - pushes a new empty object into the state array

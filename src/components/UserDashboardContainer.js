@@ -1,6 +1,7 @@
 import React from 'react'
 import Sidebar from './Sidebar'
 import { connect } from 'react-redux'
+import Moment from 'react-moment'
 
 const UserDashboardContainer = (props) => {
 
@@ -15,6 +16,18 @@ const UserDashboardContainer = (props) => {
     const current_overall_sales = users_order_totals.reduce(reducer)
 
     const sales_to_reach_goal = (user_annual_sales_goal - current_overall_sales)
+
+    const date = new Date();
+
+    const date2 = new Date('2019-01-01T12:00:00');
+
+    console.log(date2 - date);
+
+
+
+    // const toNow = moment([2007, 0, 29]).toNow()
+
+
 
     // daily sales goal - ANNUAL === remaining sales goal divided by number of days from now until jan 1
 
@@ -33,6 +46,9 @@ const UserDashboardContainer = (props) => {
         Weekly Sales Goal: {(user_annual_sales_goal - current_overall_sales)/(52)}
         <br />
         Daily Sales Goal: {(user_annual_sales_goal - current_overall_sales)/(365)}
+        <br />
+
+        <Moment fromNow ago>2019-01-01T12:00-0500</Moment>
 
         <Sidebar customers={props.customers}/>
       </div>

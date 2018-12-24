@@ -19,7 +19,8 @@ let defaultState = {
   orderTotal: null,
   orders: [],
   users: [],
-  addThisProductToOrder: null
+  addThisProductToOrder: null,
+  dateValue: null
 }
 
 const reducer = (currentState = defaultState, action) =>
