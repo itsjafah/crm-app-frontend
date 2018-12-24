@@ -9,6 +9,7 @@ import { fetchProducts } from "../actions/productActions";
 import { fetchCustomers } from "../actions/customerActions"
 import { fetchNotes } from "../actions/noteActions"
 import { fetchOrders } from "../actions/orderActions"
+import { fetchUsers } from "../actions/userActions"
 
 class MainContainer extends Component {
 
@@ -17,6 +18,7 @@ class MainContainer extends Component {
     this.props.dispatch(fetchCustomers())
     this.props.dispatch(fetchNotes())
     this.props.dispatch(fetchOrders())
+    this.props.dispatch(fetchUsers())
   }
 
   renderContent = () => {
@@ -75,7 +77,8 @@ const mapStateToProps = (state) => ({
   customers: state.customers,
   notes: state.customers,
   productSelected: state.productSelected,
-  orders: state.orders
+  orders: state.orders,
+  users: state.users
 })
 
 

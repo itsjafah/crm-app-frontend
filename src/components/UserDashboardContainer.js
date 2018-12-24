@@ -1,19 +1,31 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Sidebar from './Sidebar'
+import { connect } from 'react-redux'
 
-class UserDashboardContainer extends Component {
+const UserDashboardContainer = (props) => {
 
-  render(){
-    
-    const { customers } = this.props
+    const user_sales_goal = props.users[0].annual_goal
+
+    const users_order_totals = props.orders.map( order => {
+      return order.total
+    })
+
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+    const current_overall_sales = users_order_totals.reduce(reducer)
 
     return(
       <div>
-        User's aggregate sales Dashboard will appear here
-        <Sidebar customers={customers}/>
+        Remaining Sales Goal: {user_sales_goal - current_overall_sales}
+        <Sidebar customers={props.customers}/>
       </div>
     )
   }
-}
 
-export default UserDashboardContainer
+const mapStateToProps = (state) => ({
+  orders: state.orders,
+  users: state.users,
+  customers: state.customers,
+})
+
+export default connect(mapStateToProps)(UserDashboardContainer)

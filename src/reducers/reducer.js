@@ -17,7 +17,8 @@ let defaultState = {
   numFormRows: 1,
   formRows: [],
   orderTotal: null,
-  orders: []
+  orders: [],
+  users: []
 }
 
 const reducer = (currentState = defaultState, action) =>
@@ -79,6 +80,15 @@ const reducer = (currentState = defaultState, action) =>
     case "FETCH_ORDERS_FAILURE":
       return {...currentState, loading: false,
         orders: []}
+    case "FETCH_USERS_BEGIN":
+      return {...currentState, loading: true,
+        error: null}
+    case "FETCH_USERS_SUCCESS":
+      return {...currentState, loading: false,
+        users: action.payload.users}
+    case "FETCH_USERS_FAILURE":
+      return {...currentState, loading: false,
+        users: []}
     case "VIEW_THIS_CUSTOMER":
       return {...currentState, viewThisCustomer: action.payload, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, viewToys: currentState.viewToys = false, viewElectronics: currentState.viewElectronics = false, editNote: currentState.editNote = false, editThisNote: currentState.editThisNote = null, selectedCategory: false}
     case "EDIT_NOTE":
