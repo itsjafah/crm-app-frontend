@@ -5,7 +5,6 @@ const CreateCustomerNoteContainer = (props) => {
 
   return(
     <div>
-    CreateCustomerNoteContainer
       <CreateCustomerNote />
     </div>
   )

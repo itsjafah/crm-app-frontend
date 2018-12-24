@@ -7,7 +7,6 @@ const CustomerDashboardContainer = (props) => {
 
   return(
     <div>
-      Customer Dashboard Container
       <br />
       <CustomerDashboard />
       <CustomerNotesContainer />

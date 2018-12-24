@@ -14,11 +14,10 @@ let defaultState = {
   productSelected: false,
   selectedCategory: null,
   selectedCustomer: null,
-  selectedProduct: null,
-  price: null,
-  sku: null,
   numFormRows: 1,
-  formRows: []
+  formRows: [],
+  orderTotal: null,
+  orders: []
 }
 
 const reducer = (currentState = defaultState, action) =>
@@ -71,6 +70,15 @@ const reducer = (currentState = defaultState, action) =>
     case "FETCH_NOTES_FAILURE":
       return {...currentState, loading: false,
         notes: []}
+    case "FETCH_ORDERS_BEGIN":
+      return {...currentState, loading: true,
+        error: null}
+    case "FETCH_ORDERS_SUCCESS":
+      return {...currentState, loading: false,
+        orders: action.payload.orders}
+    case "FETCH_ORDERS_FAILURE":
+      return {...currentState, loading: false,
+        orders: []}
     case "VIEW_THIS_CUSTOMER":
       return {...currentState, viewThisCustomer: action.payload, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, viewToys: currentState.viewToys = false, viewElectronics: currentState.viewElectronics = false, editNote: currentState.editNote = false, editThisNote: currentState.editThisNote = null, selectedCategory: false}
     case "EDIT_NOTE":
@@ -80,10 +88,6 @@ const reducer = (currentState = defaultState, action) =>
     case "HANDLE_SELECT_CUSTOMER":
       console.log(action.payload);
       return {...currentState, selectedCustomer: currentState.customers.filter(customer => customer.id == action.payload)}
-    case "HANDLE_SELECT_PRODUCT":
-      return {...currentState, selectedProduct: currentState.products.filter(product => product.id == action.payload)}
-    case "HANDLE_QUANTITY_INPUT":
-      return {...currentState, quantity: action.payload}
     case "HANDLE_ADD_ROW":
       return {...currentState, numFormRows: currentState.numFormRows+1}
       break;

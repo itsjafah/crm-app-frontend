@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import { fetchProducts } from "../actions/productActions";
 import { fetchCustomers } from "../actions/customerActions"
 import { fetchNotes } from "../actions/noteActions"
+import { fetchOrders } from "../actions/orderActions"
 
 class MainContainer extends Component {
 
@@ -15,6 +16,7 @@ class MainContainer extends Component {
     this.props.dispatch(fetchProducts())
     this.props.dispatch(fetchCustomers())
     this.props.dispatch(fetchNotes())
+    this.props.dispatch(fetchOrders())
   }
 
   renderContent = () => {
@@ -36,6 +38,8 @@ class MainContainer extends Component {
   }
 
   render(){
+
+    console.log(this.props);
 
     const { error, loading } = this.props;
 
@@ -70,7 +74,8 @@ const mapStateToProps = (state) => ({
   error: state.error,
   customers: state.customers,
   notes: state.customers,
-  productSelected: state.productSelected
+  productSelected: state.productSelected,
+  orders: state.orders
 })
 
 

@@ -9,7 +9,7 @@ const Product = (props) => {
 
   return(
     <tr>
-      <td>{"Coming Soon"}</td>
+      <td><img src={props.product.image_url} height='150' width='120'/></td>
       <td>{props.product.name}</td>
       <td>{props.product.category}</td>
       <td>{props.product.id}</td>

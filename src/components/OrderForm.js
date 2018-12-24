@@ -7,21 +7,34 @@ class OrderForm extends Component {
   constructor(props){
     super(props)
     this.state = {
-      chosenProduct: null,
-      quantity: null
+      selectedProduct: null,
+      quantity: null,
+      orderTotal: []
     }
   }
 
+
   handleChosenProduct = (productId) => {
-    const chosenProduct = this.props.products.filter(product => product.id == productId)
-    this.setState({ chosenProduct: chosenProduct, quantity: 1})
+
+    const selectedProduct = this.props.products.filter(product => product.id == productId)
+
+    this.setState({
+      selectedProduct: selectedProduct,
+      quantity: 1,
+      orderTotal: (selectedProduct[0].price)
+    })
   }
 
   handleQuantityChange = (quantity) => {
     this.setState({
-      quantity: quantity
-    })
+      quantity: quantity,
+      orderTotal: this.state.selectedProduct[0].price * quantity
+    }, () => console.log(this.state.orderTotal))
   }
+
+//   this.setState(prevState => ({
+//   arrayvar: [...prevState.arrayvar, newelement]
+// }))
 
   // handleSubmit = (e) => {
   //   e.preventDefault()
@@ -45,8 +58,17 @@ class OrderForm extends Component {
 
   render(){
     console.log("Order Form", this.props);
+
+    const lineTotals = []
+
+    for (let i = 0; i === this.props.number; i++) {
+        lineTotals.push(this.state.orderTotal)
+      }
+
+    console.log(lineTotals)
+
     return(
-      <form>
+      <form onChange={null}>
         <div className="sixteen wide column"> Product
           <select className="ui dropdown" onChange={ (event)=> this.handleChosenProduct(event.target.value)} >
           {this.props.products.map((product) => {
@@ -64,19 +86,19 @@ class OrderForm extends Component {
         </div>
         <label>
           Price:
-            <input type="number" name="name" value={this.state.chosenProduct ? this.state.chosenProduct[0].price : ""}/>
+            <input type="number" name="name" value={this.state.selectedProduct ? this.state.selectedProduct[0].price : ""}/>
         </label>
         <label>
           SKU:
-            <input type="number" name="name" value={this.state.chosenProduct ? this.state.chosenProduct[0].id : ""}/>
+            <input type="number" name="name" value={this.state.selectedProduct ? this.state.selectedProduct[0].id : ""}/>
         </label>
         <label>
           Qty:
-            <input type="number" name="name" defaultValue= {this.state.chosenProduct ? 1 : ""} onChange={e => this.handleQuantityChange(e.target.value)}/>
+            <input type="number" name="name" defaultValue= {this.state.selectedProduct ? 1 : ""} onChange={e => this.handleQuantityChange(e.target.value)}/>
         </label>
         <label>
           Total:
-            <input type="number" name="name" value={ this.state.chosenProduct ? (this.state.chosenProduct[0].price * this.state.quantity) : ""}/>
+            <input type="number" name="name" value={ this.state.selectedProduct ? (this.state.selectedProduct[0].price * this.state.quantity) : ""}/>
         </label>
       </form>
     )
@@ -85,28 +107,11 @@ class OrderForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  customers: state.customers,
-  products: state.products,
-  selectedCustomerId: state.selectedCustomerId,
-  quantity: state.quantity,
-  inputValues: state.inputValues,
-  viewThisCustomer: state.viewThisCustomer,
-  price: state.price
-})
-
-const mapDispatchToProps = (dispatch) => ({
-  handleSelectCustomer: (customer) => dispatch({
-    type: "HANDLE_SELECT_CUSTOMER",
-    payload: customer
-  }),
-  handleSelectProduct: (productId) => dispatch({
-    type: "HANDLE_SELECT_PRODUCT",
-    payload: productId
-  })
+  products: state.products
 })
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(OrderForm)
+export default connect(mapStateToProps)(OrderForm)
 
 // start with 3 line items for entry
 // after the 3rd line, auto generate new input line item

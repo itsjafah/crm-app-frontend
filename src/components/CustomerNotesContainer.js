@@ -10,10 +10,8 @@ const CustomerNotesContainer = (props) => {
     return <CustomerNote key={note.id} note={note}/>
   })
 
-  console.log(note);
   return(
     <div>
-      Customer Notes Container
         <br />
       {note}
     </div>
