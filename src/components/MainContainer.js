@@ -13,6 +13,8 @@ import { fetchUsers } from "../actions/userActions"
 
 class MainContainer extends Component {
 
+  state = { customers: [], products: [] }
+
   componentDidMount() {
     this.props.dispatch(fetchProducts())
     this.props.dispatch(fetchCustomers())
