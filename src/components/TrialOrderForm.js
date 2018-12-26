@@ -8,7 +8,6 @@ class TrialOrderForm extends React.Component {
       products: [],
       customers: [],
       selectedCustomer: '',
-      selectedProduct: '',
       price: null,
       sku: null,
       qty: null,
@@ -22,29 +21,21 @@ class TrialOrderForm extends React.Component {
     this.setState({ selectedCustomer: selectedCustomer })
   }
 
-  // handleProductNameChange = (evt) => (idx) => {
-  //   console.log('hello');
-  //   const newProducts = this.state.productsOnOrder.map((product, sidx) => {
-  //     if (idx !== sidx) return product
-  //     return { ...product, product: evt.target.value, };
-  //   });
-  //
-  //   this.setState({ productsOnOrder: newProducts })
-  // }
+  handleProductNameChange = (idx) => (evt) => {
 
-  handleProductNameChange = (productId) => {
+    const selectedProduct = this.props.products.filter(product => product.id == evt.target.value)
 
-    const selectedProduct = this.props.products.filter(product => product.id == productId)
-
-    const newProducts = this.state.productsOnOrder.map((product) => {
-      return { ...product, product: selectedProduct[0].name }
+    const newProducts = this.state.productsOnOrder.map((product, sidx) => {
+      if (idx !== sidx) return product
+      return { ...product, product: selectedProduct[0].name, price: selectedProduct[0].price, sku: selectedProduct[0].sku, qty: 1, total: (selectedProduct[0].price * 1)};
     });
 
-    this.setState({ productsOnOrder: newProducts, selectedProduct: selectedProduct }, () => console.log(selectedProduct))
+    this.setState({ productsOnOrder: newProducts }, ()=>console.log(this.state.productsOnOrder))
+
   }
 
   handlePriceChange = (idx) => (evt) => {
-    console.log(idx);
+
     const newProducts = this.state.productsOnOrder.map((product, sidx) => {
       if (idx !== sidx) return product
       return { ...product, price: evt.target.value, };
@@ -53,28 +44,10 @@ class TrialOrderForm extends React.Component {
     this.setState({ productsOnOrder: newProducts });
   }
 
-  handleSkuChange = (idx) => (evt) => {
-    const newProducts = this.state.productsOnOrder.map((product, sidx) => {
-      if (idx !== sidx) return product
-      return { ...product, sku: evt.target.value, };
-    });
-
-    this.setState({ productsOnOrder: newProducts }, () => console.log(this.state.productsOnOrder));
-  }
-
   handleQtyChange = (idx) => (evt) => {
     const newProducts = this.state.productsOnOrder.map((product, sidx) => {
       if (idx !== sidx) return product
-      return { ...product, qty: evt.target.value, };
-    });
-
-    this.setState({ productsOnOrder: newProducts }, () => console.log(this.state.productsOnOrder));
-  }
-
-  handleTotalChange = (idx) => (evt) => {
-    const newProducts = this.state.productsOnOrder.map((product, sidx) => {
-      if (idx !== sidx) return product
-      return { ...product, total: evt.target.value, };
+      return { ...product, qty: evt.target.value, total: ((evt.target.value)*product.price), };
     });
 
     this.setState({ productsOnOrder: newProducts }, () => console.log(this.state.productsOnOrder));
@@ -90,15 +63,8 @@ class TrialOrderForm extends React.Component {
   }
 
   handleRemoveProduct = (idx) => () => {
-    this.setState({ productsOnOrder: this.state.productsOnOrder.filter((s, sidx) => idx !== sidx) });
+    this.setState({ productsOnOrder: this.state.productsOnOrder.filter((s, sidx) => idx !== sidx) }, ()=>console.log(this.state.productsOnOrder));
   }
-
-  // <input
-  //   type="text"
-  //   placeholder="Company name, e.g. Sean's Love Shack"
-  //   value={this.state.customer}
-  //   onChange={this.handleCompanyChange}
-  // />
 
   render() {
     return (
@@ -123,7 +89,7 @@ class TrialOrderForm extends React.Component {
         {this.state.productsOnOrder.map((product, idx) => (
           <div className="product">
           <div className="sixteen wide column"> Product
-            <select className="ui dropdown" onChange={ (event) => this.handleProductNameChange(event.target.value)} >
+            <select className="ui dropdown" onChange={ this.handleProductNameChange(idx)} >
             {this.props.products.map((product) => {
               return (
                 <option
@@ -147,7 +113,6 @@ class TrialOrderForm extends React.Component {
               type="number"
               placeholder={`SKU`}
               value={product.sku}
-              onChange={this.handleSkuChange(idx)}
             />
             <input
               type="number"
@@ -159,7 +124,6 @@ class TrialOrderForm extends React.Component {
               type="number"
               placeholder={`Total`}
               value={product.total}
-              onChange={this.handleTotalChange(idx)}
             />
             <button type="button" onClick={this.handleRemoveProduct(idx)} className="small">-</button>
           </div>
