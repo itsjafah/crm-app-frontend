@@ -59,6 +59,7 @@ const mapStateToProps = (state) => ({
   orders: state.orders,
   users: state.users,
   customers: state.customers,
+  orderedProducts: state.orderedProducts
 })
 
 export default connect(mapStateToProps)(UserDashboardContainer)

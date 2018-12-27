@@ -7,8 +7,9 @@ export function fetchOrders() {
     .then(handleErrors)
     .then(res => res.json())
     .then(json => {
-      dispatch(fetchOrdersSuccess(json.orders));
-      return json.orders;
+      console.log(json);
+      dispatch(fetchOrdersSuccess(json));
+      return json;
     })
     .catch(error => dispatch(fetchOrdersFailure(error)));
   };

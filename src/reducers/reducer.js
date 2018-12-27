@@ -19,7 +19,7 @@ let defaultState = {
   orderTotal: null,
   orders: [],
   users: [],
-  dateValue: null
+  orderedProducts: []
 }
 
 const reducer = (currentState = defaultState, action) =>
@@ -90,6 +90,15 @@ const reducer = (currentState = defaultState, action) =>
     case "FETCH_USERS_FAILURE":
       return {...currentState, loading: false,
         users: []}
+    case "FETCH_ORDERED_PRODUCTS_BEGIN":
+      return {...currentState, loading: true,
+        error: null}
+    case "FETCH_ORDERED_PRODUCTS_SUCCESS":
+      return {...currentState, loading: false,
+        orderedProducts: action.payload.ordered_products}
+    case "FETCH_ORDERED_PRODUCTS_FAILURE":
+      return {...currentState, loading: false,
+        orderedProducts: []}
     case "VIEW_THIS_CUSTOMER":
       return {...currentState, viewThisCustomer: action.payload, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, viewToys: currentState.viewToys = false, viewElectronics: currentState.viewElectronics = false, editNote: currentState.editNote = false, editThisNote: currentState.editThisNote = null, selectedCategory: false}
     case "EDIT_NOTE":
