@@ -80,7 +80,8 @@ const mapStateToProps = (state) => ({
   notes: state.customers,
   productSelected: state.productSelected,
   orders: state.orders,
-  users: state.users
+  users: state.users,
+  addThisProductToOrder: state.addThisProductToOrder
 })
 
 

@@ -1,15 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-// import {Navbar, NavItem} from 'react-materialize'
+import { Dropdown, Menu } from 'semantic-ui-react'
 
 const Header = (props) => {
 
 
-  // <Navbar brand='logo' left>
-  //   <NavItem onClick={() => console.log('test click')}>Getting started</NavItem>
-  //   <NavItem href='components.html'>Components</NavItem>
-  //   <NavItem href='components.html'>Components</NavItem>
-  // </Navbar>
     return(
       <div className="header-container">
         <div className="header-buttons-container">

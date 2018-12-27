@@ -1,13 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+const ORDERS_API = 'http://localhost:3000/api/v1/orders'
+const ORDERED_PRODUCTS_API = 'http://localhost:3000/api/v1/ordered_products'
+
 class TrialOrderForm extends React.Component {
   constructor() {
     super()
     this.state = {
-      products: [],
-      customers: [],
-      selectedCustomer: '',
+      selectedCustomer: null,
       productsOnOrder: [{ product: '', price: null, sku: null, qty: null, total: null }]
     }
   }
@@ -24,6 +25,7 @@ class TrialOrderForm extends React.Component {
     const newProducts = this.state.productsOnOrder.map((product, pidx) => {
       if (idx !== pidx) return product
       return { ...product,
+                  id: selectedProduct[0].id,
                   product: selectedProduct[0].name,
                   price: selectedProduct[0].price,
                   sku: selectedProduct[0].sku,
@@ -45,12 +47,6 @@ class TrialOrderForm extends React.Component {
     this.setState({ productsOnOrder: newProducts })
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault()
-    // const { name, productsOnOrder } = this.state;
-    alert(`Sup`);
-  }
-
   handleAddProductToOrder = () => {
     this.setState({ productsOnOrder: this.state.productsOnOrder.concat([{ product: '', price: null, sku: null, qty: null, total: null }]) })
   }
@@ -61,29 +57,58 @@ class TrialOrderForm extends React.Component {
     })
   }
 
-  // handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   console.log(e);
-  //     fetch(ORDERS_API, {
-  //       method: 'POST',
-  //       headers: {
-  //         'Accepts': 'application/json',
-  //         'Content-Type': 'application/json'
-  //       },
-  //       body: JSON.stringify({
-  //         user_id: 1,
-  //         customer_id: this.props.viewThisCustomer.id,
-  //         quantity: this.props.quantity,
-  //         total: this.props.total,
-  //         date: this.props.date,
-  //         product_id: this.props.selectedProduct.id
-  //       })
-  //     })
-  // }
+  handleSubmit = (e) => {
+
+    let initialValue = 0;
+
+    const orderTotal = this.state.productsOnOrder.reduce(function (accumulator, currentValue) {
+          return accumulator + currentValue.total;
+      }, initialValue)
 
 
+    e.preventDefault()
+    alert(`Sup`);
+      fetch(ORDERS_API, {
+        method: 'POST',
+        headers: {
+          'Accepts': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          user_id: 1,
+          customer_id: this.state.selectedCustomer[0].id,
+          total: orderTotal
+        })
+      })
+      .then(r => r.json())
+      .then( order => {
+        this.state.productsOnOrder.map(productObject => {
+          this.addOrderedProductToDB(productObject, order.id)
+        })
+      })
+  }
+
+  addOrderedProductToDB = (productObject, orderId) => {
+    console.log(productObject, orderId)
+    fetch(ORDERED_PRODUCTS_API, {
+        method: 'POST',
+        headers: {
+            'Accepts': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              order_id: orderId,
+              product_id: productObject.id,
+              quantity: productObject.qty
+            })
+          })
+          .then( r=>r.json())
+          .then( console.log)
+}
 
   render() {
+
+    console.log(this.state.productsOnOrder)
 
     let initialValue = 0;
 
