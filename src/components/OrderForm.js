@@ -1,40 +1,65 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
-const ORDERS_API = 'http://localhost:3000/api/v1/orders'
-
-class OrderForm extends Component {
-  constructor(props){
-    super(props)
+class TrialOrderForm extends React.Component {
+  constructor() {
+    super()
     this.state = {
-      selectedProduct: null,
-      quantity: null,
-      orderTotal: []
+      products: [],
+      customers: [],
+      selectedCustomer: '',
+      productsOnOrder: [{ product: '', price: null, sku: null, qty: null, total: null }]
     }
   }
 
+  handleSelectCustomer = (customerId) => {
+    const selectedCustomer = this.props.customers.filter( customer => customer.id == customerId)
+    this.setState({ selectedCustomer: selectedCustomer })
+  }
 
-  handleChosenProduct = (productId) => {
+  handleProductNameChange = (idx) => (e) => {
 
-    const selectedProduct = this.props.products.filter(product => product.id == productId)
+    const selectedProduct = this.props.products.filter(product => product.id == e.target.value)
 
+    const newProducts = this.state.productsOnOrder.map((product, pidx) => {
+      if (idx !== pidx) return product
+      return { ...product,
+                  product: selectedProduct[0].name,
+                  price: selectedProduct[0].price,
+                  sku: selectedProduct[0].sku,
+                  qty: 1,
+                  total: (selectedProduct[0].price * 1)
+                }
+    })
+
+    this.setState({ productsOnOrder: newProducts })
+
+  }
+
+  handleQtyChange = (idx) => (e) => {
+    const newProducts = this.state.productsOnOrder.map((product, pidx) => {
+      if (idx !== pidx) return product
+      return { ...product, qty: e.target.value, total: ((e.target.value)*product.price) }
+    })
+
+    this.setState({ productsOnOrder: newProducts })
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    // const { name, productsOnOrder } = this.state;
+    alert(`Sup`);
+  }
+
+  handleAddProductToOrder = () => {
+    this.setState({ productsOnOrder: this.state.productsOnOrder.concat([{ product: '', price: null, sku: null, qty: null, total: null }]) })
+  }
+
+  handleRemoveProduct = (idx) => () => {
     this.setState({
-      selectedProduct: selectedProduct,
-      quantity: 1,
-      orderTotal: (selectedProduct[0].price)
+      productsOnOrder: this.state.productsOnOrder.filter((product, pidx) => idx !== pidx)
     })
   }
-
-  handleQuantityChange = (quantity) => {
-    this.setState({
-      quantity: quantity,
-      orderTotal: this.state.selectedProduct[0].price * quantity
-    }, () => console.log(this.state.orderTotal))
-  }
-
-//   this.setState(prevState => ({
-//   arrayvar: [...prevState.arrayvar, newelement]
-// }))
 
   // handleSubmit = (e) => {
   //   e.preventDefault()
@@ -56,68 +81,102 @@ class OrderForm extends Component {
   //     })
   // }
 
-  render(){
-    console.log("Order Form", this.props);
 
-    const lineTotals = []
 
-    for (let i = 0; i === this.props.number; i++) {
-        lineTotals.push(this.state.orderTotal)
-      }
+  render() {
 
-    console.log(lineTotals)
+    let initialValue = 0;
 
-    return(
-      <form onChange={null}>
-        <div className="sixteen wide column"> Product
-          <select className="ui dropdown" onChange={ (event)=> this.handleChosenProduct(event.target.value)} >
-          {this.props.products.map((product) => {
+    const orderTotal = this.state.productsOnOrder.reduce(function (accumulator, currentValue) {
+          return accumulator + currentValue.total;
+      }, initialValue)
+
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <div>
+          <select className="ui dropdown" onChange={ (event)=> this.handleSelectCustomer(event.target.value)} >
+          {this.props.customers.map((customer, i) => {
             return (
               <option
-              key={product.id}
+              key={i}
               className="item"
-              placeholder="Customer Name"
-              value={product.id}>
-              {product.name}
+              value={customer.id}>
+              {customer.name}
               </option>
             )
           })}
           </select>
         </div>
-        <label>
-          Price:
-            <input type="number" name="name" value={this.state.selectedProduct ? this.state.selectedProduct[0].price : ""}/>
-        </label>
-        <label>
-          SKU:
-            <input type="number" name="name" value={this.state.selectedProduct ? this.state.selectedProduct[0].id : ""}/>
-        </label>
-        <label>
-          Qty:
-            <input type="number" name="name" defaultValue= {this.state.selectedProduct ? 1 : ""} onChange={e => this.handleQuantityChange(e.target.value)}/>
-        </label>
-        <label>
-          Total:
-            <input type="number" name="name" value={ this.state.selectedProduct ? (this.state.selectedProduct[0].price * this.state.quantity) : ""}/>
-        </label>
+
+        <h4>Products</h4>
+
+        {this.state.productsOnOrder.map((product, idx) => (
+          <div className="product">
+          <div className="sixteen wide column"> Name
+            <select className="ui dropdown" onChange={ this.handleProductNameChange(idx)} >
+            {this.props.products.map((product) => {
+              return (
+                <option
+                key={product.id}
+                className="item"
+                value={product.id}>
+                {product.name}
+                </option>
+              )
+            })}
+            </select>
+          </div>
+
+            Price:
+
+            <input
+              type="number"
+              placeholder={`Price`}
+              value={product.price}
+            />
+
+            SKU:
+
+            <input
+              type="number"
+              placeholder={`SKU`}
+              value={product.sku}
+            />
+
+            QTY:
+
+            <input
+              type="number"
+              placeholder={`Qty`}
+              value={product.qty}
+              onChange={this.handleQtyChange(idx)}
+            />
+
+            Total:
+
+            <input
+              type="number"
+              placeholder={`Total`}
+              value={product.total}
+            />
+            <button type="button" onClick={this.handleRemoveProduct(idx)} className="small">-</button>
+          </div>
+        ))}
+        <button type="button" onClick={this.handleAddProductToOrder} className="small">Add Product</button>
+        <br />
+        <br />
+        Order Total: <p>${orderTotal}</p>
+        <br />
+        <button>Submit Order</button>
       </form>
     )
-
   }
 }
 
+
 const mapStateToProps = (state) => ({
+  customers: state.customers,
   products: state.products
 })
 
-
-export default connect(mapStateToProps)(OrderForm)
-
-
-
-// in addition to creating new component, add object to array
-// make a new object in that state on the add row event
-// state : [{product: "", sku: "", qty: "", total: ""}]
-// onselect product -> setstate {}
-// row identifier to match the form row id (Set counter i=0 and iterate through the array of objects)
-// add row - pushes a new empty object into the state array
+export default connect(mapStateToProps)(TrialOrderForm)
