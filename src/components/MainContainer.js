@@ -14,8 +14,6 @@ import { fetchOrderedProducts } from "../actions/orderedProductActions"
 
 class MainContainer extends Component {
 
-  state = { customers: [], products: [] }
-
   componentDidMount() {
     this.props.dispatch(fetchProducts())
     this.props.dispatch(fetchCustomers())
@@ -45,8 +43,6 @@ class MainContainer extends Component {
 
   render(){
 
-    console.log(this.props);
-
     const { error, loading } = this.props;
 
     if (error) {
@@ -65,8 +61,6 @@ class MainContainer extends Component {
   }
 
 }
-
-// need to refactor the loading and error messages for customers and products fetches
 
 const mapStateToProps = (state) => ({
   viewProducts: state.viewProducts,

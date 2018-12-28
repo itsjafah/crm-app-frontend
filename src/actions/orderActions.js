@@ -7,7 +7,6 @@ export function fetchOrders() {
     .then(handleErrors)
     .then(res => res.json())
     .then(json => {
-      console.log(json);
       dispatch(fetchOrdersSuccess(json));
       return json;
     })

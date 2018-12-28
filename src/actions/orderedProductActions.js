@@ -1,14 +1,12 @@
 const ORDERED_PRODUCTS_API = 'http://localhost:3000/api/v1/ordered_products'
 
 export function fetchOrderedProducts() {
-  console.log('hello');
   return dispatch => {
     dispatch(fetchOrderedProductsBegin());
     return fetch(ORDERED_PRODUCTS_API)
     .then(handleErrors)
     .then(res => res.json())
     .then(json => {
-      console.log(json)
       dispatch(fetchOrderedProductsSuccess(json));
       return json;
     })

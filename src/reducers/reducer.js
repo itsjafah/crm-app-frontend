@@ -106,7 +106,6 @@ const reducer = (currentState = defaultState, action) =>
     case "HANDLE_NOTE_INPUT":
       return {...currentState, customerNoteInput: action.payload}
     case "HANDLE_SELECT_CUSTOMER":
-      console.log(action.payload);
       return {...currentState, selectedCustomer: currentState.customers.filter(customer => customer.id == action.payload)}
     case "HANDLE_ADD_ROW":
       return {...currentState, numFormRows: currentState.numFormRows+1}

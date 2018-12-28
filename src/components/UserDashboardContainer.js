@@ -21,8 +21,6 @@ const UserDashboardContainer = (props) => {
 
     const date2 = new Date('2019-01-01T12:00:00');
 
-    console.log(date2 - date);
-
 
 
     // const toNow = moment([2007, 0, 29]).toNow()
