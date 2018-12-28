@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Dropdown, Menu } from 'semantic-ui-react'
+
 
 const Header = (props) => {
 

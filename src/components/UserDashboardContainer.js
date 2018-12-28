@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidebar from './Sidebar'
+
 import { connect } from 'react-redux'
 import Moment from 'react-moment'
 
@@ -48,7 +48,6 @@ const UserDashboardContainer = (props) => {
 
         <Moment fromNow ago>2019-01-01T12:00-0500</Moment>
 
-        <Sidebar customers={props.customers}/>
       </div>
     )
   }

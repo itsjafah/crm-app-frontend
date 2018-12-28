@@ -4,6 +4,7 @@ import UserDashboardContainer from './UserDashboardContainer'
 import CategorySelector from './CategorySelector'
 import ProductsContainer from './ProductsContainer'
 import CustomerDashboardContainer from './CustomerDashboardContainer'
+import Sidebar from './Sidebar'
 import { connect } from "react-redux";
 import { fetchProducts } from "../actions/productActions";
 import { fetchCustomers } from "../actions/customerActions"
@@ -56,6 +57,7 @@ class MainContainer extends Component {
     return(
       <div>
         {this.renderContent()}
+        <Sidebar />
       </div>
     )
   }
