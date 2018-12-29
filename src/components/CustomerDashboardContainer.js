@@ -3,7 +3,6 @@ import CustomerGeneralInfo from './CustomerGeneralInfo'
 import CustomerSalesGoalInfo from './CustomerSalesGoalInfo'
 import CustomerProductSalesInfo from './CustomerProductSalesInfo'
 import CustomerNotesContainer from './CustomerNotesContainer'
-import CreateCustomerNoteContainer from './CreateCustomerNoteContainer'
 
 const CustomerDashboardContainer = (props) => {
 
@@ -14,7 +13,6 @@ const CustomerDashboardContainer = (props) => {
       <CustomerSalesGoalInfo />
       <CustomerProductSalesInfo />
       <CustomerNotesContainer />
-      <CreateCustomerNoteContainer />
     </div>
   )
 }

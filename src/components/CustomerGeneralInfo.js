@@ -7,15 +7,15 @@ const CustomerGeneralInfo = (props) => {
 
   return(
     <div className="customer-general-info-container">
-      <div>
-        Customer: {props.viewThisCustomer.name}
+      <p className="customer-general-info-text">
+        {props.viewThisCustomer.name}
         <br />
-        Customer Address: {props.viewThisCustomer.address}
+        Address: {props.viewThisCustomer.address}
         <br />
         Customer Rank: {props.viewThisCustomer.rank}
         <br />
         2019 Sales Goal: {props.viewThisCustomer.annual_goal}
-      </div>
+      </p>
     </div>
   )
 }

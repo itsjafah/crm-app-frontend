@@ -1,5 +1,6 @@
 import React from 'react'
 import CustomerNote from './CustomerNote'
+import CreateCustomerNote from './CreateCustomerNote'
 import { connect } from 'react-redux'
 
 const CustomerNotesContainer = (props) => {
@@ -11,9 +12,10 @@ const CustomerNotesContainer = (props) => {
   })
 
   return(
-    <div>
+    <div className="customer-notes-container">
         <br />
       {note}
+      <CreateCustomerNote />
     </div>
   )
 

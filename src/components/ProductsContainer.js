@@ -13,7 +13,7 @@ const ProductsContainer = (props) => {
   return(
     <div>
       {props.selectedCategory}
-    <table>
+    <table className="products-list-container">
       <tbody>
         <tr>
           <th>

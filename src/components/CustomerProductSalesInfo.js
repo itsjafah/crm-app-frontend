@@ -2,16 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, VerticalBarSeries, VerticalBarSeriesCanvas, LabelSeries } from 'react-vis'
 
-// filter orderedproducts by category - returns an array of products that belongs to that category
-// x value is category name
-// to get the total of each ordered item, map through the filtered products and return the product price x quantity
-// reducer function returns the totals which becomes the y
-
-
-
-
-const blueData = [{x: 'poop', y: 12}, {x: 'poopi', y: 2}, {x: 'C', y: 11}];
-
 
 const CustomerProductSalesInfo = (props) => {
 
@@ -21,12 +11,8 @@ const CustomerProductSalesInfo = (props) => {
       return {x: op.product.category, y: (op.quantity) * (op.product.price)}
   });
 
-  console.log(dataArr);
-  console.log(customerOrderedProducts);
-
-
   return(
-      <div>
+      <div className="customer-product-sales-graph">
         <XYPlot className="bar-graph" xType="ordinal" width={500} height={300} xDistance={100}>
           <VerticalGridLines />
           <HorizontalGridLines />
