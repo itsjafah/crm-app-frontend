@@ -1,5 +1,7 @@
 import React from 'react'
-import CustomerDashboard from './CustomerDashboard'
+import CustomerGeneralInfo from './CustomerGeneralInfo'
+import CustomerSalesGoalInfo from './CustomerSalesGoalInfo'
+import CustomerProductSalesInfo from './CustomerProductSalesInfo'
 import CustomerNotesContainer from './CustomerNotesContainer'
 import CreateCustomerNoteContainer from './CreateCustomerNoteContainer'
 
@@ -8,7 +10,9 @@ const CustomerDashboardContainer = (props) => {
   return(
     <div>
       <br />
-      <CustomerDashboard />
+      <CustomerGeneralInfo />
+      <CustomerSalesGoalInfo />
+      <CustomerProductSalesInfo />
       <CustomerNotesContainer />
       <CreateCustomerNoteContainer />
     </div>
