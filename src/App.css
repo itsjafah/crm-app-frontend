@@ -134,10 +134,20 @@
 }
 
 .user-annual-sales-goal-radial-chart {
+
 }
 
 .user-sales-goal-charts {
+  margin-top: 50px;
   display:flex;
   flex-direction:row;
   margin-left: 360px
+}
+
+.user-product-sales-charts {
+  margin-left: 300px;
+  margin-right: 300px;
+  margin-top: 100px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }

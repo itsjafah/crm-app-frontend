@@ -55,7 +55,7 @@ class MainContainer extends Component {
     }
 
     return(
-      <div>
+      <div className='main-container'>
         {this.renderContent()}
         <Sidebar />
       </div>

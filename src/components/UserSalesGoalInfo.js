@@ -71,7 +71,7 @@ const UserSalesGoalInfo = (props) => {
         />
       </div>
       <div className="monthly">
-      Monthly: 
+      Monthly:
         <RadialChart
           className="user-monthly-sales-goal-radial-chart"
           colorType={'literal'}

@@ -1,5 +1,6 @@
 import React from 'react'
 import UserSalesGoalInfo from './UserSalesGoalInfo'
+import UserProductSalesInfo from './UserProductSalesInfo'
 
 
 const UserDashboardContainer = (props) => {
@@ -7,6 +8,7 @@ const UserDashboardContainer = (props) => {
     return(
       <div>
         <UserSalesGoalInfo />
+        <UserProductSalesInfo />
       </div>
     )
   }
