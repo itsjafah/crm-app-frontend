@@ -117,83 +117,79 @@ class TrialOrderForm extends React.Component {
       }, initialValue)
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          <select className="ui dropdown" onChange={ (event)=> this.handleSelectCustomer(event.target.value)} >
-          {this.props.customers.map((customer, i) => {
-            return (
-              <option
-              key={i}
-              className="item"
-              value={customer.id}>
-              {customer.name}
-              </option>
-            )
-          })}
-          </select>
-        </div>
+        <form onSubmit={this.handleSubmit}>
 
-        <h4>Products</h4>
-
-        {this.state.productsOnOrder.map((product, idx) => (
-          <div className="product">
-          <div className="sixteen wide column"> Name
-            <select className="ui dropdown" onChange={ this.handleProductNameChange(idx)} >
-            {this.props.products.map((product) => {
+            <select className="ui-dropdown" onChange={ (event)=> this.handleSelectCustomer(event.target.value)} >
+            {this.props.customers.map((customer, i) => {
               return (
                 <option
-                key={product.id}
+                key={i}
                 className="item"
-                value={product.id}>
-                {product.name}
+                value={customer.id}>
+                {customer.name}
                 </option>
               )
             })}
             </select>
-          </div>
 
-            Price:
+          <h4>Products</h4>
 
-            <input
-              type="number"
-              placeholder={`Price`}
-              value={product.price}
-            />
+          <div className='row'>
 
-            SKU:
+                  {this.state.productsOnOrder.map((product, idx) => (
+                    <div className="row">
+                    <div className="sixteen wide column"> Name
+                      <select className="ui-dropdown" onChange={ this.handleProductNameChange(idx)} >
+                      {this.props.products.map((product) => {
+                        return (
+                          <option
+                          key={product.id}
+                          className="item"
+                          value={product.id}>
+                          {product.name}
+                          </option>
+                        )
+                      })}
+                      </select>
+                    </div>
 
-            <input
-              type="number"
-              placeholder={`SKU`}
-              value={product.sku}
-            />
+                      <input
+                        type="number"
+                        placeholder={`Price`}
+                        value={product.price}
+                      />
 
-            QTY:
 
-            <input
-              type="number"
-              placeholder={`Qty`}
-              value={product.qty}
-              onChange={this.handleQtyChange(idx)}
-            />
+                      <input
+                        type="number"
+                        placeholder={`SKU`}
+                        value={product.sku}
+                      />
 
-            Total:
+                      <input
+                        type="number"
+                        placeholder={`Qty`}
+                        value={product.qty}
+                        onChange={this.handleQtyChange(idx)}
+                      />
 
-            <input
-              type="number"
-              placeholder={`Total`}
-              value={product.total}
-            />
-            <button type="button" onClick={this.handleRemoveProduct(idx)} className="small">-</button>
-          </div>
-        ))}
-        <button type="button" onClick={this.handleAddProductToOrder} className="small">Add Product</button>
-        <br />
-        <br />
-        Order Total: <p>${orderTotal}</p>
-        <br />
-        <button>Submit Order</button>
-      </form>
+                      <input
+                        type="number"
+                        placeholder={`Total`}
+                        value={product.total}
+                      />
+                      <button type="button" onClick={this.handleRemoveProduct(idx)} className="small">-</button>
+                    </div>
+                  ))}
+
+                  </div>
+                  <button type="button" onClick={this.handleAddProductToOrder} className="small">Add Product</button>
+                  <br />
+                  <br />
+                  Order Total: <p>${orderTotal}</p>
+                  <br />
+                  <button>Submit Order</button>
+                </form>
     )
   }
 }

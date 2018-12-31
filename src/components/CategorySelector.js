@@ -1,22 +1,66 @@
 import React from 'react'
 import { connect } from 'react-redux'
+// import Button from '@material-ui/core/Button'
+import { Button } from 'semantic-ui-react'
+
 
 
 const CategorySelector = (props) => {
+
 
   return(
     <div>
       <div>
         Select Category
       </div>
-      <div>
-        <button onClick={props.handleViewDollsActionFigures}>Dolls & Action Figures</button>
-        <button onClick={props.handleViewMovies}>Movies</button>
-        <button onClick={props.handleViewBooks}>Books</button>
-        <br />
-        <button onClick={props.handleViewToys}>Toys</button>
-        <button onClick={props.handleViewElectronics}>Electronics</button>
-        <button onClick={props.handleViewBoardGames}>Board Games</button>
+      <div className='grid-container'>
+        <Button
+          color='blue'
+          className='grid-item'
+          size='massive'
+          variant="outlined" onClick={props.handleViewDollsActionFigures}>
+          Dolls & Action Figures
+        </Button>
+        <Button
+          color='blue'
+          className='grid-item'
+          size='massive'
+          variant="outlined"
+          onClick={props.handleViewMovies}>
+            Movies
+        </Button>
+        <Button
+          color='blue'
+          className='grid-item'
+          size='massive'
+          variant="outlined"
+          onClick={props.handleViewBooks}>
+            Books
+        </Button>
+        <Button
+          color='blue'
+          className='grid-item'
+          size='massive'
+          variant="outlined"
+          onClick={props.handleViewToys}>
+            Toys
+        </Button>
+        <Button
+          color='blue'
+          className='grid-item'
+          size='massive'
+          variant="outlined"
+          onClick={props.handleViewElectronics}>
+            Electronics
+        </Button>
+        <Button
+          color='blue'
+          className='grid-item'
+          size='massive'
+          variant="outlined"
+          onClick={props.handleViewBoardGames}>
+            Board Games
+        </Button>
       </div>
     </div>
   )

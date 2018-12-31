@@ -38,11 +38,11 @@
 .header-container {
   background-color: #ffb74d;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  min-height: 10vh;
+  min-height: 20vh;
 }
 
 .header-buttons-container {
-  padding-top: 25px
+  padding-top: 40px
 }
 
 /* Dropdown Button */
@@ -150,4 +150,19 @@
   margin-top: 100px;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.grid-container {
+  /* display: grid;
+  grid-template-columns: auto auto; */
+  padding: 10px;
+}
+
+.grid-item {
+  margin-right: 500px;
+}
+
+
+.ui-dropdown{
+  margin-top: 10px
 }
