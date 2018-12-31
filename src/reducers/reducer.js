@@ -100,7 +100,7 @@ const reducer = (currentState = defaultState, action) =>
       return {...currentState, loading: false,
         orderedProducts: []}
     case "VIEW_THIS_CUSTOMER":
-      return {...currentState, viewThisCustomer: action.payload, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, viewToys: currentState.viewToys = false, viewElectronics: currentState.viewElectronics = false, editNote: currentState.editNote = false, editThisNote: currentState.editThisNote = null, selectedCategory: false}
+      return {...currentState, viewThisCustomer: action.payload, openDashboard: currentState.openDashboard = false, viewProducts: currentState.viewProducts = false, createOrder: currentState.createOrder = false, viewToys: currentState.viewToys = false, viewElectronics: currentState.viewElectronics = false, editNote: currentState.editNote = false, editThisNote: currentState.editThisNote = null, selectedCategory: false, productSelected: false}
     case "EDIT_NOTE":
       return {...currentState, editNote: currentState.editNote = true, editThisNote: action.payload, customerNoteInput: action.payload.body}
     case "HANDLE_NOTE_INPUT":

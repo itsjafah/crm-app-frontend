@@ -26,6 +26,8 @@ class MainContainer extends Component {
 
   renderContent = () => {
 
+    console.log(this.props);
+
     if (this.props.createOrder === true) {
       return <OrderFormContainer />
     } else if (this.props.openDashboard === true ) {

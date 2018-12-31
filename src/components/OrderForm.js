@@ -67,7 +67,7 @@ class TrialOrderForm extends React.Component {
 
 
     e.preventDefault()
-    alert(`Sup`);
+    alert(`Order Placed!`);
       fetch(ORDERS_API, {
         method: 'POST',
         headers: {
@@ -117,9 +117,12 @@ class TrialOrderForm extends React.Component {
       }, initialValue)
 
     return (
-        <form onSubmit={this.handleSubmit}>
+        <form
+          className='order-form-container'
+          onSubmit={this.handleSubmit}>
 
-            <select className="ui-dropdown" onChange={ (event)=> this.handleSelectCustomer(event.target.value)} >
+          <div className="select-customer-dropdown">
+            <select onChange={ (event)=> this.handleSelectCustomer(event.target.value)} >
             {this.props.customers.map((customer, i) => {
               return (
                 <option
@@ -131,14 +134,15 @@ class TrialOrderForm extends React.Component {
               )
             })}
             </select>
+          </div>
 
-          <h4>Products</h4>
+          <h3>Products</h3>
 
-          <div className='row'>
+          <div className='product-row'>
 
                   {this.state.productsOnOrder.map((product, idx) => (
-                    <div className="row">
-                    <div className="sixteen wide column"> Name
+
+                    <div className="form-row-input">
                       <select className="ui-dropdown" onChange={ this.handleProductNameChange(idx)} >
                       {this.props.products.map((product) => {
                         return (
@@ -151,7 +155,7 @@ class TrialOrderForm extends React.Component {
                         )
                       })}
                       </select>
-                    </div>
+
 
                       <input
                         type="number"
@@ -187,7 +191,7 @@ class TrialOrderForm extends React.Component {
                   <br />
                   <br />
                   Order Total: <p>${orderTotal}</p>
-                  <br />
+
                   <button>Submit Order</button>
                 </form>
     )

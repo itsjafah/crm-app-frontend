@@ -13,7 +13,11 @@ const ProductsContainer = (props) => {
 
   return(
     <div>
-      <h1>{props.selectedCategory}</h1>
+      <div className='product-category-header'>
+        <h1>
+          {props.selectedCategory}
+        </h1>
+      </div>
       <Table className='product-table'>
         <Table.Header>
           <Table.Row>
