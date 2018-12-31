@@ -18,14 +18,6 @@ const UserSalesGoalInfo = (props) => {
 
   const sales_to_reach_goal = (user_annual_sales_goal - current_overall_sales)
 
-  // Remaining Sales Goal: {sales_to_reach_goal}
-  // <br />
-  // Monthly Sales Goal: {(user_annual_sales_goal - current_overall_sales)/(12)}
-  // <br />
-  // Weekly Sales Goal: {(user_annual_sales_goal - current_overall_sales)/(52)}
-  // <br />
-  // Daily Sales Goal: {(user_annual_sales_goal - current_overall_sales)/(365)}
-  // <br />
   return(
     <div className="user-sales-goal-charts">
       <div className="daily">

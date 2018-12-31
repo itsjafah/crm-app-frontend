@@ -7,17 +7,6 @@
   height: 40vmin;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .App-link {
   color: #61dafb;
 }
@@ -31,18 +20,23 @@
   }
 }
 
-.sidebar {
-  margin-right: 75%
-}
+/* HEADER */
 
 .header-container {
-  background-color: #ffb74d;
+  background-color: #01579b;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   min-height: 20vh;
 }
 
 .header-buttons-container {
-  padding-top: 40px
+  display:flex;
+  flex-direction:row;
+  margin-left: 530px;
+  padding-top: 50px
+}
+
+.header-button {
+  margin-left: 20px;
 }
 
 /* Dropdown Button */
@@ -93,7 +87,7 @@
 
 .customer-general-info-container {
   border-style: outset;
-  border-color: #ffb74d;
+  border-color: #01579b;
   border-radius: 0.3EM;
   margin-left: 300px;
   margin-right: 300px;
@@ -109,7 +103,7 @@
 
 .customer-product-sales-graph {
   border-style: outset;
-  border-color: #ffb74d;
+  border-color: #01579b;
   border-radius: 0.3EM;
   margin-left: 300px;
   margin-right: 300px;
@@ -120,7 +114,7 @@
 
 .customer-notes-container {
   border-style: outset;
-  border-color: #ffb74d;
+  border-color: #01579b;
   border-radius: 0.3EM;
   margin-left: 300px;
   margin-right: 300px;
@@ -133,10 +127,6 @@
   margin: auto
 }
 
-.user-annual-sales-goal-radial-chart {
-
-}
-
 .user-sales-goal-charts {
   margin-top: 50px;
   display:flex;
@@ -145,11 +135,7 @@
 }
 
 .user-product-sales-charts {
-  margin-left: 300px;
-  margin-right: 300px;
   margin-top: 100px;
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
 
 .grid-container {
@@ -165,4 +151,98 @@
 
 .ui-dropdown{
   margin-top: 10px
+}
+
+/* UserProductSalesInfo */
+
+.product-sales-and-annual-goal-container {
+  display:flex;
+  flex-direction:row;
+  margin-top: 100px;
+  margin-left: 400px;
+}
+
+.user-annual-sales-goal-radial-chart {
+  margin-left: 40px;
+  margin-top: 50px
+}
+
+.user-product-sales-bar-graph {
+  padding-top: 20px
+}
+
+
+/* sidebar */
+
+html,
+body {
+  margin: 0;
+}
+
+#App {
+  font-family: sans-serif;
+  height: 100vh;
+}
+
+#page-wrap {
+  text-align: center;
+  overflow: auto;
+}
+
+.bm-item {
+  display: inline-block;
+  text-decoration: none;
+  margin-bottom: 10px;
+  color: #d1d1d1;
+  transition: color 0.2s;
+}
+
+.bm-item:hover {
+  color: white;
+}
+
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 50px;
+}
+
+.bm-burger-bars {
+  background: #ffffff;
+}
+
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+.bm-cross {
+  background: #ffffff;
+}
+
+.bm-menu {
+  background: #1e88e5;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+.bm-item-list {
+  color: #b8b7ad;
+}
+
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-customer-list-item {
+  font-size: 2.0em;
+  font-family: helvetica;
+  padding: 1.5em 0em 1.0em;
+  font-variant: small-caps;
 }

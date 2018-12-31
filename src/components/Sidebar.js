@@ -1,6 +1,7 @@
 import React from 'react'
 import CustomerListItem from './CustomerListItem'
 import { connect } from 'react-redux'
+import { push as Menu } from 'react-burger-menu';
 
 const Sidebar = (props) => {
 
@@ -13,11 +14,11 @@ const Sidebar = (props) => {
   })
 
     return(
-      <div className="sidebar">
-        <ul>
-          {customer}
-        </ul>
-      </div>
+      <Menu>
+      <a>
+        {customer}
+      </a>
+      </Menu>
     )
 }
 

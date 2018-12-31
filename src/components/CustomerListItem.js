@@ -5,7 +5,9 @@ import { Menu } from 'semantic-ui-react'
 const CustomerListItem = (props) => {
 
     return(
-      <div onClick={() => props.handleViewCustomer(props.customer)}>
+      <div
+        onClick={() => props.handleViewCustomer(props.customer)}
+        className='sidebar-customer-list-item'>
         {props.customer.name}
       </div>
     )
