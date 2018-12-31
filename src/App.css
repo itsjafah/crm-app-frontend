@@ -138,16 +138,6 @@
   margin-top: 100px;
 }
 
-.grid-container {
-  /* display: grid;
-  grid-template-columns: auto auto; */
-  padding: 10px;
-}
-
-.grid-item {
-  margin-right: 500px;
-}
-
 
 .ui-dropdown{
   margin-top: 10px
@@ -245,4 +235,35 @@ body {
   font-family: helvetica;
   padding: 1.5em 0em 1.0em;
   font-variant: small-caps;
+}
+
+/* PRODUCT */
+
+.product-list-item {
+  padding-top: 200px
+}
+
+.product-header {
+  padding-left: 20px
+}
+
+/* CATEGORY SELECTOR */
+
+.select-category-header {
+  margin-top: 50px
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 50px;
+}
+
+.grid-item {
+  padding: 20px;
+}
+
+.product-table {
+  padding-left: 100px;
+  padding-right: 100px;
 }

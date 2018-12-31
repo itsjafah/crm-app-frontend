@@ -1,5 +1,6 @@
 import React from 'react'
 import Product from './Product'
+import { Table } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 const ProductsContainer = (props) => {
@@ -12,37 +13,24 @@ const ProductsContainer = (props) => {
 
   return(
     <div>
-      {props.selectedCategory}
-    <table className="products-list-container">
-      <tbody>
-        <tr>
-          <th>
-            <h3 className="ui center aligned header">Image</h3>
-          </th>
-          <th>
-            <h3 className="ui center aligned header">Product</h3>
-          </th>
-          <th>
-            <h3 className="ui center aligned header">Category</h3>
-          </th>
-          <th>
-            <h3 className="ui center aligned header">SKU</h3>
-          </th>
-          <th>
-            <h3 className="ui center aligned header">Cost</h3>
-          </th>
-          <th>
-            <h3 className="ui center aligned header">Price</h3>
-          </th>
-          <th>
-            <h3 className="ui center aligned header">Margin</h3>
-          </th>
-        </tr>
-        {product}
-      </tbody>
-    </table>
+      <h1>{props.selectedCategory}</h1>
+      <Table className='product-table'>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell className='product-header'><h2>Image</h2></Table.HeaderCell>
+            <Table.HeaderCell><h2>Product</h2></Table.HeaderCell>
+            <Table.HeaderCell><h2>Category</h2></Table.HeaderCell>
+            <Table.HeaderCell><h2>SKU</h2></Table.HeaderCell>
+            <Table.HeaderCell><h2>Cost</h2></Table.HeaderCell>
+            <Table.HeaderCell><h2>Price</h2></Table.HeaderCell>
+            <Table.HeaderCell><h2>Margin</h2></Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          {product}
+        </Table.Body>
+      </Table>
     </div>
-
   )
 
 }

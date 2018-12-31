@@ -1,4 +1,6 @@
 import React from 'react'
+import { Table } from 'semantic-ui-react'
+import { connect } from 'react-redux'
 
 const Product = (props) => {
 
@@ -7,17 +9,21 @@ const Product = (props) => {
 }
 
   return(
-    <tr>
-      <td><img src={props.product.image_url} height='150' width='120'/></td>
-      <td>{props.product.name}</td>
-      <td>{props.product.category}</td>
-      <td>{props.product.id}</td>
-      <td>{props.product.cost}</td>
-      <td>{props.product.price}</td>
-      <td>{money_round((props.product.price - props.product.cost)/(props.product.price))}</td>
-    </tr>
+       <Table.Row>
+         <Table.Cell><img src={props.product.image_url} height='150' width='120'/></Table.Cell>
+         <Table.Cell><h3>{props.product.name}</h3></Table.Cell>
+         <Table.Cell><h3>{props.product.category}</h3></Table.Cell>
+         <Table.Cell><h3>{props.product.id}</h3></Table.Cell>
+         <Table.Cell><h3>{props.product.cost}</h3></Table.Cell>
+         <Table.Cell><h3>{props.product.price}</h3></Table.Cell>
+         <Table.Cell><h3>{money_round((props.product.price - props.product.cost)/(props.product.price))}</h3></Table.Cell>
+       </Table.Row>
   )
 }
 
+const mapStateToProps = (state) => ({
+  selectedCategory: state.selectedCategory,
+  products: state.products
+})
 
-export default Product
+export default connect(mapStateToProps)(Product)

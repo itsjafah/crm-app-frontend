@@ -10,8 +10,10 @@ const CategorySelector = (props) => {
 
   return(
     <div>
-      <div>
-        Select Category
+      <div className='select-category-header'>
+        <h1>
+          Select Category
+        </h1>
       </div>
       <div className='grid-container'>
         <Button
