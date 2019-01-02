@@ -1,10 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchNotes } from '../actions/noteActions'
 
 const NOTES_API = 'http://localhost:3000/api/v1/notes'
 
 class CustomerNote extends React.Component {
+
+  getNotes = () => {
+    fetch(NOTES_API)
+      .then(r => r.json())
+      .then(r => {
+        this.props.setNotes(r)
+      })
+  }
+
+  clearNoteForm = () => {
+    const noteForm = document.querySelector('#noteForm')
+    console.log(noteForm);
+    noteForm.reset()
+  }
 
   handleDeleteNote = (note) => {
     fetch(`${NOTES_API}/${note.id}`, {
@@ -14,11 +27,14 @@ class CustomerNote extends React.Component {
         'Content-Type': 'application/json'
       }
     })
-    .then( r => r.json())
-    .then(() => this.props.dispatch(fetchNotes()))
+    .then(() => {
+      this.getNotes()
+      this.clearNoteForm()
+    })
   }
 
   render(){
+
     return(
       <div>
       {this.props.note.body}
@@ -37,7 +53,12 @@ const mapDispatchToProps = (dispatch) => ({
   handleEditNote: (note) => dispatch({
     type: "EDIT_NOTE",
     payload: note
+  }),
+  setNotes: (notes) => dispatch({
+    type: 'SET_NOTES',
+    payload: notes
   })
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CustomerNote)

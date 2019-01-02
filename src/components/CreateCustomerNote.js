@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchNotes } from '../actions/noteActions'
+// import { fetchNotes } from '../actions/noteActions'
 
 const NOTES_API = 'http://localhost:3000/api/v1/notes'
 
@@ -10,10 +10,24 @@ class CreateCustomerNote extends Component {
   // update state
   // action needed on submit add note
 
+  getNotes = () => {
+    fetch(NOTES_API)
+      .then(r => r.json())
+      .then(r => {
+        this.props.setNotes(r)
+      })
+  }
+
+  clearNoteForm = () => {
+    const noteForm = document.querySelector('#noteForm')
+    console.log(noteForm);
+    noteForm.reset()
+  }
 
   handleSubmit = (e) => {
     e.preventDefault()
     if (this.props.editNote === false) {
+      // creating new note
       console.log('here');
       fetch(NOTES_API, {
         method: 'POST',
@@ -27,7 +41,13 @@ class CreateCustomerNote extends Component {
           body: this.props.customerNoteInput
         })
       })
+      .then(() => {
+        this.getNotes()
+        this.clearNoteForm()
+      })
+
     } else if (this.props.editNote === true) {
+        // editing note
         fetch(`${NOTES_API}/${this.props.editThisNote.id}`, {
           method: 'PATCH',
           headers: {
@@ -40,8 +60,8 @@ class CreateCustomerNote extends Component {
             body: this.props.customerNoteInput
           })
         })
-        .then( r => r.json())
-        .then((newNote) => this.props.dispatch(fetchNotes(newNote)))
+        // .then(() => this.props.dispatch(fetchNotes()))
+        .then(() => this.getNotes())
       }
 
   }
@@ -54,7 +74,10 @@ class CreateCustomerNote extends Component {
 
     return(
       <div>
-        <form onSubmit={e => this.handleSubmit(e)}>
+        <form
+          onSubmit={e => this.handleSubmit(e)}
+          id='noteForm'
+        >
           <label>
             Add Note:
             <textarea
@@ -83,6 +106,10 @@ const mapDispatchToProps = (dispatch) => ({
   handleNoteInput: (input) => dispatch({
     type: "HANDLE_NOTE_INPUT",
     payload: input
+  }),
+  setNotes: (notes) => dispatch({
+    type: 'SET_NOTES',
+    payload: notes
   })
 })
 

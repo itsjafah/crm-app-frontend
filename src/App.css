@@ -85,42 +85,55 @@
   margin: auto
 }
 
+/* CUSTOMER GENERAL INFO */
+
 .customer-general-info-container {
-  border-style: outset;
-  border-color: #01579b;
-  border-radius: 0.3EM;
-  margin-left: 300px;
-  margin-right: 300px;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding-left: 140px;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.5EM;
 }
 
 .customer-general-info-text {
-  font-size: 20px;
+  font-size: 35px;
   font-family: Geneva,Tahoma,Verdana,sans-serif;
   font-weight: bold;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  font-variant: small-caps;
+  margin-right: 110px;
+  padding-bottom: 50px;
 }
 
 .customer-product-sales-graph {
-  border-style: outset;
-  border-color: #01579b;
-  border-radius: 0.3EM;
-  margin-left: 300px;
-  margin-right: 300px;
-  margin-top: 50px;
-  padding-top: 20px;
+  margin-top: 80px;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding-left: 140px;
+  padding-top: 50px;
   padding-bottom: 20px;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.5EM;
 }
 
+/* CUSTOMER NOTES CONTAINER  */
+
 .customer-notes-container {
-  border-style: outset;
-  border-color: #01579b;
-  border-radius: 0.3EM;
-  margin-left: 300px;
-  margin-right: 300px;
-  margin-top: 50px;
-  padding-top: 20px;
+  margin-top: 80px;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding-left: 140px;
+  padding-top: 50px;
   padding-bottom: 20px;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.5EM;
+}
+
+/* CUSTOMER DASHBOARD CONTAINER */
+
+.customer-dashboard-container {
+  margin-bottom: 100px
 }
 
 .products-list-container {
@@ -233,12 +246,17 @@ body {
 }
 
 .product-header {
-  padding-left: 20px
+  padding-left: 20px;
 }
 
 .product-category-header {
   margin-top: 50px;
   margin-bottom: 50px;
+  margin-left: 550px;
+  margin-right: 550px;
+  font-variant: small-caps;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.3em
 }
 
 /* CATEGORY SELECTOR */
@@ -251,16 +269,20 @@ body {
   margin-right: 500px;
   font-variant: small-caps;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.3em
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: auto auto;
   padding: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .grid-item {
-  padding: 20px;
+  background-color: #7e57c2
 }
 
 .product-table {
@@ -277,6 +299,7 @@ body {
   margin-right: 500px;
   font-variant: small-caps;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.3em
 }
 
 .user-dashboard-charts-container {
@@ -320,9 +343,14 @@ body {
   font-variant: small-caps;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-variant: small-caps;
+  border-radius: 0.3em
 }
 
 /* CREATE ORDER CONTAINER */
+
+.create-order-form-container {
+  margin-bottom: 100px;
+}
 
 .create-order-header {
   margin-top: 50px;
@@ -332,6 +360,7 @@ body {
   font-variant: small-caps;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-variant: small-caps;
+  border-radius: 0.3em
 }
 
 /* CREATE FORM  */
@@ -341,7 +370,12 @@ body {
 }
 
 .product-row {
-  margin-bottom: 30px
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.3EM;
 }
 
 .number-input {
@@ -349,13 +383,14 @@ body {
 }
 
 .order-form-container {
-  border-width:5px;
+  border-width:1px;
   border-style:ridge;
   border-radius: 1.0EM;
   margin-left: 100px;
   margin-right: 100px;
   margin-top: 50px;
-  padding-bottom: 100px
+  padding-bottom: 100px;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .select-customer-dropdown {

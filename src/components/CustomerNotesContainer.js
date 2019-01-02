@@ -1,23 +1,33 @@
-import React from 'react'
+import React, { Component } from 'react'
 import CustomerNote from './CustomerNote'
 import CreateCustomerNote from './CreateCustomerNote'
 import { connect } from 'react-redux'
 
-const CustomerNotesContainer = (props) => {
+const NOTES_API = 'http://localhost:3000/api/v1/notes'
 
-  const filteredNotes = props.notes.filter(note => note.customer_id === props.viewThisCustomer.id)
+class CustomerNotesContainer extends Component {
+  //
+  // componentDidMount = () => {
+  //   this.getNotes()
+  // }
 
-  const note = filteredNotes.map( note => {
-    return <CustomerNote key={note.id} note={note}/>
-  })
 
-  return(
-    <div className="customer-notes-container">
-        <br />
-      {note}
-      <CreateCustomerNote />
-    </div>
-  )
+  render(){
+
+    const filteredNotes = this.props.notes.filter(note => note.customer_id === this.props.viewThisCustomer.id)
+
+    const notes = filteredNotes.map(note => {
+      return <CustomerNote key={note.id} note={note} />
+    })
+
+    return(
+      <div className="customer-notes-container">
+      <br />
+        {notes}
+        <CreateCustomerNote />
+      </div>
+    )
+  }
 
 }
 
