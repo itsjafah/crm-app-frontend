@@ -246,12 +246,14 @@
 }
 
 .user-product-sales-bar-graph {
-  padding-left: 80px;
+  padding-left: 30px;
 }
 
 .user-annual-sales-goal-radial-chart {
-  padding-left: 270px;
-  padding-right: 80px
+  padding-left: 180px;
+  padding-right: 80px;
+  margin-right: 80px;
+  margin-bottom: 20px
 }
 
 .user-product-sales-doodads-wrapper {
@@ -261,12 +263,16 @@
 .user-product-sales-info-charts {
   display:flex;
   flex-direction:row;
-  margin-left: 0px;
+  margin-left: 110px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   margin-right: 200px;
   padding-left: 140px;
   padding-top: 50px;
   padding-bottom: 20px;
   align-items: center;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.5em
 }
 
 
@@ -431,12 +437,17 @@ text-align: center
 .user-sales-goal-charts {
   display:flex;
   flex-direction:row;
-  margin-left: 0px;
-  margin-right: 200px;
-  padding-left: 140px;
+  margin-top: 40px;
+  margin-left: 100px;
+  margin-right: 300px;
+  margin-bottom: 40px;
+  padding-left: 50px;
+  padding-right: 40px;
   padding-top: 50px;
   padding-bottom: 20px;
   align-items: center;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.5em
 }
 
 .daily {
