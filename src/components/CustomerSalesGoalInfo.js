@@ -60,6 +60,8 @@ const CustomerSalesGoalInfo = (props) => {
 
   const daily_sales_goal = money_round((sales_to_reach_goal)/(daysUntilDec31))
 
+  const monthly_sales_goal = money_round((sales_to_reach_goal)/(12))
+
   return(
     <div className="customer-sales-goal-charts-container">
       <div className="customer-sales-goal-chart-header">
@@ -87,6 +89,9 @@ const CustomerSalesGoalInfo = (props) => {
               width={250}
               height={200}
             />
+            <h3>
+            Book ${daily_sales_goal} This Week
+            </h3>
           </div>
           <div className="weekly">
             <h4>Monthly Sales Goal:</h4>
@@ -98,7 +103,7 @@ const CustomerSalesGoalInfo = (props) => {
               margin={{top: 100}}
               getLabel={d => d.name}
               data={[
-                {angle: current_overall_sales, color: '#1B830B', name: current_overall_sales},
+                {angle: monthly_sales_goal, color: '#1B830B', name: monthly_sales_goal},
                 {angle: sales_to_reach_goal, color: '#B32400', name: sales_to_reach_goal },
               ]}
               labelsRadiusMultiplier={1.1}
@@ -108,6 +113,9 @@ const CustomerSalesGoalInfo = (props) => {
               width={250}
               height={200}
             />
+            <h3>
+            Book ${monthly_sales_goal} This Month
+            </h3>
           </div>
           <div className="monthly">
             <h4>Annual Sales Goal:</h4>
@@ -129,6 +137,9 @@ const CustomerSalesGoalInfo = (props) => {
               width={250}
               height={200}
             />
+            <h3>
+            ${sales_to_reach_goal} Until Annual Goal
+            </h3>
           </div>
         </div>
       </div>

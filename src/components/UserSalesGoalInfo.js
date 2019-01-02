@@ -71,7 +71,6 @@ const UserSalesGoalInfo = (props) => {
           <div className="daily">
             <h4>Daily Sales Goal:</h4>
               <RadialChart
-                className="user-daily-sales-goal-radial-chart"
                 colorType={'literal'}
                 colorDomain={[0, 100]}
                 colorRange={[0, 10]}

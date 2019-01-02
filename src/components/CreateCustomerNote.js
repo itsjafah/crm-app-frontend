@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { fetchNotes } from '../actions/noteActions'
+import { Button } from 'semantic-ui-react'
 
 const NOTES_API = 'http://localhost:3000/api/v1/notes'
 
@@ -77,12 +77,21 @@ class CreateCustomerNote extends Component {
           <label>
             <textarea
               type="text"
+              cols="100"
+              rows="5"
+              placeholder={`Write a note for ${this.props.viewThisCustomer.name}`}
               onChange={e => this.props.handleNoteInput(e.target.value)}
               value={this.props.customerNoteInput}
           />
           </label>
           <br />
-          <input type="submit" value="Submit" />
+          <Button
+            color='orange'
+            className='grid-item'
+            size='medium'
+            variant="outlined">
+              Leave Note
+          </Button>
         </form>
       </div>
     )

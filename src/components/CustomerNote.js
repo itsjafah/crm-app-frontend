@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Button } from 'semantic-ui-react'
 
 const NOTES_API = 'http://localhost:3000/api/v1/notes'
 
@@ -43,8 +44,22 @@ class CustomerNote extends React.Component {
           </h3>
         </div>
         <div className='note-buttons'>
-          <button onClick={(note) => this.handleDeleteNote(this.props.note)}>Delete</button>
-          <button onClick={(note) => this.props.handleEditNote(this.props.note)}>Edit</button>
+          <Button
+            onClick={(note) => this.handleDeleteNote(this.props.note)}
+            color='red'
+            className='grid-item'
+            size='mini'
+            variant="outlined">
+              Delete
+          </Button>
+          <Button
+            onClick={(note) => this.props.handleEditNote(this.props.note)}
+            color='blue'
+            className='grid-item'
+            size='mini'
+            variant="outlined">
+              Edit
+          </Button>
         </div>
       </div>
     )

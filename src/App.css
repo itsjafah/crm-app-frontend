@@ -181,12 +181,15 @@
 .customer-note-body-container {
   margin-right: 150px;
   margin-top: 10px;
-  padding-top: 5px;
+  padding-top: 30px;
   padding-bottom: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 0.5EM;
 }
 
 .note-buttons {
-  margin-top: 5px
+  margin-top: 20px;
+  margin-bottom: 10px
 }
 
 /* CREATE-CUSTOMER-note */
@@ -199,19 +202,41 @@
 /* UserProductSalesInfo */
 
 .product-sales-and-annual-goal-container {
-  display:flex;
-  flex-direction:row;
-  margin-top: 100px;
-  margin-left: 400px;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.5EM;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 80px;
+  padding-bottom: 50px
 }
 
-.user-annual-sales-goal-radial-chart {
-  margin-left: 40px;
-  margin-top: 50px
+.user-product-sales-info-chart-header{
+  padding-top: 50px;
+  font-variant: small-caps;
 }
 
 .user-product-sales-bar-graph {
-  padding-top: 20px
+  padding-left: 80px;
+}
+
+.user-annual-sales-goal-radial-chart {
+  padding-left: 270px;
+  padding-right: 80px
+}
+
+.user-product-sales-doodads-wrapper {
+  display: inline-block;
+}
+
+.user-product-sales-info-charts {
+  display:flex;
+  flex-direction:row;
+  margin-left: 0px;
+  margin-right: 200px;
+  padding-left: 140px;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  align-items: center;
 }
 
 
@@ -410,25 +435,6 @@ text-align: center
 .user-sales-goal-chart-header {
   padding-top: 30px;
   font-variant: small-caps;
-}
-
-
-.user-daily-sales-goal-radial-chart {
-  display:flex;
-  flex-direction:row;
-}
-
-.product-sales-and-annual-goal-container {
-  margin-top: 100px;
-  display:flex;
-  flex-direction:row;
-  margin-left: 200px;
-  margin-right: 200px;
-  padding-left: 140px;
-  padding-top: 50px;
-  padding-bottom: 20px;
-  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 0.5EM;
 }
 
 /* CUSTOMER DASHBOARD CONTAINER */
