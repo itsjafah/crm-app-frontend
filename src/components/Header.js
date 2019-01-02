@@ -11,21 +11,21 @@ const Header = (props) => {
         <div className='header-buttons-container'>
           <div className='header-button'>
             <Button
-              inverted color='grey'
+              inverted color='orange'
               onClick={props.handleOpenDashboard}>
                 Open Dashboard
             </Button>
           </div>
           <div className='header-button'>
             <Button
-              inverted color='grey'
+              inverted color='orange'
               onClick={props.handleViewProducts}>
                 Products
             </Button>
           </div>
           <div className='header-button'>
             <Button
-              inverted color='grey'
+              inverted color='orange'
               onClick={props.handleCreateOrder}>
                 Create Order
             </Button>

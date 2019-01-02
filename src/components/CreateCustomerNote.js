@@ -66,26 +66,22 @@ class CreateCustomerNote extends Component {
 
   }
 
-  // to optimistically render
-  // for this create a variable outside of the fetch to display the note
-  // after the fetch, .then( r=> r.json()).then(()=> set the variable to the response value )
-
   render(){
 
     return(
-      <div>
+      <div className='create-note-container'>
         <form
           onSubmit={e => this.handleSubmit(e)}
           id='noteForm'
         >
           <label>
-            Add Note:
             <textarea
               type="text"
               onChange={e => this.props.handleNoteInput(e.target.value)}
               value={this.props.customerNoteInput}
           />
           </label>
+          <br />
           <input type="submit" value="Submit" />
         </form>
       </div>

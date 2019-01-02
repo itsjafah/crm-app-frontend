@@ -17,14 +17,14 @@ const CategorySelector = (props) => {
       </div>
       <div className='grid-container'>
         <Button
-          color='blue'
+          color='orange'
           className='grid-item'
           size='massive'
           variant="outlined" onClick={props.handleViewDollsActionFigures}>
           Dolls & Action Figures
         </Button>
         <Button
-          color='blue'
+          color='orange'
           className='grid-item'
           size='massive'
           variant="outlined"
@@ -32,7 +32,7 @@ const CategorySelector = (props) => {
             Movies
         </Button>
         <Button
-          color='blue'
+          color='orange'
           className='grid-item'
           size='massive'
           variant="outlined"
@@ -40,7 +40,7 @@ const CategorySelector = (props) => {
             Books
         </Button>
         <Button
-          color='blue'
+          color='orange'
           className='grid-item'
           size='massive'
           variant="outlined"
@@ -48,7 +48,7 @@ const CategorySelector = (props) => {
             Toys
         </Button>
         <Button
-          color='blue'
+          color='orange'
           className='grid-item'
           size='massive'
           variant="outlined"
@@ -56,7 +56,7 @@ const CategorySelector = (props) => {
             Electronics
         </Button>
         <Button
-          color='blue'
+          color='orange'
           className='grid-item'
           size='massive'
           variant="outlined"

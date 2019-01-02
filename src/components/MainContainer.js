@@ -4,7 +4,7 @@ import UserDashboardContainer from './UserDashboardContainer'
 import CategorySelector from './CategorySelector'
 import ProductsContainer from './ProductsContainer'
 import CustomerDashboardContainer from './CustomerDashboardContainer'
-import Sidebar from './Sidebar'
+import PageSelector from './PageSelector'
 import { connect } from "react-redux";
 import { fetchProducts } from "../actions/productActions";
 import { fetchCustomers } from "../actions/customerActions"
@@ -40,7 +40,7 @@ class MainContainer extends Component {
     } else if (this.props.viewThisCustomer) {
       return <CustomerDashboardContainer />
     } else {
-      return "login page soon"
+      return <PageSelector />
     }
   }
 

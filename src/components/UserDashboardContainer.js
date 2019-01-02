@@ -7,8 +7,6 @@ import { connect } from 'react-redux'
 
 const UserDashboardContainer = (props) => {
 
-  console.log(typeof props.orders[0].created_at);
-
     return(
       <div>
         <div className='user-dashboard-header'>

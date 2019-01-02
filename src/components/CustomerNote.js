@@ -36,10 +36,16 @@ class CustomerNote extends React.Component {
   render(){
 
     return(
-      <div>
-      {this.props.note.body}
-      <button onClick={(note) => this.handleDeleteNote(this.props.note)}>Delete</button>
-      <button onClick={(note) => this.props.handleEditNote(this.props.note)}>Edit</button>
+      <div className='customer-note-body-container'>
+        <div className='customer-note-body'>
+          <h3>
+            {this.props.note.body}
+          </h3>
+        </div>
+        <div className='note-buttons'>
+          <button onClick={(note) => this.handleDeleteNote(this.props.note)}>Delete</button>
+          <button onClick={(note) => this.props.handleEditNote(this.props.note)}>Edit</button>
+        </div>
       </div>
     )
   }
