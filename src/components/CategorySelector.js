@@ -21,7 +21,7 @@ const CategorySelector = (props) => {
           className='grid-item'
           size='massive'
           variant="outlined" onClick={props.handleViewDollsActionFigures}>
-          Dolls & Action Figures
+          Dolls
         </Button>
         <Button
           color='orange'
@@ -72,7 +72,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     handleViewDollsActionFigures: () => dispatch({
       type: "TOGGLE_VIEW_DOLLS_ACTION_FIGURES",
-      payload: "Dolls & Action Figures"
+      payload: "Dolls"
     }),
     handleViewToys: () => dispatch({
       type: "TOGGLE_VIEW_TOYS",
