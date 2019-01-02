@@ -88,6 +88,9 @@
   margin: auto
 }
 
+/* MAIN CONTAINER */
+
+
 /* CUSTOMER GENERAL INFO */
 
 .customer-general-info-container {
@@ -111,16 +114,33 @@
   padding-bottom: 50px;
 }
 
-.customer-product-sales-graph {
-  margin-top: 80px;
+/* CUSTOMER PRODUCT SALES INFO */
+
+.customer-product-sales-graph-container {
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.5EM;
   margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 80px
+}
+
+.customer-product-sales-graph {
+  display:flex;
+  flex-direction:row;
+  margin-left: 0px;
   margin-right: 200px;
   padding-left: 140px;
   padding-top: 50px;
   padding-bottom: 20px;
-  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 0.5EM;
+  align-items: center;
+}
 
+.customer-product-sales-chart-header {
+  padding-top: 50px
+}
+
+.customer-product-sales-doodads-wrapper {
+  display: inline-block;
 }
 
 
@@ -152,8 +172,8 @@
 }
 
 .customer-notes-header {
-  margin-right: 150px
-
+  margin-right: 150px;
+  font-variant: small-caps;
 }
 
 /* CUSTOMER-NOTES  */
@@ -229,7 +249,7 @@ body {
   width: 36px;
   height: 30px;
   left: 36px;
-  top: 50px;
+  top: 75px;
 }
 
 .bm-burger-bars {
@@ -314,7 +334,8 @@ body {
 }
 
 .page-selector-container {
-  padding: 50px;
+  padding-top: 150px;
+  padding-bottom: 200px;
   margin-left: 50px;
   margin-right: 50px;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -432,7 +453,7 @@ text-align: center
 }
 
 .customer-sales-goal-chart-header {
-  padding-top: 30px;
+  padding-top: 50px;
   font-variant: small-caps;
 }
 
