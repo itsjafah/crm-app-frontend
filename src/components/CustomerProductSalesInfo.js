@@ -14,7 +14,7 @@ const CustomerProductSalesInfo = (props) => {
   return(
     <div className='customer-product-sales-graph-container'>
       <div className='customer-product-sales-chart-header'>
-        <h1>Sales by Category</h1>
+        <h1> Dollar Sales by Category</h1>
       </div>
       <div className='customer-product-sales-doodads-wrapper'>
         <div className="customer-product-sales-graph">

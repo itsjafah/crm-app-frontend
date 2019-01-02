@@ -121,6 +121,8 @@ class TrialOrderForm extends Component {
           className='order-form-container'
           onSubmit={this.handleSubmit}>
 
+          <h2 className='order-form-select-customer-header'> Select Customer </h2>
+
           <div className="select-customer-dropdown">
             <select onChange={ (event)=> this.handleSelectCustomer(event.target.value)} >
             {this.props.customers.map((customer, i) => {
@@ -136,6 +138,7 @@ class TrialOrderForm extends Component {
             </select>
           </div>
 
+          <div className='form-wrapper'>
           <h2>Order {this.state.selectedCustomer ? `for ${this.state.selectedCustomer[0].name}` : ""}</h2>
 
           <div className='product-row'>
@@ -203,6 +206,7 @@ class TrialOrderForm extends Component {
                     variant="outlined">
                       Create Order
                   </Button>
+          </div>
                 </form>
     )
   }

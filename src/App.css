@@ -105,6 +105,29 @@
 
 }
 
+.customer-info-doodads-wrapper {
+  display: inline-block;
+}
+
+.customer-text-and-photo-container {
+  display:flex;
+  flex-direction:row;
+  margin-left: 0px;
+  margin-right: 200px;
+  padding-left: 140px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.customer-logo-container {
+  padding-right: 100px
+}
+
+.customer-logo {
+  border-radius: 0.8EM;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .customer-general-info-text {
   font-size: 35px;
   font-family: Geneva,Tahoma,Verdana,sans-serif;
@@ -112,6 +135,12 @@
   font-variant: small-caps;
   margin-right: 110px;
   padding-bottom: 50px;
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.5EM;
+
 }
 
 /* CUSTOMER PRODUCT SALES INFO */
@@ -125,18 +154,19 @@
 }
 
 .customer-product-sales-graph {
-  display:flex;
-  flex-direction:row;
-  margin-left: 0px;
-  margin-right: 200px;
-  padding-left: 140px;
+  margin-top: 40px;
+  margin-bottom: 100px;
+  padding-bottom: 50px;
   padding-top: 50px;
-  padding-bottom: 20px;
-  align-items: center;
+  padding-left: 200px;
+  padding-right: 200px;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.5em
 }
 
 .customer-product-sales-chart-header {
-  padding-top: 50px
+  padding-top: 50px;
+  font-variant: small-caps;
 }
 
 .customer-product-sales-doodads-wrapper {
@@ -467,11 +497,12 @@ text-align: center
 .customer-sales-goal-charts {
   display:flex;
   flex-direction:row;
-  margin-left: 0px;
-  margin-right: 200px;
-  padding-left: 140px;
+  margin-top: 40px;
+  margin-bottom: 100px;
+  padding-bottom: 50px;
   padding-top: 50px;
-  padding-bottom: 20px;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.5em
 }
 
 .customer-sales-goal-chart-header {
@@ -498,21 +529,18 @@ text-align: center
 
 /* CREATE FORM  */
 
-.select-customer-dropdown {
-
-}
-
 .product-row {
   margin-bottom: 30px;
   padding-bottom: 10px;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-top: 30px;
+  margin-left: 200px;
+  margin-right: 200px;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
   border-radius: 0.3EM;
 }
 
-.number-input {
-  margin-left: 20px
+.order-form-select-customer-header {
+  padding-top: 30px
 }
 
 .order-form-container {
@@ -526,6 +554,19 @@ text-align: center
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.form-wrapper {
+  margin-top: 40px;
+  margin-left: 100px;
+  margin-right: 100px;
+  padding: 50px;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.3EM;
+}
+
 .select-customer-dropdown {
-  margin-top: 50px;
+  margin-top: 20px;
+}
+
+.order-total {
+  padding-bottom: 20px
 }
