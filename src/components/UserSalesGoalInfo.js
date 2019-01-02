@@ -58,69 +58,72 @@ const UserSalesGoalInfo = (props) => {
 
 
   return(
-    <div className="user-sales-goal-charts">
-      <div className="daily">
-      Daily:
-        <RadialChart
-          className="user-daily-sales-goal-radial-chart"
-          colorType={'literal'}
-          colorDomain={[0, 100]}
-          colorRange={[0, 10]}
-          margin={{top: 100}}
-          getLabel={d => d.name}
-          data={[
-            {angle: daily_sales_goal, color: '#1B830B', name: daily_sales_goal},
-            {angle: sales_to_reach_goal, color: '#B32400', name: sales_to_reach_goal },
-          ]}
-          labelsRadiusMultiplier={1.1}
-          labelsStyle={{fontSize: 16, fill: '#222'}}
-          showLabels
-          style={{stroke: '#fff', strokeWidth: 2}}
-          width={250}
-          height={200}
-        />
+    <div className='user-sales-goal-charts-container'>
+      <div className='user-sales-goal-chart-header'>
+        <h1>Sales Tracker</h1>
       </div>
-      <div className="weekly">
-      Weekly:
-        <RadialChart
-          className="user-weekly-sales-goal-radial-chart"
-          colorType={'literal'}
-          colorDomain={[0, 100]}
-          colorRange={[0, 10]}
-          margin={{top: 100}}
-          getLabel={d => d.name}
-          data={[
-            {angle: current_overall_sales, color: '#1B830B', name: current_overall_sales},
-            {angle: sales_to_reach_goal, color: '#B32400', name: sales_to_reach_goal },
-          ]}
-          labelsRadiusMultiplier={1.1}
-          labelsStyle={{fontSize: 16, fill: '#222'}}
-          showLabels
-          style={{stroke: '#fff', strokeWidth: 2}}
-          width={250}
-          height={200}
-        />
-      </div>
-      <div className="monthly">
-      Monthly:
-        <RadialChart
-          className="user-monthly-sales-goal-radial-chart"
-          colorType={'literal'}
-          colorDomain={[0, 100]}
-          colorRange={[0, 10]}
-          margin={{top: 100}}
-          getLabel={d => d.name}
-          data={[
-            {angle: current_overall_sales, color: '#1B830B', name: current_overall_sales},
-            {angle: sales_to_reach_goal, color: '#B32400', name: sales_to_reach_goal },
-          ]}
-          labelsRadiusMultiplier={1.1}
-          labelsStyle={{fontSize: 16, fill: '#222'}}
-          showLabels
-          style={{stroke: '#fff', strokeWidth: 2}}
-          width={250}
-          height={200}
-        />
+      <div className="user-sales-goal-charts">
+        <div className="daily">
+          <h4>Daily Sales Goal:</h4>
+            <RadialChart
+              className="user-daily-sales-goal-radial-chart"
+              colorType={'literal'}
+              colorDomain={[0, 100]}
+              colorRange={[0, 10]}
+              margin={{top: 100}}
+              getLabel={d => d.name}
+              data={[
+                {angle: daily_sales_goal, color: '#1B830B', name: daily_sales_goal},
+                {angle: sales_to_reach_goal, color: '#B32400', name: sales_to_reach_goal },
+              ]}
+              labelsRadiusMultiplier={1.1}
+              labelsStyle={{fontSize: 16, fill: '#222'}}
+              showLabels
+              style={{stroke: '#fff', strokeWidth: 2}}
+              width={250}
+              height={200}
+            />
+        </div>
+        <div className="weekly">
+          <h4>Weekly Sales Goal:</h4>
+            <RadialChart
+              colorType={'literal'}
+              colorDomain={[0, 100]}
+              colorRange={[0, 10]}
+              margin={{top: 100}}
+              getLabel={d => d.name}
+              data={[
+                {angle: current_overall_sales, color: '#1B830B', name: current_overall_sales},
+                {angle: sales_to_reach_goal, color: '#B32400', name: sales_to_reach_goal },
+              ]}
+              labelsRadiusMultiplier={1.1}
+              labelsStyle={{fontSize: 16, fill: '#222'}}
+              showLabels
+              style={{stroke: '#fff', strokeWidth: 2}}
+              width={250}
+              height={200}
+            />
+        </div>
+        <div className="monthly">
+          <h4>Monthly Sales Goal:</h4>
+            <RadialChart
+              colorType={'literal'}
+              colorDomain={[0, 100]}
+              colorRange={[0, 10]}
+              margin={{top: 100}}
+              getLabel={d => d.name}
+              data={[
+                {angle: current_overall_sales, color: '#1B830B', name: current_overall_sales},
+                {angle: sales_to_reach_goal, color: '#B32400', name: sales_to_reach_goal },
+              ]}
+              labelsRadiusMultiplier={1.1}
+              labelsStyle={{fontSize: 16, fill: '#222'}}
+              showLabels
+              style={{stroke: '#fff', strokeWidth: 2}}
+              width={250}
+              height={200}
+            />
+        </div>
       </div>
     </div>
   )

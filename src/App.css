@@ -90,12 +90,13 @@
 .customer-general-info-container {
   margin-left: 200px;
   margin-right: 200px;
+  margin-bottom: 80px;
   padding-left: 140px;
   padding-top: 50px;
   padding-bottom: 20px;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 0.5EM;
-  background-color: #FFB74D
+
 }
 
 .customer-general-info-text {
@@ -116,7 +117,7 @@
   padding-bottom: 20px;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 0.5EM;
-    background-color: #FFB74D
+
 }
 
 
@@ -145,11 +146,10 @@
   padding-bottom: 50px;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 0.5EM;
-    background-color: #FFB74D
 }
 
 .customer-notes-header {
-  margin-top: 500px
+  margin-right: 150px
 
 }
 
@@ -339,22 +339,34 @@ body {
   border-radius: 0.3em
 }
 
-.user-dashboard-charts-container {
-  /* border-width:5px;
-  border-style:ridge;
-  border-radius: 1.0EM; */
-}
+/* USER SALES GOAL INFO */
 
 .user-sales-goal-charts {
   display:flex;
   flex-direction:row;
-  margin-left: 200px;
+  margin-left: 0px;
   margin-right: 200px;
   padding-left: 140px;
   padding-top: 50px;
   padding-bottom: 20px;
+}
+
+.user-sales-goal-charts-container {
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 0.5EM;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.user-sales-goal-chart-header {
+  padding-top: 30px;
+  font-variant: small-caps;
+}
+
+
+.user-daily-sales-goal-radial-chart {
+  display:flex;
+  flex-direction:row;
 }
 
 .product-sales-and-annual-goal-container {
@@ -381,7 +393,31 @@ body {
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-variant: small-caps;
   border-radius: 0.3em;
-  background-color: #FFB74D
+
+}
+
+/* CUSTOMER SALES GOAL INFO */
+
+.customer-sales-goal-charts-container {
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.5EM;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.customer-sales-goal-charts {
+  display:flex;
+  flex-direction:row;
+  margin-left: 0px;
+  margin-right: 200px;
+  padding-left: 140px;
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.customer-sales-goal-chart-header {
+  padding-top: 30px;
+  font-variant: small-caps;
 }
 
 /* CREATE ORDER CONTAINER */

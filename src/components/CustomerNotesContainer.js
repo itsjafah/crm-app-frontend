@@ -22,8 +22,8 @@ class CustomerNotesContainer extends Component {
 
     return(
       <div className="customer-notes-container">
-        <div className='customer-notes-Header'>
-          <h1> Customer Notes </h1>
+        <div>
+          <h1 className='customer-notes-header'> Customer Notes </h1>
         </div>
       <br />
         {notes}

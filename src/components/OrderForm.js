@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Button } from 'semantic-ui-react'
 
 const ORDERS_API = 'http://localhost:3000/api/v1/orders'
 const ORDERED_PRODUCTS_API = 'http://localhost:3000/api/v1/ordered_products'
@@ -195,7 +196,13 @@ class TrialOrderForm extends Component {
                     </h2>
                   </div>
 
-                  <button>Submit Order</button>
+                  <Button
+                    color='orange'
+                    className='grid-item'
+                    size='medium'
+                    variant="outlined">
+                      Create Order
+                  </Button>
                 </form>
     )
   }

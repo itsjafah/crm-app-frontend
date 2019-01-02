@@ -14,11 +14,9 @@ const UserDashboardContainer = (props) => {
             User Sales Dashboard
           </h1>
         </div>
-        <div className='user-dashboard-charts-container'>
           <UserSalesGoalInfo />
           <UserProductSalesInfo />
           <UserIndividualProductSalesInfo orderedProducts={props.orderedProducts} orders={props.orders}/>
-        </div>
       </div>
     )
   }
