@@ -54,7 +54,11 @@ const UserSalesGoalInfo = (props) => {
 
   const sales_to_reach_goal = (user_annual_sales_goal - current_overall_sales)
 
-  const daily_sales_goal = money_round((sales_to_reach_goal)/(daysUntilDec31))
+  // const daily_sales_goal = money_round((sales_to_reach_goal)/(daysUntilDec31))
+
+  const daily_sales_goal = money_round((sales_to_reach_goal)/365)
+
+  const weekly_sales_goal = money_round((sales_to_reach_goal)/52)
 
 
   return(
@@ -74,8 +78,8 @@ const UserSalesGoalInfo = (props) => {
                 margin={{top: 100}}
                 getLabel={d => d.name}
                 data={[
-                  {angle: daily_sales_goal, color: '#1B830B', name: daily_sales_goal},
-                  {angle: sales_to_reach_goal, color: '#B32400', name: sales_to_reach_goal },
+                  {angle: 100, color: '#1B830B', name: 100},
+                  {angle: daily_sales_goal, color: '#B32400', name: daily_sales_goal },
                 ]}
                 labelsRadiusMultiplier={1.1}
                 labelsStyle={{fontSize: 16, fill: '#222'}}
@@ -84,6 +88,9 @@ const UserSalesGoalInfo = (props) => {
                 width={250}
                 height={200}
               />
+              <h3>
+              Book ${daily_sales_goal} Today
+              </h3>
           </div>
           <div className="weekly">
             <h4>Weekly Sales Goal:</h4>
@@ -104,6 +111,9 @@ const UserSalesGoalInfo = (props) => {
                 width={250}
                 height={200}
               />
+              <h3>
+                Book ${weekly_sales_goal} This Week
+              </h3>
           </div>
           <div className="monthly">
             <h4>Monthly Sales Goal:</h4>
@@ -124,6 +134,9 @@ const UserSalesGoalInfo = (props) => {
                 width={250}
                 height={200}
               />
+              <h3>
+                Book ${daily_sales_goal} This Month
+              </h3>
           </div>
         </div>
       </div>
