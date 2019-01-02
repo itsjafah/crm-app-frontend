@@ -28,15 +28,18 @@
   min-height: 20vh;
 }
 
+.header-doodads-wrapper {
+  display: inline-block;
+}
+
 .header-buttons-container {
   display:flex;
   flex-direction:row;
-  margin-left: 530px;
-  padding-top: 50px
+  margin-top: 75px
 }
 
 .header-button {
-  margin-left: 20px;
+  margin-left: 100px;
 }
 
 /* Dropdown Button */
@@ -341,6 +344,14 @@ body {
 
 /* USER SALES GOAL INFO */
 
+.user-doodads-wrapper {
+  display: inline-block;
+}
+
+/* display: in-line-block
+text-align: center
+*/
+
 .user-sales-goal-charts {
   display:flex;
   flex-direction:row;
@@ -349,6 +360,7 @@ body {
   padding-left: 140px;
   padding-top: 50px;
   padding-bottom: 20px;
+  align-items: center;
 }
 
 .user-sales-goal-charts-container {
@@ -403,6 +415,10 @@ body {
   border-radius: 0.5EM;
   margin-left: 200px;
   margin-right: 200px;
+}
+
+.customer-sales-tracker-doodads-wrapper {
+  display: inline-block;
 }
 
 .customer-sales-goal-charts {

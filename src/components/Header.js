@@ -8,6 +8,7 @@ const Header = (props) => {
 
     return(
       <div className="header-container">
+        <div className='header-doodads-wrapper'>
         <div className='header-buttons-container'>
           <div className='header-button'>
             <Button
@@ -30,6 +31,7 @@ const Header = (props) => {
                 Create Order
             </Button>
           </div>
+        </div>
         </div>
       </div>
     )
