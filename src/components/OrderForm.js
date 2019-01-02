@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 const ORDERS_API = 'http://localhost:3000/api/v1/orders'
 const ORDERED_PRODUCTS_API = 'http://localhost:3000/api/v1/ordered_products'
 
-class TrialOrderForm extends React.Component {
+class TrialOrderForm extends Component {
   constructor() {
     super()
     this.state = {
@@ -108,7 +108,6 @@ class TrialOrderForm extends React.Component {
 
   render() {
 
-    console.log(this.state.productsOnOrder)
 
     let initialValue = 0;
 
@@ -136,7 +135,7 @@ class TrialOrderForm extends React.Component {
             </select>
           </div>
 
-          <h3>Products</h3>
+          <h2>Order {this.state.selectedCustomer ? `for ${this.state.selectedCustomer[0].name}` : ""}</h2>
 
           <div className='product-row'>
 
@@ -190,7 +189,11 @@ class TrialOrderForm extends React.Component {
                   <button type="button" onClick={this.handleAddProductToOrder} className="small">Add Product</button>
                   <br />
                   <br />
-                  Order Total: <p>${orderTotal}</p>
+                  <div className='order-total'>
+                    <h2>
+                      Order Total: <p>${orderTotal}</p>
+                    </h2>
+                  </div>
 
                   <button>Submit Order</button>
                 </form>
