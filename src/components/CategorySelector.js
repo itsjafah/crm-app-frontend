@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-// import Button from '@material-ui/core/Button'
 import { Button } from 'semantic-ui-react'
 
 
@@ -17,14 +16,14 @@ const CategorySelector = (props) => {
       </div>
       <div className='grid-container'>
         <Button
-          color='orange'
+          color='blue'
           className='grid-item'
           size='massive'
           variant="outlined" onClick={props.handleViewDollsActionFigures}>
           Dolls
         </Button>
         <Button
-          color='orange'
+          color='blue'
           className='grid-item'
           size='massive'
           variant="outlined"
@@ -32,7 +31,7 @@ const CategorySelector = (props) => {
             Movies
         </Button>
         <Button
-          color='orange'
+          color='blue'
           className='grid-item'
           size='massive'
           variant="outlined"
@@ -40,7 +39,7 @@ const CategorySelector = (props) => {
             Books
         </Button>
         <Button
-          color='orange'
+          color='blue'
           className='grid-item'
           size='massive'
           variant="outlined"
@@ -48,7 +47,7 @@ const CategorySelector = (props) => {
             Toys
         </Button>
         <Button
-          color='orange'
+          color='blue'
           className='grid-item'
           size='massive'
           variant="outlined"
@@ -56,7 +55,7 @@ const CategorySelector = (props) => {
             Electronics
         </Button>
         <Button
-          color='orange'
+          color='blue'
           className='grid-item'
           size='massive'
           variant="outlined"

@@ -386,8 +386,10 @@ body {
   margin-top: 50px;
   font-variant: small-caps;
   margin-bottom: 80px;
-  margin-left: 500px;
-  margin-right: 500px;
+  margin-left: 700px;
+  margin-right: 700px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   font-variant: small-caps;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 0.3em;
@@ -400,20 +402,40 @@ body {
   margin-left: 50px;
   margin-right: 50px;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 1.0em
+  border-radius: 1.0em;
+  background-color: #F57C00
 }
 
 .page-selector-container {
-  padding-top: 150px;
-  padding-bottom: 200px;
-  margin-left: 50px;
-  margin-right: 50px;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  padding-left: 80px;
+  padding-right: 45px;
+  margin-left: 400px;
+  margin-right: 410px;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 1.0em
+  border-radius: 0.6em;
+  background-color: #F57C00;
+  margin-bottom: 300px;
 }
 
-.grid-item {
-  background-color: #7e57c2
+.page-selector-buttons-container {
+  display: flex;
+  flex-direction:row;
+  padding-top: 50px;
+  padding-bottom: 60px;
+  margin-left: 10px;
+  margin-right: 50px;
+  padding-right: 60px;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.6em;
+  background-color: white
+}
+
+.page-selector-button {
+
+  border-radius: 1.0em;
+  margin-left: 65px
 }
 
 .product-table {
@@ -425,12 +447,15 @@ body {
 
 .user-dashboard-header {
   margin-top: 50px;
-  margin-bottom: 100px;
-  margin-left: 500px;
-  margin-right: 500px;
+  font-variant: small-caps;
+  margin-bottom: 80px;
+  margin-left: 700px;
+  margin-right: 700px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   font-variant: small-caps;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 0.3em
+  border-radius: 0.3em;
 }
 
 /* USER SALES GOAL INFO */
@@ -491,14 +516,15 @@ body {
 
 .customer-dashboard-header {
   margin-top: 50px;
-  margin-bottom: 20px;
-  margin-left: 500px;
-  margin-right: 500px;
+  font-variant: small-caps;
+  margin-bottom: 80px;
+  margin-left: 700px;
+  margin-right: 700px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   font-variant: small-caps;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  font-variant: small-caps;
   border-radius: 0.3em;
-
 }
 
 /* CUSTOMER SALES GOAL INFO */
@@ -541,12 +567,14 @@ body {
 
 .create-order-header {
   margin-top: 50px;
-  margin-bottom: 20px;
-  margin-left: 500px;
-  margin-right: 500px;
+  font-variant: small-caps;
+  margin-bottom: 80px;
+  margin-left: 700px;
+  margin-right: 700px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   font-variant: small-caps;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  font-variant: small-caps;
   border-radius: 0.3em;
 }
 
@@ -564,6 +592,7 @@ body {
 }
 
 .order-form-select-customer-header {
+  font-variant: small-caps;
   padding-top: 30px;
   color: white
 }
@@ -632,6 +661,19 @@ body {
 }
 
 /* PRODUCTS LIST CONTAINER */
+
+.products-page-category-header {
+  margin-top: 50px;
+  font-variant: small-caps;
+  margin-bottom: 80px;
+  margin-left: 700px;
+  margin-right: 700px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-variant: small-caps;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.3em;
+}
 
 .products-list-container-in-container-component {
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

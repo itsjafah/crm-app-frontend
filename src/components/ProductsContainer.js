@@ -5,38 +5,42 @@ import { connect } from 'react-redux'
 
 const ProductsContainer = (props) => {
 
-  console.log(props);
-
   const filteredProducts = props.products.filter( product => product.category === props.selectedCategory)
 
   const product = filteredProducts.map( product => {
     return <Product product={product} key={product.id}/>
   })
 
+
+
   return(
-    <div className='products-list-container-in-container-component'>
-      <div className='products-list-category-header'>
+    <div>
+      <div className='products-page-category-header'>
         <h1>
           {props.selectedCategory}
         </h1>
       </div>
-      <div className='products-list-table'>
-        <Table>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell className='product-header'><h2>Image</h2></Table.HeaderCell>
-              <Table.HeaderCell><h2>Product</h2></Table.HeaderCell>
-              <Table.HeaderCell><h2>Category</h2></Table.HeaderCell>
-              <Table.HeaderCell><h2>SKU</h2></Table.HeaderCell>
-              <Table.HeaderCell><h2>Cost</h2></Table.HeaderCell>
-              <Table.HeaderCell><h2>Price</h2></Table.HeaderCell>
-              <Table.HeaderCell><h2>Margin</h2></Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-          <Table.Body>
-            {product}
-          </Table.Body>
-        </Table>
+      <div className='products-list-container-in-container-component'>
+        <div className='products-list-category-header'>
+        </div>
+        <div className='products-list-table'>
+          <Table>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell className='product-header'><h2>Image</h2></Table.HeaderCell>
+                <Table.HeaderCell><h2>Product</h2></Table.HeaderCell>
+                <Table.HeaderCell><h2>Category</h2></Table.HeaderCell>
+                <Table.HeaderCell><h2>SKU</h2></Table.HeaderCell>
+                <Table.HeaderCell><h2>Cost</h2></Table.HeaderCell>
+                <Table.HeaderCell><h2>Price</h2></Table.HeaderCell>
+                <Table.HeaderCell><h2>Margin</h2></Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {product}
+            </Table.Body>
+          </Table>
+        </div>
       </div>
     </div>
   )

@@ -90,7 +90,6 @@ class TrialOrderForm extends Component {
   }
 
   addOrderedProductToDB = (productObject, orderId) => {
-    console.log(productObject, orderId)
     fetch(ORDERED_PRODUCTS_API, {
         method: 'POST',
         headers: {
@@ -125,7 +124,6 @@ class TrialOrderForm extends Component {
   }
 
   render() {
-    console.log(this.props);
 
     let initialValue = 0;
 

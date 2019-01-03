@@ -16,29 +16,37 @@ const PageSelector = (props) => {
         </h1>
       </div>
       <div className='page-selector-container'>
-        <Button
-          color='orange'
-          className='grid-item'
-          size='massive'
-          variant="outlined" onClick={props.handleOpenDashboard}>
-          Open User Dashboard
-        </Button>
-        <Button
-          color='orange'
-          className='grid-item'
-          size='massive'
-          variant="outlined"
-          onClick={props.handleViewProducts}>
-            View Products
-        </Button>
-        <Button
-          color='orange'
-          className='grid-item'
-          size='massive'
-          variant="outlined"
-          onClick={props.handleCreateOrder}>
-            Create Order
-        </Button>
+        <div className='page-selector-buttons-container'>
+          <div className='page-selector-button'>
+            <Button
+              color='blue'
+              className='grid-item'
+              size='massive'
+              variant="outlined" onClick={props.handleOpenDashboard}>
+              Open User Dashboard
+            </Button>
+          </div>
+          <div className='page-selector-button'>
+          <Button
+            color='blue'
+            className='grid-item'
+            size='massive'
+            variant="outlined"
+            onClick={props.handleViewProducts}>
+              View Products
+          </Button>
+          </div>
+          <div className='page-selector-button'>
+          <Button
+            color='blue'
+            className='grid-item'
+            size='massive'
+            variant="outlined"
+            onClick={props.handleCreateOrder}>
+              Create Order
+          </Button>
+          </div>
+        </div>
       </div>
     </div>
   )
