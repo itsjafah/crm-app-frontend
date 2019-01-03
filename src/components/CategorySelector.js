@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Button } from 'semantic-ui-react'
 
 
-
 const CategorySelector = (props) => {
 
 
@@ -11,57 +10,77 @@ const CategorySelector = (props) => {
     <div>
       <div className='select-category-header'>
         <h1>
-          Select Category
+          Select Product Group
         </h1>
       </div>
-      <div className='grid-container'>
-        <Button
-          color='blue'
-          className='grid-item'
-          size='massive'
-          variant="outlined" onClick={props.handleViewDollsActionFigures}>
-          Dolls
-        </Button>
-        <Button
-          color='blue'
-          className='grid-item'
-          size='massive'
-          variant="outlined"
-          onClick={props.handleViewMovies}>
-            Movies
-        </Button>
-        <Button
-          color='blue'
-          className='grid-item'
-          size='massive'
-          variant="outlined"
-          onClick={props.handleViewBooks}>
-            Books
-        </Button>
-        <Button
-          color='blue'
-          className='grid-item'
-          size='massive'
-          variant="outlined"
-          onClick={props.handleViewToys}>
-            Toys
-        </Button>
-        <Button
-          color='blue'
-          className='grid-item'
-          size='massive'
-          variant="outlined"
-          onClick={props.handleViewElectronics}>
-            Electronics
-        </Button>
-        <Button
-          color='blue'
-          className='grid-item'
-          size='massive'
-          variant="outlined"
-          onClick={props.handleViewBoardGames}>
-            Board Games
-        </Button>
+      <div className='select-category-container'>
+        <div className='select-category-buttons-container'>
+
+            <Button
+              color='blue'
+              className='grid-item'
+              id='taco'
+              size='massive'
+              variant="outlined" onClick={props.handleViewDollsActionFigures}>
+              Dolls
+            </Button>
+
+
+            <Button
+              color='blue'
+              className='grid-item'
+              id='taco'
+              size='massive'
+              variant="outlined"
+              onClick={props.handleViewMovies}>
+                Movies
+            </Button>
+
+
+            <Button
+              color='blue'
+              className='grid-item'
+              id='taco'
+              size='massive'
+              variant="outlined"
+              onClick={props.handleViewBooks}>
+                Books
+            </Button>
+
+
+            <Button
+              color='blue'
+              className='grid-item'
+              id='taco'
+              size='massive'
+              variant="outlined"
+              onClick={props.handleViewToys}>
+                Toys
+            </Button>
+
+
+            <Button
+              color='blue'
+              className='grid-item'
+              id='taco'
+              size='massive'
+              variant="outlined"
+              onClick={props.handleViewElectronics}>
+                Electronics
+            </Button>
+
+
+            <Button
+              color='blue'
+              className='grid-item'
+              id='taco'
+              size='massive'
+              variant="outlined"
+              onClick={props.handleViewBoardGames}>
+                Board Games
+            </Button>
+
+        </div>
       </div>
     </div>
   )
