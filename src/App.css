@@ -120,12 +120,13 @@
 }
 
 .customer-logo-container {
-  padding-right: 100px
+  padding-right: 86px
 }
 
 .customer-logo {
   border-radius: 0.8EM;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 .customer-general-info-text {
@@ -443,7 +444,6 @@ body {
 
 
 /* PAGE SELECTOR */
-
 
 
 

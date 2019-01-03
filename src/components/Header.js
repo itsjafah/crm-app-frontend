@@ -13,12 +13,14 @@ const Header = (props) => {
           <div className='header-button'>
             <Button
               inverted color='orange'
+              size='massive'
               onClick={props.handleOpenDashboard}>
                 Open Dashboard
             </Button>
           </div>
           <div className='header-button'>
             <Button
+              size='massive'
               inverted color='orange'
               onClick={props.handleViewProducts}>
                 Products
@@ -26,6 +28,7 @@ const Header = (props) => {
           </div>
           <div className='header-button'>
             <Button
+              size='massive'
               inverted color='orange'
               onClick={props.handleCreateOrder}>
                 Create Order
