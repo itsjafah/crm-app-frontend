@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 
 const CustomerGeneralInfo = (props) => {
 
-  console.log(props);
-
   return(
     <div className="customer-general-info-container">
       <div className='customer-info-doodads-wrapper'>

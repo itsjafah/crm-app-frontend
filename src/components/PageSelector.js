@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-// import Button from '@material-ui/core/Button'
 import { Button } from 'semantic-ui-react'
 
 
