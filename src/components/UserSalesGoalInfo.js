@@ -8,30 +8,30 @@ const UserSalesGoalInfo = (props) => {
     return Math.ceil(num * 100) / 100;
   }
 
+  // need to find out how to store all orders placed today in an array, then reduce the totals to find the sum. that becomes the green part of the daily pie
+
+  console.log(props.orders);
+  const orderDates = []
+
+  function getOrderDates(){
+    props.orders.map( order => {
+      return orderDates.push(order.created_at)
+    })
+    return orderDates
+  }
+
 
   // days until dec 31 //
 
-  const today=new Date()
+  const today = new Date()
+
+  const orderDate = new Date("01/02/19")
+
+  console.log(getOrderDates().map(orderDate => { return orderDate.setHours(0,0,0,0) == today.setHours(0,0,0,0) }));
 
   const ordersPlacedToday = []
 
-  // function dateChecker(){
-  //   return props.orders.map( order => {
-  //     // if (order.created_at.setHours(0,0,0,0) == today.setHours(0,0,0,0)) {
-  //     //   return ordersPlacedToday.push(order)
-  //     // }
-  //     if (today.toDateString() == order.created_at.toDateString()) {
-  //       return ordersPlacedToday.push(order)
-  //     }
-  //   })
-  // }
-
-  // console.log(dateChecker());
-  console.log(today.getTime());
-
-  // var valid = (new Date(timestamp)).getTime()
-
-  const endOfYear = new Date(today.getFullYear(), 11, 30);
+  const endOfYear = new Date(today.getFullYear(), 11, 31);
   if (today.getMonth()==11 && today.getDate()>=31)
   {
   endOfYear.setFullYear(endOfYear.getFullYear()+1);
@@ -39,6 +39,8 @@ const UserSalesGoalInfo = (props) => {
   const one_day=1000*60*60*24;
 
   const daysUntilDec31 = Math.ceil((endOfYear.getTime()-today.getTime())/(one_day))
+
+  console.log(daysUntilDec31);
 
   // days until dec 31 //
 
@@ -54,9 +56,7 @@ const UserSalesGoalInfo = (props) => {
 
   const sales_to_reach_goal = (user_annual_sales_goal - current_overall_sales)
 
-  // const daily_sales_goal = money_round((sales_to_reach_goal)/(daysUntilDec31))
-
-  const daily_sales_goal = money_round((sales_to_reach_goal)/365)
+  const daily_sales_goal = money_round((sales_to_reach_goal)/daysUntilDec31)
 
   const weekly_sales_goal = money_round((sales_to_reach_goal)/52)
 
@@ -77,7 +77,7 @@ const UserSalesGoalInfo = (props) => {
                 margin={{top: 100}}
                 getLabel={d => d.name}
                 data={[
-                  {angle: 100, color: '#1B830B', name: 100},
+                  {angle: daily_sales_goal, color: '#1B830B', name: daily_sales_goal},
                   {angle: daily_sales_goal, color: '#B32400', name: daily_sales_goal },
                 ]}
                 labelsRadiusMultiplier={1.1}
