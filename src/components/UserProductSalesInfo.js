@@ -20,8 +20,6 @@ const UserProductSalesInfo = (props) => {
 
   const sales_to_reach_goal = money_round((user_annual_sales_goal - current_overall_sales))
 
-  console.log(props);
-
   const dataArr = props.orderedProducts.map((op)=> {
       return {x: op.product.category, y: (op.quantity) * (op.product.price)}
   });

@@ -18,9 +18,7 @@ const UserBestSellerTable = (props) => {
 
   return(
     <Table.Row>
-      <Table.Cell>{1}</Table.Cell>
-      <Table.Cell><img src={props.bestSeller.image} height='150' width='120'/></Table.Cell>
-      <Table.Cell><h3>{props.bestSeller.name}</h3></Table.Cell>
+      <Table.Cell><img src={props.bestSeller.image} height='100' width='100'/></Table.Cell>            <Table.Cell><h3>{props.bestSeller.name}</h3></Table.Cell>
       <Table.Cell><h3>{props.bestSeller.quantity}</h3></Table.Cell>
       <Table.Cell><h3>{props.bestSeller.category}</h3></Table.Cell>
     </Table.Row>

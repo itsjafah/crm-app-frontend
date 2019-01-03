@@ -41,26 +41,29 @@ const UserBestSellersContainer = (props) => {
   })
 
   return (
-    <div>
+    <div className='user-best-sellers-table-container-component'>
       <div className='user-best-sellers-category-header'>
         <h1>
-          Best Sellers
+          Top 10 Sellers
         </h1>
       </div>
-      <Table className='user-best-sellers-table'>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell><h2>""</h2></Table.HeaderCell>
-            <Table.HeaderCell><h2>Image</h2></Table.HeaderCell>
-            <Table.HeaderCell><h2>Product</h2></Table.HeaderCell>
-            <Table.HeaderCell><h2>Quantity</h2></Table.HeaderCell>
-            <Table.HeaderCell><h2>Category</h2></Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
-          {bestSeller}
-        </Table.Body>
-      </Table>
+      <div className='best-sellers-doodads-wrapper'>
+        <div className='user-best-seller-table'>
+          <Table>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell><h2>Image</h2></Table.HeaderCell>
+                <Table.HeaderCell><h2>Product</h2></Table.HeaderCell>
+                <Table.HeaderCell><h2>Quantity</h2></Table.HeaderCell>
+                <Table.HeaderCell><h2>Category</h2></Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {bestSeller}
+            </Table.Body>
+          </Table>
+        </div>
+      </div>
     </div>
   )
 }
