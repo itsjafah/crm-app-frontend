@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 const Product = (props) => {
 
   const money_round = (num) => {
-    return Math.ceil(num * 100) / 100;
+    return Math.ceil(num * 100);
 }
 
   return(
@@ -14,9 +14,9 @@ const Product = (props) => {
          <Table.Cell><h3>{props.product.name}</h3></Table.Cell>
          <Table.Cell><h3>{props.product.category}</h3></Table.Cell>
          <Table.Cell><h3>{props.product.id}</h3></Table.Cell>
-         <Table.Cell><h3>{props.product.cost}</h3></Table.Cell>
-         <Table.Cell><h3>{props.product.price}</h3></Table.Cell>
-         <Table.Cell><h3>{money_round((props.product.price - props.product.cost)/(props.product.price))}</h3></Table.Cell>
+         <Table.Cell><h3>${props.product.cost}</h3></Table.Cell>
+         <Table.Cell><h3>${props.product.price}</h3></Table.Cell>
+         <Table.Cell><h3>{money_round((props.product.price - props.product.cost)/(props.product.price))}%</h3></Table.Cell>
        </Table.Row>
   )
 }

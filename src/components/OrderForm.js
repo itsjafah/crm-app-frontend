@@ -217,7 +217,7 @@ class TrialOrderForm extends Component {
                   </div>
 
                   <Button
-                    color='orange'
+                    color='green'
                     className='grid-item'
                     size='medium'
                     variant="outlined">
