@@ -10,14 +10,9 @@ const UserSalesGoalInfo = (props) => {
 
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-  // need to find out how to store all orders placed today in an array, then reduce the totals to find the sum. that becomes the green part of the daily pie
+  console.log(props);
 
-  console.log(props.orders);
-
-
-  // days until dec 31 //
-
-  const todayAsString = "2019-01-02"
+  const todayAsString = "2019-01-03"
 
   const today = new Date()
 
@@ -70,6 +65,37 @@ const UserSalesGoalInfo = (props) => {
   const weekly_sales_goal = money_round((sales_to_reach_goal)/52)
 
   const monthly_sales_goal = money_round((sales_to_reach_goal)/12)
+
+  // puttzing around with filtering most ordered items
+
+  var productWithQuantity = props.orderedProducts.map( orderedProduct => {
+    return {name: orderedProduct.product.name, quantity: orderedProduct.quantity, category: orderedProduct.product.category}
+  })
+
+  var temp = {};
+  var obj = null;
+  for(var i=0; i < productWithQuantity.length; i++) {
+    obj=productWithQuantity[i];
+
+    console.log(obj);
+
+     if(!temp[obj.name]) {
+         temp[obj.name] = obj;
+     } else {
+         temp[obj.name].quantity += obj.quantity;
+     }
+  }
+  var productsWithOrderQuantities = [];
+  for (var prop in temp)
+  productsWithOrderQuantities.push(temp[prop]);
+
+  console.log(productsWithOrderQuantities);
+
+const sortedProducts = productsWithOrderQuantities.sort(function (a, b) {
+  return b.quantity - a.quantity;
+})
+
+console.log(sortedProducts.slice(0,9));
 
 
   return(
@@ -138,13 +164,13 @@ const UserSalesGoalInfo = (props) => {
                 ?
 
                 <h3>
-                  Book ${weekly_sales_goal - todays_sales} today!
+                  Book ${weekly_sales_goal - todays_sales} this week!
                 </h3>
 
                 :
 
                 <h3>
-                  You overbooked by ${todays_sales - weekly_sales_goal} today!
+                  You overbooked by ${todays_sales - weekly_sales_goal} this week!
                 </h3>
 
               }
@@ -173,13 +199,13 @@ const UserSalesGoalInfo = (props) => {
                 ?
 
                 <h3>
-                  Book ${monthly_sales_goal - todays_sales} today!
+                  Book ${monthly_sales_goal - todays_sales} this month!
                 </h3>
 
                 :
 
                 <h3>
-                  You overbooked by ${todays_sales - monthly_sales_goal} today!
+                  You overbooked by ${todays_sales - monthly_sales_goal} this month!
                 </h3>
 
               }
