@@ -8,30 +8,14 @@ const CustomerSalesGoalInfo = (props) => {
     return Math.ceil(num * 100) / 100;
   }
 
-
-  // days until dec 31 //
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
   const today=new Date()
 
-  const ordersPlacedToday = []
+  // days until dec 31 START //
 
-  // function dateChecker(){
-  //   return props.orders.map( order => {
-  //     // if (order.created_at.setHours(0,0,0,0) == today.setHours(0,0,0,0)) {
-  //     //   return ordersPlacedToday.push(order)
-  //     // }
-  //     if (today.toDateString() == order.created_at.toDateString()) {
-  //       return ordersPlacedToday.push(order)
-  //     }
-  //   })
-  // }
 
-  // console.log(dateChecker());
-  console.log(today.getTime());
-
-  // var valid = (new Date(timestamp)).getTime()
-
-  const endOfYear = new Date(today.getFullYear(), 11, 30);
+  const endOfYear = new Date(today.getFullYear(), 11, 31);
   if (today.getMonth()==11 && today.getDate()>=31)
   {
   endOfYear.setFullYear(endOfYear.getFullYear()+1);
@@ -40,7 +24,7 @@ const CustomerSalesGoalInfo = (props) => {
 
   const daysUntilDec31 = Math.ceil((endOfYear.getTime()-today.getTime())/(one_day))
 
-  // days until dec 31 //
+  // days until dec 31 END //
 
   const customer_annual_sales_goal = props.viewThisCustomer.annual_goal
 
@@ -52,15 +36,16 @@ const CustomerSalesGoalInfo = (props) => {
     return order.total
   })
 
-  const reducer = (accumulator, currentValue) => accumulator + currentValue;
-
   const current_overall_sales = customers_order_totals.reduce(reducer)
 
   const sales_to_reach_goal = (customer_annual_sales_goal - current_overall_sales)
 
-  const daily_sales_goal = money_round((sales_to_reach_goal)/(daysUntilDec31))
-
   const monthly_sales_goal = money_round((sales_to_reach_goal)/(12))
+
+  const weekly_sales_goal = money_round((sales_to_reach_goal)/(52))
+
+  console.log('weekly_sales_goal', weekly_sales_goal);
+  console.log('current_overall_sales', current_overall_sales);
 
   return(
     <div className="customer-sales-goal-charts-container">
@@ -72,15 +57,14 @@ const CustomerSalesGoalInfo = (props) => {
           <div className="weekly">
             <h4>Weekly Sales Goal:</h4>
             <RadialChart
-              className="user-daily-sales-goal-radial-chart"
               colorType={'literal'}
               colorDomain={[0, 100]}
               colorRange={[0, 10]}
               margin={{top: 100}}
               getLabel={d => d.name}
               data={[
-                {angle: daily_sales_goal, color: '#1B830B', name: daily_sales_goal},
-                {angle: sales_to_reach_goal, color: '#B32400', name: sales_to_reach_goal },
+                {angle: current_overall_sales, color: '#1B830B', name: current_overall_sales},
+                {angle: (weekly_sales_goal - current_overall_sales), color: '#B32400', name: (weekly_sales_goal - current_overall_sales) },
               ]}
               labelsRadiusMultiplier={1.1}
               labelsStyle={{fontSize: 16, fill: '#222'}}
@@ -89,9 +73,21 @@ const CustomerSalesGoalInfo = (props) => {
               width={250}
               height={200}
             />
-            <h3>
-            Book ${daily_sales_goal} This Week
-            </h3>
+            { current_overall_sales <  weekly_sales_goal
+
+              ?
+
+              <h3>
+                Book ${weekly_sales_goal - current_overall_sales} this week!
+              </h3>
+
+              :
+
+              <h3>
+                You overbooked by ${current_overall_sales - weekly_sales_goal} this week!
+              </h3>
+
+            }
           </div>
           <div className="weekly">
             <h4>Monthly Sales Goal:</h4>
@@ -103,8 +99,8 @@ const CustomerSalesGoalInfo = (props) => {
               margin={{top: 100}}
               getLabel={d => d.name}
               data={[
-                {angle: monthly_sales_goal, color: '#1B830B', name: monthly_sales_goal},
-                {angle: sales_to_reach_goal, color: '#B32400', name: sales_to_reach_goal },
+                {angle: current_overall_sales, color: '#1B830B', name: current_overall_sales},
+                {angle: (monthly_sales_goal - current_overall_sales), color: '#B32400', name: (monthly_sales_goal - current_overall_sales) },
               ]}
               labelsRadiusMultiplier={1.1}
               labelsStyle={{fontSize: 16, fill: '#222'}}
@@ -113,9 +109,21 @@ const CustomerSalesGoalInfo = (props) => {
               width={250}
               height={200}
             />
-            <h3>
-            Book ${monthly_sales_goal} This Month
-            </h3>
+            { current_overall_sales <  monthly_sales_goal
+
+              ?
+
+              <h3>
+                Book ${monthly_sales_goal - current_overall_sales} this month!
+              </h3>
+
+              :
+
+              <h3>
+                You overbooked by ${current_overall_sales - monthly_sales_goal} this month!
+              </h3>
+
+            }
           </div>
           <div className="monthly">
             <h4>Annual Sales Goal:</h4>
@@ -137,9 +145,21 @@ const CustomerSalesGoalInfo = (props) => {
               width={250}
               height={200}
             />
-            <h3>
-            ${sales_to_reach_goal} Until Annual Goal
-            </h3>
+            { current_overall_sales <  customer_annual_sales_goal
+
+              ?
+
+              <h3>
+                Book ${customer_annual_sales_goal - current_overall_sales} to reach goal!
+              </h3>
+
+              :
+
+              <h3>
+                {props.viewThisCustomer.name} hit their goal! 
+              </h3>
+
+            }
           </div>
         </div>
       </div>

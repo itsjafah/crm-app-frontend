@@ -11,6 +11,7 @@ const CustomerProductSalesInfo = (props) => {
       return {x: op.product.category, y: (op.quantity) * (op.product.price)}
   });
 
+
   return(
     <div className='customer-product-sales-graph-container'>
       <div className='customer-product-sales-chart-header'>
@@ -18,13 +19,18 @@ const CustomerProductSalesInfo = (props) => {
       </div>
       <div className='customer-product-sales-doodads-wrapper'>
         <div className="customer-product-sales-graph">
-          <XYPlot className="bar-graph" xType="ordinal" width={600} height={300} xDistance={100}>
-            <VerticalGridLines />
-            <HorizontalGridLines />
-            <XAxis />
-            <YAxis />
-            <VerticalBarSeries className="vertical-bar-series-example" data={dataArr} />
-            <LabelSeries />
+          <XYPlot
+            className="bar-graph"
+            xType="ordinal"
+            width={600}
+            height={300}
+            xDistance={100} >
+              <VerticalGridLines />
+              <HorizontalGridLines />
+              <XAxis />
+              <YAxis />
+              <VerticalBarSeries className="vertical-bar-series-example" data={dataArr} />
+              <LabelSeries />
           </XYPlot>
         </div>
       </div>

@@ -20,7 +20,7 @@ const CustomerGeneralInfo = (props) => {
               <br />
               Customer Rank: {props.viewThisCustomer.rank}
               <br />
-              2019 Sales Goal: {props.viewThisCustomer.annual_goal}
+              2019 Sales Goal: ${props.viewThisCustomer.annual_goal}
             </p>
           </div>
         </div>
