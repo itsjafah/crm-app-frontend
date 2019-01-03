@@ -361,6 +361,11 @@ body {
   font-variant: small-caps;
 }
 
+.sidebar-customer-list-item:hover {
+  cursor: pointer;
+}
+
+
 /* PRODUCT */
 
 

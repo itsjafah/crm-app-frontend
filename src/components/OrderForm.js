@@ -140,6 +140,7 @@ class TrialOrderForm extends Component {
 
           <div className="select-customer-dropdown">
             <select onChange={ (event)=> this.handleSelectCustomer(event.target.value)} >
+            <option value="" selected disabled hidden>Choose customer</option>
             {this.props.customers.map((customer, i) => {
               return (
                 <option
@@ -161,7 +162,8 @@ class TrialOrderForm extends Component {
                   {this.state.productsOnOrder.map((product, idx) => (
 
                     <div className="form-row-input">
-                      <select className="ui-dropdown" onChange={ this.handleProductNameChange(idx)} >
+                    <select className="ui-dropdown" onChange={ this.handleProductNameChange(idx)} >
+                    <option value="" selected disabled hidden>Choose product</option>
                       {this.props.products.map((product) => {
                         return (
                           <option

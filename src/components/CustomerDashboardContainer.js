@@ -7,6 +7,8 @@ import { connect } from 'react-redux'
 
 const CustomerDashboardContainer = (props) => {
 
+
+
   return(
     <div className='customer-dashboard-container'>
       <div className='customer-dashboard-header'>

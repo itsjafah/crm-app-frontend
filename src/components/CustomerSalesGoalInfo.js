@@ -4,6 +4,8 @@ import { RadialChart } from 'react-vis';
 
 const CustomerSalesGoalInfo = (props) => {
 
+    console.log(props);
+
   function money_round(num) {
     return Math.ceil(num * 100) / 100;
   }
@@ -156,7 +158,7 @@ const CustomerSalesGoalInfo = (props) => {
               :
 
               <h3>
-                {props.viewThisCustomer.name} hit their goal! 
+                {props.viewThisCustomer.name} hit their goal!
               </h3>
 
             }
