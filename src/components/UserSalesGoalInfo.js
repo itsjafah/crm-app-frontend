@@ -66,38 +66,6 @@ const UserSalesGoalInfo = (props) => {
 
   const monthly_sales_goal = money_round((sales_to_reach_goal)/12)
 
-  // puttzing around with filtering most ordered items
-
-  var productWithQuantity = props.orderedProducts.map( orderedProduct => {
-    return {name: orderedProduct.product.name, quantity: orderedProduct.quantity, category: orderedProduct.product.category}
-  })
-
-  var temp = {};
-  var obj = null;
-  for(var i=0; i < productWithQuantity.length; i++) {
-    obj=productWithQuantity[i];
-
-    console.log(obj);
-
-     if(!temp[obj.name]) {
-         temp[obj.name] = obj;
-     } else {
-         temp[obj.name].quantity += obj.quantity;
-     }
-  }
-  var productsWithOrderQuantities = [];
-  for (var prop in temp)
-  productsWithOrderQuantities.push(temp[prop]);
-
-  console.log(productsWithOrderQuantities);
-
-const sortedProducts = productsWithOrderQuantities.sort(function (a, b) {
-  return b.quantity - a.quantity;
-})
-
-console.log(sortedProducts.slice(0,9));
-
-
   return(
     <div className='user-sales-goal-charts-container'>
       <div className='user-sales-goal-chart-header'>

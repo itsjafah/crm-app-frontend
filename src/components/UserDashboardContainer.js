@@ -1,8 +1,7 @@
 import React from 'react'
 import UserSalesGoalInfo from './UserSalesGoalInfo'
 import UserProductSalesInfo from './UserProductSalesInfo'
-import UserIndividualProductSalesInfo from './UserIndividualProductSalesInfo'
-import { connect } from 'react-redux'
+import UserBestSellersContainer from './UserBestSellersContainer'
 
 
 const UserDashboardContainer = (props) => {
@@ -16,15 +15,10 @@ const UserDashboardContainer = (props) => {
         </div>
           <UserSalesGoalInfo />
           <UserProductSalesInfo />
-          <UserIndividualProductSalesInfo orderedProducts={props.orderedProducts} orders={props.orders}/>
+          <UserBestSellersContainer />
       </div>
     )
   }
 
-  const mapStateToProps = (state) => ({
-    orderedProducts: state.orderedProducts,
-    orders: state.orders,
-  })
 
-
-export default connect(mapStateToProps)(UserDashboardContainer)
+export default UserDashboardContainer
