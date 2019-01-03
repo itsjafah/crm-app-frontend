@@ -50,11 +50,11 @@ const UserBestSellersContainer = (props) => {
         <div className='user-best-seller-table'>
           <Table>
             <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell><h2>Image</h2></Table.HeaderCell>
-                <Table.HeaderCell><h2>Product</h2></Table.HeaderCell>
-                <Table.HeaderCell><h2>Quantity</h2></Table.HeaderCell>
-                <Table.HeaderCell><h2>Category</h2></Table.HeaderCell>
+              <Table.Row id='user-best-seller-header-row'>
+                <Table.HeaderCell id='user-best-seller-header-cell-image'><h2>Image</h2></Table.HeaderCell>
+                <Table.HeaderCell id='best-seller-header-cell-product'><h2>Product</h2></Table.HeaderCell>
+                <Table.HeaderCell id='best-seller-header-cell-quantity'><h2>Quantity</h2></Table.HeaderCell>
+                <Table.HeaderCell id='best-seller-header-cell-category'><h2>Category</h2></Table.HeaderCell>
               </Table.Row>
             </Table.Header>
             <Table.Body>

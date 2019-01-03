@@ -30,7 +30,7 @@ const ProductsContainer = (props) => {
                 <Table.HeaderCell
                 id='product-header-cell-image'><h2>Image</h2></Table.HeaderCell>
                 <Table.HeaderCell id='product-header-cell-product'><h2>Product</h2></Table.HeaderCell>
-                <Table.HeaderCell><h2>Category</h2></Table.HeaderCell>
+                <Table.HeaderCell id='product-header-cell-category'><h2>Category</h2></Table.HeaderCell>
                 <Table.HeaderCell><h2>SKU</h2></Table.HeaderCell>
                 <Table.HeaderCell><h2>Cost</h2></Table.HeaderCell>
                 <Table.HeaderCell><h2>Price</h2></Table.HeaderCell>
