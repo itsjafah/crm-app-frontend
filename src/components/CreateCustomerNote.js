@@ -81,8 +81,9 @@ class CreateCustomerNote extends Component {
           />
           </label>
           <br />
+          <br />
           <Button
-            color='orange'
+            color='green'
             className='grid-item'
             size='medium'
             variant="outlined">

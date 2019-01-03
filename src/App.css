@@ -102,7 +102,7 @@
   padding-bottom: 20px;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 0.5EM;
-
+  background-color: #F57C00
 }
 
 .customer-info-doodads-wrapper {
@@ -140,7 +140,7 @@
   padding-right: 20px;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 0.5EM;
-
+  background-color: white
 }
 
 /* CUSTOMER PRODUCT SALES INFO */
@@ -150,7 +150,8 @@
   border-radius: 0.5EM;
   margin-left: 200px;
   margin-right: 200px;
-  margin-top: 80px
+  margin-top: 80px;
+  background-color: #F57C00
 }
 
 .customer-product-sales-graph {
@@ -161,12 +162,14 @@
   padding-left: 200px;
   padding-right: 200px;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 0.5em
+  border-radius: 0.5em;
+  background-color: white
 }
 
 .customer-product-sales-chart-header {
   padding-top: 50px;
   font-variant: small-caps;
+  color: white
 }
 
 .customer-product-sales-doodads-wrapper {
@@ -199,11 +202,13 @@
   padding-bottom: 50px;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 0.5EM;
+  background-color: #F57C00
 }
 
 .customer-notes-header {
   margin-right: 150px;
   font-variant: small-caps;
+  color: white
 }
 
 /* CUSTOMER-NOTES  */
@@ -215,6 +220,7 @@
   padding-bottom: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
   border-radius: 0.5EM;
+  background-color: white
 }
 
 .note-buttons {
@@ -226,7 +232,7 @@
 
 .create-note-container {
   margin-top: 20px;
-  margin-right: 150px
+  margin-right: 150px;
 }
 
 /* UserProductSalesInfo */
@@ -237,12 +243,14 @@
   margin-left: 200px;
   margin-right: 200px;
   margin-top: 80px;
-  padding-bottom: 50px
+  padding-bottom: 50px;
+  background-color: #F57C00
 }
 
 .user-product-sales-info-chart-header{
   padding-top: 50px;
   font-variant: small-caps;
+  color: white;
 }
 
 .user-product-sales-bar-graph {
@@ -253,7 +261,7 @@
   padding-left: 180px;
   padding-right: 80px;
   margin-right: 80px;
-  margin-bottom: 20px
+  margin-bottom: 20px;
 }
 
 .user-product-sales-doodads-wrapper {
@@ -272,7 +280,8 @@
   padding-bottom: 20px;
   align-items: center;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 0.5em
+  border-radius: 0.5em;
+  background-color: white
 }
 
 
@@ -430,9 +439,6 @@ body {
   display: inline-block;
 }
 
-/* display: in-line-block
-text-align: center
-*/
 
 .user-sales-goal-charts {
   display:flex;
@@ -447,7 +453,8 @@ text-align: center
   padding-bottom: 20px;
   align-items: center;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 0.5em
+  border-radius: 0.5em;
+  background-color: white
 }
 
 .daily {
@@ -470,12 +477,14 @@ text-align: center
   border-radius: 0.5EM;
   margin-left: 200px;
   margin-right: 200px;
-  padding-bottom: 50px
+  padding-bottom: 50px;
+  background-color: #F57C00
 }
 
 .user-sales-goal-chart-header {
   padding-top: 30px;
   font-variant: small-caps;
+  color: white
 }
 
 /* CUSTOMER DASHBOARD CONTAINER */
@@ -499,6 +508,7 @@ text-align: center
   border-radius: 0.5EM;
   margin-left: 200px;
   margin-right: 200px;
+  background-color: #F57C00
 }
 
 .customer-sales-tracker-doodads-wrapper {
@@ -513,12 +523,14 @@ text-align: center
   padding-bottom: 50px;
   padding-top: 50px;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 0.5em
+  border-radius: 0.5em;
+  background-color: white
 }
 
 .customer-sales-goal-chart-header {
   padding-top: 50px;
   font-variant: small-caps;
+  color: white
 }
 
 /* CREATE ORDER CONTAINER */
@@ -535,7 +547,7 @@ text-align: center
   font-variant: small-caps;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-variant: small-caps;
-  border-radius: 0.3em
+  border-radius: 0.3em;
 }
 
 /* CREATE FORM  */
@@ -548,6 +560,7 @@ text-align: center
   margin-right: 200px;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
   border-radius: 0.3EM;
+  background-color: #F57C00
 }
 
 .order-form-select-customer-header {
@@ -563,6 +576,7 @@ text-align: center
   margin-top: 50px;
   padding-bottom: 100px;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #F57C00
 }
 
 .form-wrapper {
@@ -570,8 +584,9 @@ text-align: center
   margin-left: 100px;
   margin-right: 100px;
   padding: 50px;
-  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
   border-radius: 0.3EM;
+  background-color: white
 }
 
 .select-customer-dropdown {
