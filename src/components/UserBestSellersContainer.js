@@ -47,7 +47,6 @@ const UserBestSellersContainer = (props) => {
           Top 10 Sellers
         </h1>
       </div>
-      <div className='best-sellers-doodads-wrapper'>
         <div className='user-best-seller-table'>
           <Table>
             <Table.Header>
@@ -63,7 +62,6 @@ const UserBestSellersContainer = (props) => {
             </Table.Body>
           </Table>
         </div>
-      </div>
     </div>
   )
 }

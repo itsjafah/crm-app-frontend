@@ -14,28 +14,30 @@ const ProductsContainer = (props) => {
   })
 
   return(
-    <div>
-      <div className='product-category-header'>
+    <div className='products-list-container-in-container-component'>
+      <div className='products-list-category-header'>
         <h1>
           {props.selectedCategory}
         </h1>
       </div>
-      <Table className='product-table'>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell className='product-header'><h2>Image</h2></Table.HeaderCell>
-            <Table.HeaderCell><h2>Product</h2></Table.HeaderCell>
-            <Table.HeaderCell><h2>Category</h2></Table.HeaderCell>
-            <Table.HeaderCell><h2>SKU</h2></Table.HeaderCell>
-            <Table.HeaderCell><h2>Cost</h2></Table.HeaderCell>
-            <Table.HeaderCell><h2>Price</h2></Table.HeaderCell>
-            <Table.HeaderCell><h2>Margin</h2></Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
-          {product}
-        </Table.Body>
-      </Table>
+      <div className='products-list-table'>
+        <Table>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell className='product-header'><h2>Image</h2></Table.HeaderCell>
+              <Table.HeaderCell><h2>Product</h2></Table.HeaderCell>
+              <Table.HeaderCell><h2>Category</h2></Table.HeaderCell>
+              <Table.HeaderCell><h2>SKU</h2></Table.HeaderCell>
+              <Table.HeaderCell><h2>Cost</h2></Table.HeaderCell>
+              <Table.HeaderCell><h2>Price</h2></Table.HeaderCell>
+              <Table.HeaderCell><h2>Margin</h2></Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            {product}
+          </Table.Body>
+        </Table>
+      </div>
     </div>
   )
 
