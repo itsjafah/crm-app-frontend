@@ -363,12 +363,35 @@ body {
 
 /* PRODUCT */
 
-.product-list-item {
-  padding-top: 200px;
+
+#product-header-row{
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.3em;
 }
 
-.product-header {
-  padding-left: 20px;
+#product-header-cell-image{
+  padding-left: 40px
+}
+
+#product-header-cell-product {
+  padding-left: 80px
+}
+
+#product-table-row{
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 1px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.3em;
+}
+
+#product-table-row-cell-image{
+  padding-left: 20px
+}
+
+#product-table-row-cell-product {
+  padding-left: 80px
+}
+
+.product-list-item {
+  padding-top: 200px;
 }
 
 .product-category-header {

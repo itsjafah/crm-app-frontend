@@ -26,9 +26,10 @@ const ProductsContainer = (props) => {
         <div className='products-list-table'>
           <Table>
             <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell className='product-header'><h2>Image</h2></Table.HeaderCell>
-                <Table.HeaderCell><h2>Product</h2></Table.HeaderCell>
+              <Table.Row id='product-header-row'>
+                <Table.HeaderCell
+                id='product-header-cell-image'><h2>Image</h2></Table.HeaderCell>
+                <Table.HeaderCell id='product-header-cell-product'><h2>Product</h2></Table.HeaderCell>
                 <Table.HeaderCell><h2>Category</h2></Table.HeaderCell>
                 <Table.HeaderCell><h2>SKU</h2></Table.HeaderCell>
                 <Table.HeaderCell><h2>Cost</h2></Table.HeaderCell>
