@@ -69,6 +69,8 @@ const UserSalesGoalInfo = (props) => {
 
   const weekly_sales_goal = money_round((sales_to_reach_goal)/52)
 
+  const monthly_sales_goal = money_round((sales_to_reach_goal)/12)
+
 
   return(
     <div className='user-sales-goal-charts-container'>
@@ -131,9 +133,21 @@ const UserSalesGoalInfo = (props) => {
                 width={250}
                 height={200}
               />
-              <h3>
-                Book ${weekly_sales_goal} This Week
-              </h3>
+              { todays_sales <  weekly_sales_goal
+
+                ?
+
+                <h3>
+                  Book ${weekly_sales_goal - todays_sales} today!
+                </h3>
+
+                :
+
+                <h3>
+                  You overbooked by ${todays_sales - weekly_sales_goal} today!
+                </h3>
+
+              }
           </div>
           <div className="monthly">
             <h4>Monthly Sales Goal:</h4>
@@ -145,7 +159,7 @@ const UserSalesGoalInfo = (props) => {
                 getLabel={d => d.name}
                 data={[
                   {angle: current_overall_sales, color: '#1B830B', name: current_overall_sales},
-                  {angle: sales_to_reach_goal, color: '#B32400', name: sales_to_reach_goal },
+                  {angle: monthly_sales_goal, color: '#B32400', name: monthly_sales_goal },
                 ]}
                 labelsRadiusMultiplier={1.1}
                 labelsStyle={{fontSize: 16, fill: '#222'}}
@@ -154,9 +168,21 @@ const UserSalesGoalInfo = (props) => {
                 width={250}
                 height={200}
               />
-              <h3>
-                Book ${daily_sales_goal} This Month
-              </h3>
+              { todays_sales <  monthly_sales_goal
+
+                ?
+
+                <h3>
+                  Book ${monthly_sales_goal - todays_sales} today!
+                </h3>
+
+                :
+
+                <h3>
+                  You overbooked by ${todays_sales - monthly_sales_goal} today!
+                </h3>
+
+              }
           </div>
         </div>
       </div>
