@@ -103,12 +103,29 @@ class TrialOrderForm extends Component {
               quantity: productObject.qty
             })
           })
-          .then( r=>r.json())
-          .then( console.log)
+          .then( () => this.getOrderedProducts())
+          .then( () => this.getOrders())
 }
 
-  render() {
 
+  getOrderedProducts = () => {
+    fetch(ORDERED_PRODUCTS_API)
+      .then(r => r.json())
+      .then(r => {
+        this.props.setOrderedProducts(r)
+      })
+  }
+
+  getOrders = () => {
+    fetch(ORDERS_API)
+      .then(r => r.json())
+      .then(r => {
+        this.props.setOrders(r)
+      })
+  }
+
+  render() {
+    console.log(this.props);
 
     let initialValue = 0;
 
@@ -215,7 +232,19 @@ class TrialOrderForm extends Component {
 
 const mapStateToProps = (state) => ({
   customers: state.customers,
-  products: state.products
+  products: state.products,
+  orderedProducts: state.orderedProducts
 })
 
-export default connect(mapStateToProps)(TrialOrderForm)
+const mapDispatchToProps = (dispatch) => ({
+  setOrderedProducts: (ordered_products) => dispatch({
+    type: 'SET_ORDERED_PRODUCTS',
+    payload: ordered_products
+  }),
+  setOrders: (orders) => dispatch({
+    type: 'SET_ORDERS',
+    payload: orders
+  })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(TrialOrderForm)

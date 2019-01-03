@@ -6,10 +6,6 @@ import { connect } from 'react-redux'
 const NOTES_API = 'http://localhost:3000/api/v1/notes'
 
 class CustomerNotesContainer extends Component {
-  //
-  // componentDidMount = () => {
-  //   this.getNotes()
-  // }
 
 
   render(){

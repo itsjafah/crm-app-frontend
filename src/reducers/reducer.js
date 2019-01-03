@@ -114,6 +114,14 @@ const reducer = (currentState = defaultState, action) =>
     case "SET_NOTES":
       return {...currentState, loading: false,
       notes: action.payload.notes}
+    case "SET_ORDERED_PRODUCTS":
+      return {...currentState, loading: false,
+      orderedProducts: action.payload}
+    case "SET_ORDERS":
+    console.log(action.payload);
+      return {...currentState, loading: false,
+      orders: action.payload}
+
 
 
       break;

@@ -6,9 +6,6 @@ const NOTES_API = 'http://localhost:3000/api/v1/notes'
 
 class CreateCustomerNote extends Component {
 
-  // push note into array
-  // update state
-  // action needed on submit add note
 
   getNotes = () => {
     fetch(NOTES_API)
@@ -20,7 +17,6 @@ class CreateCustomerNote extends Component {
 
   clearNoteForm = () => {
     const noteForm = document.querySelector('#noteForm')
-    console.log(noteForm);
     noteForm.reset()
   }
 
