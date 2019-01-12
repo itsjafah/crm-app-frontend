@@ -26,8 +26,6 @@ class MainContainer extends Component {
 
   renderContent = () => {
 
-    console.log(this.props);
-
     if (this.props.createOrder === true) {
       return <OrderFormContainer />
     } else if (this.props.openDashboard === true ) {
@@ -55,6 +53,7 @@ class MainContainer extends Component {
     if (loading) {
       return <div>Loading...</div>;
     }
+    
 
     return(
       <div className='main-container'>

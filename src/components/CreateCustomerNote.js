@@ -15,11 +15,6 @@ class CreateCustomerNote extends Component {
       })
   }
 
-  clearNoteForm = () => {
-    const noteForm = document.querySelector('#noteForm')
-    noteForm.reset()
-  }
-
   handleSubmit = (e) => {
     e.preventDefault()
     if (this.props.editNote === false) {
@@ -39,8 +34,8 @@ class CreateCustomerNote extends Component {
       })
       .then(() => {
         this.getNotes()
-        this.clearNoteForm()
       })
+      .then(this.props.customerNoteInput === "")
 
     } else if (this.props.editNote === true) {
         // editing note

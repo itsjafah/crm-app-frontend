@@ -10,9 +10,7 @@ const UserSalesGoalInfo = (props) => {
 
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-  console.log(props);
-
-  const todayAsString = "2019-01-03"
+  const todayAsString = "2019-01-10"
 
   const today = new Date()
 
@@ -29,7 +27,6 @@ const UserSalesGoalInfo = (props) => {
 
   const todays_sales = todays_orders_totals.reduce(reducer);
 
-  console.log('todays sales', todays_sales);
 
   // finding daily sales END
 
@@ -97,13 +94,13 @@ const UserSalesGoalInfo = (props) => {
                 ?
 
                 <h3>
-                  Book ${daily_sales_goal - todays_sales} today!
+                  Book ${money_round(daily_sales_goal - todays_sales)} today!
                 </h3>
 
                 :
 
                 <h3>
-                  You overbooked by ${todays_sales - daily_sales_goal} today!
+                  You overbooked by ${money_round(todays_sales - daily_sales_goal)} today!
                 </h3>
 
               }
@@ -132,13 +129,13 @@ const UserSalesGoalInfo = (props) => {
                 ?
 
                 <h3>
-                  Book ${weekly_sales_goal - todays_sales} this week!
+                  Book ${money_round(weekly_sales_goal - todays_sales)} this week!
                 </h3>
 
                 :
 
                 <h3>
-                  You overbooked by ${todays_sales - weekly_sales_goal} this week!
+                  You overbooked by ${money_round(todays_sales - weekly_sales_goal)} this week!
                 </h3>
 
               }
@@ -167,13 +164,13 @@ const UserSalesGoalInfo = (props) => {
                 ?
 
                 <h3>
-                  Book ${monthly_sales_goal - todays_sales} this month!
+                  Book ${money_round(monthly_sales_goal - todays_sales)} this month!
                 </h3>
 
                 :
 
                 <h3>
-                  You overbooked by ${todays_sales - monthly_sales_goal} this month!
+                  You overbooked by ${money_round(todays_sales - monthly_sales_goal)} this month!
                 </h3>
 
               }

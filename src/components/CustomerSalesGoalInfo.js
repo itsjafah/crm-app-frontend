@@ -1,10 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { RadialChart } from 'react-vis';
+import Chart from 'chart.js';
 
 const CustomerSalesGoalInfo = (props) => {
 
-    console.log(props);
+  console.log(props);
 
   function money_round(num) {
     return Math.ceil(num * 100) / 100;
@@ -15,7 +16,6 @@ const CustomerSalesGoalInfo = (props) => {
   const today=new Date()
 
   // days until dec 31 START //
-
 
   const endOfYear = new Date(today.getFullYear(), 11, 31);
   if (today.getMonth()==11 && today.getDate()>=31)
@@ -45,9 +45,6 @@ const CustomerSalesGoalInfo = (props) => {
   const monthly_sales_goal = money_round((sales_to_reach_goal)/(12))
 
   const weekly_sales_goal = money_round((sales_to_reach_goal)/(52))
-
-  console.log('weekly_sales_goal', weekly_sales_goal);
-  console.log('current_overall_sales', current_overall_sales);
 
   return(
     <div className="customer-sales-goal-charts-container">
@@ -80,13 +77,13 @@ const CustomerSalesGoalInfo = (props) => {
               ?
 
               <h3>
-                Book ${weekly_sales_goal - current_overall_sales} this week!
+                Book ${money_round(weekly_sales_goal - current_overall_sales)} this week!
               </h3>
 
               :
 
               <h3>
-                You overbooked by ${current_overall_sales - weekly_sales_goal} this week!
+                You overbooked by ${money_round(current_overall_sales - weekly_sales_goal)} this week!
               </h3>
 
             }
@@ -116,13 +113,13 @@ const CustomerSalesGoalInfo = (props) => {
               ?
 
               <h3>
-                Book ${monthly_sales_goal - current_overall_sales} this month!
+                Book ${money_round(monthly_sales_goal - current_overall_sales)} this month!
               </h3>
 
               :
 
               <h3>
-                You overbooked by ${current_overall_sales - monthly_sales_goal} this month!
+                You overbooked by ${money_round(current_overall_sales - monthly_sales_goal)} this month!
               </h3>
 
             }
@@ -152,7 +149,7 @@ const CustomerSalesGoalInfo = (props) => {
               ?
 
               <h3>
-                Book ${customer_annual_sales_goal - current_overall_sales} to reach goal!
+                Book ${money_round(customer_annual_sales_goal - current_overall_sales)} to reach goal!
               </h3>
 
               :
