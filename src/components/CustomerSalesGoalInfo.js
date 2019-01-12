@@ -104,7 +104,7 @@ const CustomerSalesGoalInfo = (props) => {
         <div className="customer-sales-goal-charts">
           <div className="weekly">
             <h4>Weekly Sales Goal:</h4>
-            <DoughnutChart data={weeklyChartData} options={chartOptions}/>
+            <DoughnutChart height={350} width={350} data={weeklyChartData} options={chartOptions}/>
             { current_overall_sales <  weekly_sales_goal
 
               ?
@@ -123,7 +123,7 @@ const CustomerSalesGoalInfo = (props) => {
           </div>
           <div className="weekly">
             <h4>Monthly Sales Goal:</h4>
-            <DoughnutChart data={monthlyChartData} options={chartOptions}/>
+            <DoughnutChart height={350} width={350} data={monthlyChartData} options={chartOptions}/>
             { current_overall_sales <  monthly_sales_goal
 
               ?
@@ -142,7 +142,7 @@ const CustomerSalesGoalInfo = (props) => {
           </div>
           <div className="monthly">
             <h4>Annual Sales Goal:</h4>
-            <DoughnutChart data={annualChartData} options={chartOptions}/>
+            <DoughnutChart height={350} width={350} data={annualChartData} options={chartOptions}/>
             { current_overall_sales <  customer_annual_sales_goal
 
               ?

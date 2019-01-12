@@ -142,7 +142,7 @@ const UserProductSalesInfo = (props) => {
             </div>
             <div className="user-annual-sales-goal-radial-chart">
               <h4>Annual Sales Goal:</h4>
-                <DoughnutChart data={annualChartData} options={chartOptions}/>
+                <DoughnutChart height={350} width={350} data={annualChartData} options={chartOptions}/>
                 <h3>
                  ${sales_to_reach_goal} Until Annual Goal
                 </h3>
