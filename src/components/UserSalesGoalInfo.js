@@ -10,7 +10,7 @@ const UserSalesGoalInfo = (props) => {
 
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-  const todayAsString = "2019-01-10"
+  const todayAsString = "2019-01-12"
 
   const today = new Date()
 
@@ -26,6 +26,7 @@ const UserSalesGoalInfo = (props) => {
   })
 
   const todays_sales = todays_orders_totals.reduce(reducer);
+
 
 
   // finding daily sales END
@@ -63,6 +64,56 @@ const UserSalesGoalInfo = (props) => {
 
   const monthly_sales_goal = money_round((sales_to_reach_goal)/12)
 
+  var DoughnutChart = require("react-chartjs").Doughnut;
+
+  var dailyChartData = [
+  	{
+  		value: (daily_sales_goal - todays_sales),
+  		color:"#d50000",
+  		highlight: "#FF5A5E",
+  		label: "To Reach Goal"
+  	},
+  	{
+  		value: todays_sales,
+  		color: "#00c853",
+  		highlight: "#5AD3D1",
+  		label: "Today's Sales"
+  	}
+  ]
+
+  var weeklyChartData = [
+  	{
+  		value: (weekly_sales_goal - current_overall_sales),
+  		color:"#d50000",
+  		highlight: "#FF5A5E",
+  		label: "To Reach Goal"
+  	},
+  	{
+  		value: current_overall_sales,
+  		color: "#00c853",
+  		highlight: "#5AD3D1",
+  		label: "Sales This Week"
+  	}
+  ]
+
+  var monthlyChartData = [
+  	{
+  		value: (monthly_sales_goal - current_overall_sales),
+  		color:"#d50000",
+  		highlight: "#FF5A5E",
+  		label: "To Reach Goal"
+  	},
+  	{
+  		value: current_overall_sales,
+  		color: "#00c853",
+  		highlight: "#5AD3D1",
+  		label: "Sales This Month"
+  	}
+  ]
+
+  var chartOptions = {percentageInnerCutout : 30, animationSteps : 120, segmentShowStroke : true,
+  segmentStrokeColor : "#fff", segmentStrokeWidth : 2, animationEasing : "easeOutBounce",animateRotate : true}
+
   return(
     <div className='user-sales-goal-charts-container'>
       <div className='user-sales-goal-chart-header'>
@@ -72,23 +123,7 @@ const UserSalesGoalInfo = (props) => {
         <div className="user-sales-goal-charts">
           <div className="daily">
             <h4>Daily Sales Goal:</h4>
-              <RadialChart
-                colorType={'literal'}
-                colorDomain={[0, 100]}
-                colorRange={[0, 10]}
-                margin={{top: 100}}
-                getLabel={d => d.name}
-                data={[
-                  {angle: todays_sales, color: '#1B830B', name: todays_sales},
-                  {angle: (daily_sales_goal - todays_sales), color: '#B32400', name: (daily_sales_goal - todays_sales)},
-                ]}
-                labelsRadiusMultiplier={1.1}
-                labelsStyle={{fontSize: 16, fill: '#222'}}
-                showLabels
-                style={{stroke: '#fff', strokeWidth: 2}}
-                width={250}
-                height={200}
-              />
+              <DoughnutChart data={dailyChartData} options={chartOptions}/>
               { todays_sales <  daily_sales_goal
 
                 ?
@@ -107,23 +142,7 @@ const UserSalesGoalInfo = (props) => {
           </div>
           <div className="weekly">
             <h4>Weekly Sales Goal:</h4>
-              <RadialChart
-                colorType={'literal'}
-                colorDomain={[0, 100]}
-                colorRange={[0, 10]}
-                margin={{top: 100}}
-                getLabel={d => d.name}
-                data={[
-                  {angle: current_overall_sales, color: '#1B830B', name: current_overall_sales},
-                  {angle: weekly_sales_goal, color: '#B32400', name: weekly_sales_goal },
-                ]}
-                labelsRadiusMultiplier={1.1}
-                labelsStyle={{fontSize: 16, fill: '#222'}}
-                showLabels
-                style={{stroke: '#fff', strokeWidth: 2}}
-                width={250}
-                height={200}
-              />
+              <DoughnutChart data={weeklyChartData} options={chartOptions}/>
               { todays_sales <  weekly_sales_goal
 
                 ?
@@ -142,23 +161,7 @@ const UserSalesGoalInfo = (props) => {
           </div>
           <div className="monthly">
             <h4>Monthly Sales Goal:</h4>
-              <RadialChart
-                colorType={'literal'}
-                colorDomain={[0, 100]}
-                colorRange={[0, 10]}
-                margin={{top: 100}}
-                getLabel={d => d.name}
-                data={[
-                  {angle: current_overall_sales, color: '#1B830B', name: current_overall_sales},
-                  {angle: monthly_sales_goal, color: '#B32400', name: monthly_sales_goal },
-                ]}
-                labelsRadiusMultiplier={1.1}
-                labelsStyle={{fontSize: 16, fill: '#222'}}
-                showLabels
-                style={{stroke: '#fff', strokeWidth: 2}}
-                width={250}
-                height={200}
-              />
+              <DoughnutChart data={monthlyChartData} options={chartOptions}/>
               { todays_sales <  monthly_sales_goal
 
                 ?

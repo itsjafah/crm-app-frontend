@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { RadialChart } from 'react-vis';
-import Chart from 'chart.js';
 
 const CustomerSalesGoalInfo = (props) => {
 
