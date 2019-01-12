@@ -45,6 +45,56 @@ const CustomerSalesGoalInfo = (props) => {
 
   const weekly_sales_goal = money_round((sales_to_reach_goal)/(52))
 
+  var DoughnutChart = require("react-chartjs").Doughnut;
+
+  var weeklyChartData = [
+  	{
+  		value: current_overall_sales > weekly_sales_goal ? weekly_sales_goal === 0 : money_round(weekly_sales_goal - current_overall_sales),
+  		color:"#d50000",
+  		highlight: "#FF5A5E",
+  		label: "To Reach Goal"
+  	},
+  	{
+  		value: current_overall_sales,
+  		color: "#00c853",
+  		highlight: "#5AD3D1",
+  		label: "Sales This Week"
+  	}
+  ]
+
+  var monthlyChartData = [
+  	{
+  		value: current_overall_sales > monthly_sales_goal ? monthly_sales_goal === 0 : money_round(monthly_sales_goal - current_overall_sales),
+  		color:"#d50000",
+  		highlight: "#FF5A5E",
+  		label: "To Reach Goal"
+  	},
+  	{
+  		value: current_overall_sales,
+  		color: "#00c853",
+  		highlight: "#5AD3D1",
+  		label: "Sales This Month"
+  	}
+  ]
+
+  var annualChartData = [
+  	{
+  		value: current_overall_sales > sales_to_reach_goal ? sales_to_reach_goal === 0 : money_round(sales_to_reach_goal - current_overall_sales),
+  		color:"#d50000",
+  		highlight: "#FF5A5E",
+  		label: "To Reach Goal"
+  	},
+  	{
+  		value: current_overall_sales,
+  		color: "#00c853",
+  		highlight: "#5AD3D1",
+  		label: "Annual Sales"
+  	}
+  ]
+
+  var chartOptions = {percentageInnerCutout : 30, animationSteps : 120, segmentShowStroke : true,
+  segmentStrokeColor : "#fff", segmentStrokeWidth : 2, animationEasing : "easeOutBounce",animateRotate : true}
+
   return(
     <div className="customer-sales-goal-charts-container">
       <div className="customer-sales-goal-chart-header">
@@ -54,23 +104,7 @@ const CustomerSalesGoalInfo = (props) => {
         <div className="customer-sales-goal-charts">
           <div className="weekly">
             <h4>Weekly Sales Goal:</h4>
-            <RadialChart
-              colorType={'literal'}
-              colorDomain={[0, 100]}
-              colorRange={[0, 10]}
-              margin={{top: 100}}
-              getLabel={d => d.name}
-              data={[
-                {angle: current_overall_sales, color: '#1B830B', name: current_overall_sales},
-                {angle: (weekly_sales_goal - current_overall_sales), color: '#B32400', name: (weekly_sales_goal - current_overall_sales) },
-              ]}
-              labelsRadiusMultiplier={1.1}
-              labelsStyle={{fontSize: 16, fill: '#222'}}
-              showLabels
-              style={{stroke: '#fff', strokeWidth: 2}}
-              width={250}
-              height={200}
-            />
+            <DoughnutChart data={weeklyChartData} options={chartOptions}/>
             { current_overall_sales <  weekly_sales_goal
 
               ?
@@ -89,24 +123,7 @@ const CustomerSalesGoalInfo = (props) => {
           </div>
           <div className="weekly">
             <h4>Monthly Sales Goal:</h4>
-            <RadialChart
-              className="user-weekly-sales-goal-radial-chart"
-              colorType={'literal'}
-              colorDomain={[0, 100]}
-              colorRange={[0, 10]}
-              margin={{top: 100}}
-              getLabel={d => d.name}
-              data={[
-                {angle: current_overall_sales, color: '#1B830B', name: current_overall_sales},
-                {angle: (monthly_sales_goal - current_overall_sales), color: '#B32400', name: (monthly_sales_goal - current_overall_sales) },
-              ]}
-              labelsRadiusMultiplier={1.1}
-              labelsStyle={{fontSize: 16, fill: '#222'}}
-              showLabels
-              style={{stroke: '#fff', strokeWidth: 2}}
-              width={250}
-              height={200}
-            />
+            <DoughnutChart data={monthlyChartData} options={chartOptions}/>
             { current_overall_sales <  monthly_sales_goal
 
               ?
@@ -125,24 +142,7 @@ const CustomerSalesGoalInfo = (props) => {
           </div>
           <div className="monthly">
             <h4>Annual Sales Goal:</h4>
-            <RadialChart
-              className="user-monthly-sales-goal-radial-chart"
-              colorType={'literal'}
-              colorDomain={[0, 100]}
-              colorRange={[0, 10]}
-              margin={{top: 100}}
-              getLabel={d => d.name}
-              data={[
-                {angle: current_overall_sales, color: '#1B830B', name: current_overall_sales},
-                {angle: sales_to_reach_goal, color: '#B32400', name: sales_to_reach_goal },
-              ]}
-              labelsRadiusMultiplier={1.1}
-              labelsStyle={{fontSize: 16, fill: '#222'}}
-              showLabels
-              style={{stroke: '#fff', strokeWidth: 2}}
-              width={250}
-              height={200}
-            />
+            <DoughnutChart data={annualChartData} options={chartOptions}/>
             { current_overall_sales <  customer_annual_sales_goal
 
               ?

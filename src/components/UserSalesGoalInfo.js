@@ -68,7 +68,7 @@ const UserSalesGoalInfo = (props) => {
 
   var dailyChartData = [
   	{
-  		value: (daily_sales_goal - todays_sales),
+  		value: todays_sales > daily_sales_goal ? daily_sales_goal === 0 : money_round(daily_sales_goal - todays_sales),
   		color:"#d50000",
   		highlight: "#FF5A5E",
   		label: "To Reach Goal"
@@ -83,7 +83,7 @@ const UserSalesGoalInfo = (props) => {
 
   var weeklyChartData = [
   	{
-  		value: (weekly_sales_goal - current_overall_sales),
+  		value: current_overall_sales > weekly_sales_goal ? weekly_sales_goal === 0 : money_round(weekly_sales_goal - current_overall_sales),
   		color:"#d50000",
   		highlight: "#FF5A5E",
   		label: "To Reach Goal"
@@ -98,7 +98,7 @@ const UserSalesGoalInfo = (props) => {
 
   var monthlyChartData = [
   	{
-  		value: (monthly_sales_goal - current_overall_sales),
+  		value: current_overall_sales > monthly_sales_goal ? monthly_sales_goal === 0 : money_round(monthly_sales_goal - current_overall_sales),
   		color:"#d50000",
   		highlight: "#FF5A5E",
   		label: "To Reach Goal"

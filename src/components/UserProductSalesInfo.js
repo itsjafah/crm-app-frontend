@@ -24,6 +24,26 @@ const UserProductSalesInfo = (props) => {
       return {x: op.product.category, y: (op.quantity) * (op.product.price)}
   });
 
+  var DoughnutChart = require("react-chartjs").Doughnut;
+
+  var annualChartData = [
+    {
+      value: current_overall_sales > sales_to_reach_goal ? sales_to_reach_goal === 0 : sales_to_reach_goal,
+      color:"#d50000",
+      highlight: "#FF5A5E",
+      label: "To Reach Goal"
+    },
+    {
+      value: current_overall_sales,
+      color: "#00c853",
+      highlight: "#5AD3D1",
+      label: "Annual Sales"
+    }
+  ]
+
+  var chartOptions = {percentageInnerCutout : 30, animationSteps : 120, segmentShowStroke : true,
+  segmentStrokeColor : "#fff", segmentStrokeWidth : 2, animationEasing : "easeOutBounce",animateRotate : true}
+
     return(
       <div className="product-sales-and-annual-goal-container">
         <div className='user-product-sales-info-chart-header'>
@@ -47,22 +67,7 @@ const UserProductSalesInfo = (props) => {
             </div>
             <div className="user-annual-sales-goal-radial-chart">
               <h4>Annual Sales Goal:</h4>
-              <RadialChart
-                colorType={'literal'}
-                colorDomain={[0, 100]}
-                colorRange={[0, 10]}
-                margin={{top: 100}}
-                getLabel={d => d.name}
-                data={[
-                  {angle: current_overall_sales, color: '#1B830B', name: current_overall_sales},
-                  {angle: sales_to_reach_goal, color: '#B32400', name: sales_to_reach_goal },
-                ]}
-                labelsRadiusMultiplier={1.1}
-                labelsStyle={{fontSize: 16, fill: '#222'}}
-                showLabels
-                style={{stroke: '#fff', strokeWidth: 2}}
-                width={250}
-                height={200}/>
+                <DoughnutChart data={annualChartData} options={chartOptions}/>
                 <h3>
                  ${sales_to_reach_goal} Until Annual Goal
                 </h3>
