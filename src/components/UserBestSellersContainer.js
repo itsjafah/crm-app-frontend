@@ -5,11 +5,11 @@ import { connect } from 'react-redux'
 
 const UserBestSellersContainer = (props) => {
 
-  // puttzing around with filtering most ordered items
-
   var productWithQuantity = props.orderedProducts.map( orderedProduct => {
     return {name: orderedProduct.product.name, quantity: orderedProduct.quantity, category: orderedProduct.product.category, image: orderedProduct.product.image_url}
   })
+
+  console.log(productWithQuantity);
 
   var temp = {};
   var obj = null;
@@ -27,6 +27,14 @@ const UserBestSellersContainer = (props) => {
   var productsWithOrderQuantities = [];
   for (var prop in temp)
   productsWithOrderQuantities.push(temp[prop]);
+
+  console.log(productsWithOrderQuantities.map( obj => {
+    return obj.name
+  }));
+
+  console.log(productsWithOrderQuantities.map( obj => {
+    return obj.quantity
+  }));
 
   console.log(productsWithOrderQuantities);
 

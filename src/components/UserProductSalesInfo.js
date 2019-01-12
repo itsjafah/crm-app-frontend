@@ -20,10 +20,6 @@ const UserProductSalesInfo = (props) => {
 
   const sales_to_reach_goal = money_round((user_annual_sales_goal - current_overall_sales))
 
-  const dataArr = props.orderedProducts.map((op)=> {
-      return {x: op.product.category, y: (op.quantity) * (op.product.price)}
-  });
-
   var DoughnutChart = require("react-chartjs").Doughnut;
 
   var annualChartData = [
@@ -41,8 +37,98 @@ const UserProductSalesInfo = (props) => {
     }
   ]
 
-  var chartOptions = {percentageInnerCutout : 30, animationSteps : 120, segmentShowStroke : true,
-  segmentStrokeColor : "#fff", segmentStrokeWidth : 2, animationEasing : "easeOutBounce",animateRotate : true}
+  var chartOptions =
+    {
+      percentageInnerCutout : 30,
+      animationSteps : 120,
+      segmentShowStroke : true,
+      segmentStrokeColor : "#fff",
+      segmentStrokeWidth : 2,
+      animationEasing : "easeOutBounce",
+      animateRotate : true
+    }
+
+
+  var categoryWithQuantity = props.orderedProducts.map( orderedProduct => {
+    return {category: orderedProduct.product.category, sales: orderedProduct.quantity * orderedProduct.product.price}
+  })
+
+  var temp = {};
+  var obj = null;
+  for(var i=0; i < categoryWithQuantity.length; i++) {
+    obj=categoryWithQuantity[i];
+
+     if(!temp[obj.category]) {
+         temp[obj.category] = obj;
+     } else {
+         temp[obj.category].sales += obj.sales;
+     }
+  }
+
+
+  var categoriesWithOrderQuantities = [];
+  for (var prop in temp)
+  categoriesWithOrderQuantities.push(temp[prop]);
+
+  const categories = categoriesWithOrderQuantities.map( category => {
+    return category.category
+  })
+
+  const categorySales = categoriesWithOrderQuantities.map( category => {
+    return category.sales
+  })
+
+  var BarChart = require("react-chartjs").Bar;
+
+  var barChartData = {
+	labels: categories,
+	datasets: [
+		{
+			label: "My First dataset",
+			fillColor: "#1976d2",
+			strokeColor: "",
+			highlightFill: "#0d47a1",
+			highlightStroke: "",
+			data: categorySales
+		}
+	]
+};
+
+  var barChartOptions = {
+	//Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+	scaleBeginAtZero : true,
+
+  animationSteps : 250,
+
+	//Boolean - Whether grid lines are shown across the chart
+	scaleShowGridLines : false,
+
+	//String - Colour of the grid lines
+	scaleGridLineColor : "rgba(0,0,0,.05)",
+
+	//Number - Width of the grid lines
+	scaleGridLineWidth : 1,
+
+	//Boolean - Whether to show horizontal lines (except X axis)
+	scaleShowHorizontalLines: true,
+
+	//Boolean - Whether to show vertical lines (except Y axis)
+	scaleShowVerticalLines: true,
+
+	//Boolean - If there is a stroke on each bar
+	barShowStroke : true,
+
+	//Number - Pixel width of the bar stroke
+	barStrokeWidth : 1,
+
+	//Number - Spacing between each of the X value sets
+	barValueSpacing : 5,
+
+	//Number - Spacing between data sets within X values
+	barDatasetSpacing : 1,
+	//String - A legend template
+
+}
 
     return(
       <div className="product-sales-and-annual-goal-container">
@@ -52,18 +138,7 @@ const UserProductSalesInfo = (props) => {
         <div className='user-product-sales-doodads-wrapper'>
           <div className='user-product-sales-info-charts'>
             <div className='product-by-catgory-chart'>
-              <XYPlot
-                className="user-product-sales-bar-graph" xType="ordinal"
-                width={550}
-                height={300}
-                xDistance={100}>
-                <VerticalGridLines />
-                <HorizontalGridLines />
-                <XAxis />
-                <YAxis />
-                <VerticalBarSeries className="vertical-bar-series-example" data={dataArr} />
-                <LabelSeries />
-              </XYPlot>
+              <BarChart height={400} width={600} data={barChartData} options={barChartOptions}/>
             </div>
             <div className="user-annual-sales-goal-radial-chart">
               <h4>Annual Sales Goal:</h4>
