@@ -260,7 +260,7 @@
 
 .user-annual-sales-goal-radial-chart {
   padding-left: 180px;
-  padding-right: 80px;
+  padding-right: 30px;
   margin-right: 80px;
   margin-bottom: 20px;
 }
@@ -548,7 +548,7 @@ body {
   display:flex;
   flex-direction:row;
   margin-top: 40px;
-  margin-left: 100px;
+  margin-left: 60px;
   margin-right: 300px;
   margin-bottom: 40px;
   padding-left: 50px;

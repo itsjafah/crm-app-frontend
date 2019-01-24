@@ -10,9 +10,11 @@ const UserSalesGoalInfo = (props) => {
 
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-  const todayAsString = "2019-01-12"
+  const todayAsString = "2019-01-16"
 
   const today = new Date()
+
+  console.log(today);
 
   // finding daily sales START
 
@@ -123,7 +125,7 @@ const UserSalesGoalInfo = (props) => {
         <div className="user-sales-goal-charts">
           <div className="daily">
             <h4>Daily Sales Goal:</h4>
-              <DoughnutChart height={350} width={350} data={dailyChartData} options={chartOptions}/>
+              <DoughnutChart height={275} width={275} data={dailyChartData} options={chartOptions}/>
               { todays_sales <  daily_sales_goal
 
                 ?
@@ -142,7 +144,7 @@ const UserSalesGoalInfo = (props) => {
           </div>
           <div className="weekly">
             <h4>Weekly Sales Goal:</h4>
-              <DoughnutChart height={350} width={350} data={weeklyChartData} options={chartOptions}/>
+              <DoughnutChart height={275} width={275} data={weeklyChartData} options={chartOptions}/>
               { todays_sales <  weekly_sales_goal
 
                 ?
@@ -161,7 +163,7 @@ const UserSalesGoalInfo = (props) => {
           </div>
           <div className="monthly">
             <h4>Monthly Sales Goal:</h4>
-              <DoughnutChart height={350} width={350} data={monthlyChartData} options={chartOptions}/>
+              <DoughnutChart height={275} width={275} data={monthlyChartData} options={chartOptions}/>
               { todays_sales <  monthly_sales_goal
 
                 ?

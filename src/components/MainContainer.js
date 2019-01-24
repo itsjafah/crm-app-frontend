@@ -53,7 +53,6 @@ class MainContainer extends Component {
     if (loading) {
       return <div>Loading...</div>;
     }
-    
 
     return(
       <div className='main-container'>
