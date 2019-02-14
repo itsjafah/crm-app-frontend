@@ -5,7 +5,6 @@ import { push as Menu } from 'react-burger-menu';
 
 const Sidebar = (props) => {
 
-  console.log(props);
 
   const customer = props.customers.map( customer => {
     return <CustomerListItem

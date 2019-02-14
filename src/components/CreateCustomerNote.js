@@ -19,7 +19,7 @@ class CreateCustomerNote extends Component {
     e.preventDefault()
     if (this.props.editNote === false) {
       // creating new note
-      console.log('here');
+
       fetch(NOTES_API, {
         method: 'POST',
         headers: {

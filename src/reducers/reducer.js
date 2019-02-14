@@ -109,8 +109,6 @@ const reducer = (currentState = defaultState, action) =>
       return {...currentState, selectedCustomer: currentState.customers.filter(customer => customer.id == action.payload)}
     case "HANDLE_ADD_ROW":
       return {...currentState, numFormRows: currentState.numFormRows+1}
-
-    // JIN AI'S STUFF
     case "SET_NOTES":
       return {...currentState, loading: false,
       notes: action.payload.notes}

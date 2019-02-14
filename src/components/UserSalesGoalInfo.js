@@ -10,17 +10,25 @@ const UserSalesGoalInfo = (props) => {
 
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-  const todayAsString = "2019-01-16"
+  function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+}
 
   const today = new Date()
-
-  console.log(today);
 
   // finding daily sales START
 
   function ordersPlacedToday(){
     return props.orders.filter( order =>
-    order.created_at.slice(0,10) === todayAsString)
+    order.created_at.slice(0,10) === formatDate(today))
   }
 
   const todays_orders_totals = ordersPlacedToday().map(order => {
@@ -28,7 +36,6 @@ const UserSalesGoalInfo = (props) => {
   })
 
   const todays_sales = todays_orders_totals.reduce(reducer);
-
 
 
   // finding daily sales END
@@ -50,6 +57,10 @@ const UserSalesGoalInfo = (props) => {
 
   // days until dec 31 END //
 
+  // **************
+
+  // sales information for sales goal charts START
+
   const user_annual_sales_goal = props.users[0].annual_goal
 
   const users_order_totals = props.orders.map( order => {
@@ -65,6 +76,12 @@ const UserSalesGoalInfo = (props) => {
   const weekly_sales_goal = money_round((sales_to_reach_goal)/52)
 
   const monthly_sales_goal = money_round((sales_to_reach_goal)/12)
+
+  // sales information for sales goal charts END
+
+  // ********************
+
+  // Sales goal charts START
 
   var DoughnutChart = require("react-chartjs").Doughnut;
 
@@ -115,6 +132,10 @@ const UserSalesGoalInfo = (props) => {
 
   var chartOptions = {percentageInnerCutout : 30, animationSteps : 120, segmentShowStroke : true,
   segmentStrokeColor : "#fff", segmentStrokeWidth : 2, animationEasing : "easeOutBounce",animateRotate : true}
+
+  // Sales goal charts END
+
+
 
   return(
     <div className='user-sales-goal-charts-container'>

@@ -9,8 +9,6 @@ const UserBestSellersContainer = (props) => {
     return {name: orderedProduct.product.name, quantity: orderedProduct.quantity, category: orderedProduct.product.category, image: orderedProduct.product.image_url}
   })
 
-  console.log(productWithQuantity);
-
   var temp = {};
   var obj = null;
   for(var i=0; i < productWithQuantity.length; i++) {
@@ -28,15 +26,6 @@ const UserBestSellersContainer = (props) => {
   for (var prop in temp)
   productsWithOrderQuantities.push(temp[prop]);
 
-  console.log(productsWithOrderQuantities.map( obj => {
-    return obj.name
-  }));
-
-  console.log(productsWithOrderQuantities.map( obj => {
-    return obj.quantity
-  }));
-
-  console.log(productsWithOrderQuantities);
 
   const bestSellers = productsWithOrderQuantities.sort(function (a, b) {
     return b.quantity - a.quantity;
