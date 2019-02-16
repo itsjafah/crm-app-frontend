@@ -4,6 +4,8 @@ import { RadialChart } from 'react-vis';
 
 const UserSalesGoalInfo = (props) => {
 
+  console.log(props);
+
   function money_round(num) {
     return Math.ceil(num * 100) / 100;
   }
@@ -23,6 +25,7 @@ const UserSalesGoalInfo = (props) => {
 }
 
   const today = new Date()
+
 
   // finding daily sales START
 

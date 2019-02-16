@@ -23,8 +23,9 @@ const UserBestSellersContainer = (props) => {
 
 
   var productsWithOrderQuantities = [];
+
   for (var prop in temp)
-  productsWithOrderQuantities.push(temp[prop]);
+    productsWithOrderQuantities.push(temp[prop]);
 
 
   const bestSellers = productsWithOrderQuantities.sort(function (a, b) {

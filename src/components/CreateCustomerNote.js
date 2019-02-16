@@ -51,7 +51,6 @@ class CreateCustomerNote extends Component {
             body: this.props.customerNoteInput
           })
         })
-        // .then(() => this.props.dispatch(fetchNotes()))
         .then(() => this.getNotes())
       }
 

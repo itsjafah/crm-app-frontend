@@ -10,14 +10,31 @@ class TrialOrderForm extends Component {
     super()
     this.state = {
       selectedCustomer: null,
-      productsOnOrder: [{ product: '', price: null, sku: null, qty: null, total: null }]
+      productsOnOrder:
+        [{
+          product: '',
+          price: null,
+          sku: null,
+          qty: null,
+          total: null
+        }]
     }
   }
 
+  // Select Customer Dropdown START
+
   handleSelectCustomer = (customerId) => {
     const selectedCustomer = this.props.customers.filter( customer => customer.id == customerId)
-    this.setState({ selectedCustomer: selectedCustomer })
+      this.setState({
+        selectedCustomer: selectedCustomer
+      })
   }
+
+  // Select Customer Dropdown END
+
+  // *************
+
+  // Select Product from Dropdown START
 
   handleProductNameChange = (idx) => (e) => {
 
@@ -39,6 +56,12 @@ class TrialOrderForm extends Component {
 
   }
 
+  // Select Product from Dropdown END
+
+  // *****************
+
+  // Change Quantity of Product on Order START
+
   handleQtyChange = (idx) => (e) => {
     const newProducts = this.state.productsOnOrder.map((product, pidx) => {
       if (idx !== pidx) return product
@@ -48,15 +71,33 @@ class TrialOrderForm extends Component {
     this.setState({ productsOnOrder: newProducts })
   }
 
+  // Change Quantity of Product on Order END
+
+  // *****************
+
+  // Add New Product to the Order START
+
   handleAddProductToOrder = () => {
     this.setState({ productsOnOrder: this.state.productsOnOrder.concat([{ product: '', price: null, sku: null, qty: null, total: null }]) })
   }
+
+  // Add New Product to the Order END
+
+  // ***************
+
+  // Remove Product from the Order START
 
   handleRemoveProduct = (idx) => () => {
     this.setState({
       productsOnOrder: this.state.productsOnOrder.filter((product, pidx) => idx !== pidx)
     })
   }
+
+  // Remove Product from the Order END
+
+  // *********************
+
+  // Submit Order - POST Request   
 
   handleSubmit = (e) => {
 
