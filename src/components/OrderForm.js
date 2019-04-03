@@ -97,7 +97,7 @@ class TrialOrderForm extends Component {
 
   // *********************
 
-  // Submit Order - POST Request   
+  // Submit Order - POST Request
 
   handleSubmit = (e) => {
 
